@@ -503,7 +503,7 @@ function showJackpot(R){
   w.innerHTML=`<div class="burst"></div><div class="glow"></div>
     <div class="big" style="${T.fortune.length>3?'font-size:clamp(34px,10.5vw,50px);white-space:nowrap':''}"><small>おめでとうございます</small>${T.fortune}!</div>
     ${ticketHTML(c,false)}
-    <p class="note">${R.msg}<br><br>クーポンは下の「マイクーポン」に入っています。<br><b style="color:var(--copper-2)">スクショしておくと安心</b>です。</p>
+    <p class="note">${R.msg}<br><br>クーポンは下の「マイクーポン」に入っています。<br><b style="color:var(--copper-2);font-size:15px">必ずスクリーンショットで保存してください。</b><br><small>ブラウザによっては、クーポンが消えてしまうことがあります。</small></p>
     <div class="rbtns"><button class="btn" id="jpOpen">クーポンを見る</button><button class="btn sub" id="jpClose">とじる</button></div>`;
   ov.append(w);confetti(c.type==='N'?160:110);setTimeout(()=>confetti(60),600);if(c.type==='N')setTimeout(()=>confetti(80),1300);
   $('jpOpen').onclick=()=>openCoupon(c.code);
@@ -546,7 +546,7 @@ function openCoupon(code){
   const c=S.coupons.find(x=>x.code===code);if(!c)return;
   const ov=$('ov');ov.innerHTML='';ov.hidden=false;
   const w=document.createElement('div');w.className='res';
-  w.innerHTML=ticketHTML(c,true)+`<p class="note" style="font-size:12px;color:var(--text-2);margin:0;text-align:center">スクショして保存しておくと安心です。</p>
+  w.innerHTML=ticketHTML(c,true)+`<p class="note" style="font-size:13px;color:var(--text-2);margin:0;text-align:center;line-height:1.7"><b style="color:var(--copper-2)">必ずスクリーンショットで保存してください。</b><br><small>ブラウザによっては、クーポンが消えてしまうことがあります。</small></p>
     <div class="rbtns"><button class="btn sub" id="cpClose">とじる</button></div>`;
   ov.append(w);
   $('cpClose').onclick=()=>{ov.hidden=true;ov.innerHTML='';busy=false;renderCoupons();};$('cpClose').focus();
@@ -557,13 +557,14 @@ function renderZukan(){
   const g=$('zgrid');g.innerHTML='';let got=0,kira=0;
   POOL.forEach(p=>{
     const c=CAKES[p.k],s=S.col[p.k]||{n:0,kira:0};if(s.n)got++;if(s.kira)kira++;
-    const b=document.createElement(s.n?'button':'div');b.className='zc'+(s.n?'':' none');
+    const open=s.n||DEMO; // 見本版は図鑑をぜんぶ見られる
+    const b=document.createElement(open?'button':'div');b.className='zc'+(open?'':' none');
     const cv=document.createElement('canvas');cv.width=cv.height=220;
-    b.innerHTML=`<span class="rar" style="color:${s.n?'#d9ad7f':'#5c5550'}">${LBL[p.r]}</span>${s.kira?'<span class="kira">キラ</span>':''}`;
+    b.innerHTML=`<span class="rar" style="color:${open?'#d9ad7f':'#5c5550'}">${LBL[p.r]}</span>${s.kira?'<span class="kira">キラ</span>':''}`;
     b.append(cv);
-    b.insertAdjacentHTML('beforeend',`<b>${s.n?c.n:'？？？'}</b><span class="cnt">${s.n?'×'+s.n:'まだ'}</span>`);
-    cakeCanvas(cv,p.k,s.n?{bg:s.kira?'#3a2f26':'#2a2522'}:{silhouette:true});
-    if(s.n){b.setAttribute('aria-label',`${c.n} ${s.n}回`);b.onclick=()=>peek(p,s);}
+    b.insertAdjacentHTML('beforeend',`<b>${open?c.n:'？？？'}</b><span class="cnt">${s.n?'×'+s.n:'まだ'}</span>`);
+    cakeCanvas(cv,p.k,open?{bg:s.kira?'#3a2f26':'#2a2522'}:{silhouette:true});
+    if(open){b.setAttribute('aria-label',`${c.n} ${s.n}回`);b.onclick=()=>peek(p,s);}
     g.append(b);
   });
   $('zstat').textContent=`${got}/${POOL.length} しゅるい ・ キラ ${kira}/${POOL.length}`;
