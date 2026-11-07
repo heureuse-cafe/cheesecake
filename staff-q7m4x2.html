@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FN1JGCH8JN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FN1JGCH8JN');</script>
+<style>[hidden]{display:none!important}html,body{margin:0}</style>
+<title>ウールーズ クーポン確認</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
+<style>
+/* Layout: a staff tool, scanned at the register. Code entry on top -> big verdict card -> this month's counts -> history.
+   Same night palette as the gacha, but plain and high-contrast; verdict colours carry the meaning. Single dark look. */
+:root{
+  --bg:#151312; --panel:#1f1b19; --panel-2:#2a2522; --copper:#b98a5c; --copper-2:#d9ad7f; --text:#eee8df; --text-2:#a59c92; --line:rgba(185,138,92,.45);
+  --ok:#7fc79a; --ok-bg:rgba(127,199,154,.12); --ng:#e8877a; --ng-bg:rgba(232,135,122,.12); --warn:#e2be8e;
+  --f-cap:"Cinzel","Trajan Pro","Times New Roman",serif;
+  --f-serif:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",sans-serif;
+  --f-mono:ui-monospace,"SF Mono",Menlo,monospace;
+  color-scheme:dark;
+}
+html{background:var(--bg)}
+body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--f-body)}
+main{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:14px;box-sizing:border-box;
+  padding-block:18px 32px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header .k{font-family:var(--f-cap);font-size:11px;letter-spacing:.3em;color:var(--copper)}
+header h1{margin:2px 0 0;font-family:var(--f-serif);font-weight:800;font-size:22px;letter-spacing:.08em}
+header p{margin:4px 0 0;font-size:12px;color:var(--text-2);line-height:1.7}
+.box{border:1px solid var(--line);background:var(--panel);border-radius:4px;padding:14px}
+.entry{display:flex;flex-direction:column;gap:10px}
+.entry label{font-size:13px;font-weight:700}
+.entry .row{display:flex;gap:8px}
+#code{flex:1;min-width:0;font-family:var(--f-mono);font-size:34px;letter-spacing:.4em;text-align:center;border:1px solid var(--line);background:var(--panel-2);color:var(--text);border-radius:4px;padding:12px}
+#code:focus-visible{outline:2px solid var(--copper-2)}
+.btn{font:inherit;font-weight:700;font-size:16px;border:1px solid var(--copper);background:linear-gradient(180deg,#c99a6b,#a87a4e);color:#1a1614;border-radius:4px;padding:12px 18px;cursor:pointer}
+.btn.sub{background:transparent;color:var(--copper-2);font-size:13px;padding:8px 12px}
+.btn.ok{background:var(--ok);border-color:var(--ok);font-size:18px;width:100%;padding:16px}
+.btn:disabled{opacity:.4;cursor:default}
+.btn:focus-visible{outline:2px solid var(--text);outline-offset:2px}
+.verdict{border-radius:4px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.verdict.ok{border:2px solid var(--ok);background:var(--ok-bg)}
+.verdict.ng{border:2px solid var(--ng);background:var(--ng-bg)}
+.verdict.done{border:2px solid var(--copper-2);background:rgba(217,173,127,.1)}
+.verdict .head{font-size:22px;font-weight:700;display:flex;gap:10px;align-items:center}
+.verdict.ok .head{color:var(--ok)}.verdict.ng .head{color:var(--ng)}.verdict.done .head{color:var(--copper-2)}
+.verdict .prize{font-family:var(--f-serif);font-weight:800;font-size:26px;line-height:1.3}
+.verdict .prize small{display:block;font-family:var(--f-body);font-weight:400;font-size:13px;color:var(--text-2)}
+.verdict dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0;font-size:13px}
+.verdict dt{color:var(--text-2)}.verdict dd{margin:0;font-variant-numeric:tabular-nums}
+.verdict .why{font-size:14px;line-height:1.7}
+.demo{display:inline-block;font-size:11px;font-weight:700;color:#1a1614;background:var(--ng);border-radius:99px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;text-align:center}
+.stats div{background:var(--panel-2);border-radius:4px;padding:10px 4px}
+.stats b{display:block;font-family:var(--f-cap);font-size:24px;color:var(--copper-2);font-variant-numeric:tabular-nums}
+.stats small{font-size:11px;color:var(--text-2)}
+.box h2{margin:0 0 10px;font-family:var(--f-serif);font-weight:600;font-size:15px;letter-spacing:.08em}
+.hist{display:flex;flex-direction:column;gap:6px;font-size:13px}
+.hist div{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:8px 10px;background:var(--panel-2);border-radius:4px}
+.hist .c{font-family:var(--f-mono);letter-spacing:.06em}
+.hist small{display:block;color:var(--text-2);font-size:11px}
+.empty{font-size:12px;color:var(--text-2)}
+.note{font-size:11px;color:var(--text-2);line-height:1.7}
+.amt{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--text-2)}
+.amt input{font:inherit;font-size:18px;border:1px solid var(--line);background:var(--panel-2);color:var(--text);border-radius:4px;padding:10px;width:9em}
+.budget{font-size:12px;color:var(--text-2);display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.budget b{color:var(--text)}
+.budget .bar{display:block;height:6px;border-radius:3px;background:rgba(255,255,255,.1);overflow:hidden}.budget .bar i{display:block;height:100%}
+.confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px}
+.pract{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--text-2)}
+.pract input{width:20px;height:20px;accent-color:var(--ng)}
+.entry.practice{border-color:var(--ng)}
+.big4{font-family:var(--f-mono);font-weight:700;font-size:20px;letter-spacing:.2em}
+.avg{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.avg input{font:inherit;font-size:14px;width:5em;border:1px solid var(--line);background:var(--panel-2);color:var(--text);border-radius:4px;padding:4px 6px}
+.btn.alt{background:transparent;color:var(--text-2);border-color:var(--line);font-size:13px;padding:10px;width:100%}
+</style>
+
+<main>
+  <header>
+    <div class="k">HEUREUSE ・ STAFF ONLY</div>
+    <h1>クーポン確認</h1>
+    <p>お客さまの画面の<b>確認番号(4ケタ)</b>を入れて、「使用済みにする」を押すだけ。<br>記録はこの端末にだけ残るので、<b>いつも同じスマホ(タブレット)</b>で使ってください。</p>
+  </header>
+
+  <section class="box entry" id="entry">
+    <label for="code">確認番号(4ケタ)</label>
+    <div class="row"><input id="code" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="4" placeholder="0000"></div>
+    <label class="pract"><input type="checkbox" id="pract"> 練習中(見本のクーポン)。今月の数には入りません</label>
+  </section>
+
+  <section id="result" hidden></section>
+
+  <section class="box">
+    <h2 id="mTitle">今月の利用</h2>
+    <div class="stats" id="stats"></div>
+    <p class="note" id="noirLeft"></p>
+    <div class="budget" id="budget"></div>
+  </section>
+
+  <section class="box">
+    <h2>最近の使用済み</h2>
+    <div class="hist" id="hist"></div>
+    <p class="note">まちがえて使用済みにしたときは「取り消す」で元に戻せます。</p>
+  </section>
+</main>
+
+<script>
+/* ---- HEUREUSE coupon codes (shared by the gacha and the staff checker) ----
+   Code = type(1) + issue day(3) + random(4) + check(2), shown as XXXXX-XXXXX.
+   The check letters prove the code came from this gacha; the staff checker keeps the used list. */
+const CP_ALPHA='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+const CP_SECRET='HEUREUSE/noir-blanc/2026';
+const CP_DEMO_SECRET='HEUREUSE/DEMO';
+const CP_DAYS=7;           // 有効期限(発行日をふくめて何日間)
+const CP_NOIR_PER_MONTH=1; // Noirのホールは毎月何名まで
+const CP_NOIR_SIZE='12cm';  // Noirのホールのサイズ
+const CP_NOIR_VALUE='4,500円相当';
+const CP_BUDGET=13000;     // 1か月の景品予算(円)= 月の売上の2%
+const CP_TYPES={
+  N:{id:'noir',fortune:'ノワール大吉',title:'Noirのホール('+CP_NOIR_SIZE+') プレゼント',short:'Noir12cm',value:'ホール'+CP_NOIR_SIZE+'・'+CP_NOIR_VALUE,
+    head:'<span>Noir</span><span class="what">(バスクチーズケーキ)</span>',sub:'<b>ホール'+CP_NOIR_SIZE+'</b> プレゼント<br>('+CP_NOIR_VALUE+')',staff:'Noir(バスクチーズケーキ)のホール'+CP_NOIR_SIZE+'をお渡しください。',
+    rules:['Noir(バスクチーズケーキ)のホール'+CP_NOIR_SIZE+'('+CP_NOIR_VALUE+')を1台プレゼント','数に限りがあります。なくなった場合は、<br>お会計5%OFFとしてお使いいただけます']},
+  B:{id:'bill',fortune:'大大大大吉',title:'お会計から5%OFF',short:'お会計5%OFF',value:'お会計',
+    head:'<span class="what">お会計</span><span>5<small>%OFF</small></span>',sub:'ケーキ・ドリンク・フード・セット、ぜんぶOK',staff:'お会計の合計(ケーキ・ドリンク・フード・ケーキセットもふくむ)から5%OFFにしてください。',
+    rules:['ケーキ・ドリンク・フード・ケーキセットをふくむ、<br>お会計の合計から5%OFF']},
+  C:{id:'cake',fortune:'大吉',title:'ケーキ5%OFF',short:'ケーキ5%OFF',value:'ケーキ',
+    head:'<span class="what">ケーキ</span><span>5<small>%OFF</small></span>',sub:'何個でもOK',staff:'ケーキの代金を5%OFFにしてください(個数制限なし)。ドリンク・フード・平日限定の日替わり「本日のケーキセット」は対象外です。',
+    rules:['ケーキが何個でも5%OFF','ドリンク・フード、<br>平日限定の日替わり「本日のケーキセット」は対象外です']},
+};
+const CP_RULES_COMMON=['有効期限内に1回だけお使いいただけます','お会計1回につき1枚までです。<br>ほかのクーポン・割引とはいっしょに使えません','スクリーンショットの画面でもお使いいただけます'];
+const CP_DAY=86400000;
+function cpDayNum(t){const d=new Date(t);return Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/CP_DAY);}
+function cpDayStr(n){const d=new Date(n*CP_DAY);return `${d.getUTCFullYear()}/${d.getUTCMonth()+1}/${d.getUTCDate()}`;}
+/* 4ケタの確認番号: [発行日の下1ケタ][種類の数字][ランダム2ケタ]
+   種類の数字: 0〜4=大吉(ケーキ) 5〜8=大大大大吉(お会計) 9=ノワール大吉 */
+const CP_TDIG={C:[0,1,2,3,4],B:[5,6,7,8],N:[9]};
+function cpTypeOf(dg){return dg===9?'N':dg>=5?'B':'C';}
+function cpMake(type,t){
+  const ds=CP_TDIG[type],r=Math.floor(Math.random()*100);
+  return String(cpDayNum(t)%10)+ds[Math.floor(Math.random()*ds.length)]+String(r).padStart(2,'0');
+}
+/* returns {ok:false,reason} or {ok:true,code,type,issue,exp,key} */
+function cpParse(input,now){
+  const s=String(input).replace(/[０-９]/g,c=>String.fromCharCode(c.charCodeAt(0)-65248)).replace(/\D/g,'');
+  if(s.length!==4)return{ok:false,reason:'確認番号は4ケタの数字です'};
+  const today=cpDayNum(now||Date.now()),d=+s[0],issue=today-((today-d)%10+10)%10;
+  return{ok:true,code:s,type:cpTypeOf(+s[1]),issue,exp:issue+CP_DAYS-1,key:s+'@'+issue};
+}
+
+(()=>{
+const $=id=>document.getElementById(id);
+const track=(n,p)=>{try{window.gtag&&window.gtag('event',n,p||{})}catch(e){}};
+const KEY='heureuse-staff-v2';
+let D={used:{},avg:100};try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&s.used)D=Object.assign(D,s);}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(D))}catch(e){}};
+const fmt=t=>{const d=new Date(t);return `${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;};
+const ym=t=>{const d=new Date(t);return d.getFullYear()*100+d.getMonth();};
+function monthUsed(type){const now=ym(Date.now());return Object.values(D.used).filter(u=>!u.demo&&ym(u.t)===now&&(!type||u.type===type));}
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const demo=()=>$('pract').checked;
+
+function check(){
+  const r=cpParse($('code').value),box=$('result');box.hidden=false;
+  if(!r.ok){box.innerHTML=`<div class="verdict ng"><div class="head">✕ ${r.reason}</div></div>`;return;}
+  const T=CP_TYPES[r.type],today=cpDayNum(Date.now()),u=D.used[r.key];
+  const info=`<div class="prize">${T.title}${demo()?'<span class="demo">見本</span>':''}<small>${T.fortune} ・ 確認番号 <span class="big4">${r.code}</span></small></div>
+    <dl><dt>発行日</dt><dd>${cpDayStr(r.issue)}</dd><dt>有効期限</dt><dd>${cpDayStr(r.exp)} まで</dd></dl>`;
+  const match=`<div class="note">お客さまの画面と、種類・有効期限が同じか見てください。</div>`;
+  if(today>r.exp){box.innerHTML=`<div class="verdict ng"><div class="head">✕ 期限切れです</div>${info}<div class="why">${cpDayStr(r.exp)} で期限が終わっています。</div></div>`;return;}
+  if(u){box.innerHTML=`<div class="verdict ng"><div class="head">✕ 使用済みです</div>${info}<div class="why">${fmt(u.t)} に使われています。</div>
+    <div class="note">べつのお客さまの番号がたまたま同じこともあります。お客さまの画面がスクショではなく、まだ使っていないクーポンなら使えます。</div>
+    <button class="btn alt" id="use">まだ使っていないクーポンなので、使用済みにする</button></div>`;
+    bindUse(r,r.type,info,false);return;}
+  if(r.type==='N'&&!demo()&&monthUsed('N').length>=CP_NOIR_PER_MONTH){
+    box.innerHTML=`<div class="verdict ng"><div class="head">✕ 今月のNoirは終了しました</div>${info}<div class="why">今月はすでに${CP_NOIR_PER_MONTH}名さまに出ています。<br>代わりに<b>お会計から5%OFF</b>にしてください。</div>
+      <button class="btn ok" id="use">お会計5%OFFにして使用済みにする</button></div>`;
+    bindUse(r,'B',info,true);return;}
+  box.innerHTML=`<div class="verdict ok"><div class="head">✓ 使えます</div>${info}${match}
+    <div class="why">${T.staff}<br>ほかのクーポン・割引とはいっしょに使えません。</div>
+    <button class="btn ok" id="use">使用済みにする</button></div>`;
+  bindUse(r,r.type,info,false);
+}
+function bindUse(r,type,info,alt){
+  $('use').onclick=()=>{let key=r.key,n=1;while(D.used[key])key=r.key+'#'+(++n);
+    D.used[key]={t:Date.now(),type,demo:demo()||undefined,alt:alt||undefined,code:r.code};save();track('coupon_redeem',{type,demo:demo()});
+    $('result').innerHTML=`<div class="verdict done"><div class="head">✓ 使用済みにしました</div>${info}${alt?'<div class="why">お会計5%OFFで対応しました。</div>':''}</div>`;$('code').value='';render();};
+}
+function cost(u){return u.type==='N'?4500:D.avg;}
+function render(){
+  const now=new Date();$('mTitle').textContent=`${now.getMonth()+1}月の利用`;
+  const n=t=>monthUsed(t).length;
+  $('stats').innerHTML=`<div><b>${n('C')}</b><small>ケーキ5%<br>(大吉)</small></div><div><b>${n('B')}</b><small>お会計5%<br>(大大大大吉)</small></div><div><b>${n('N')}</b><small>Noirのホール<br>(ノワール大吉)</small></div>`;
+  const spent=monthUsed().reduce((a,u)=>a+cost(u),0),f=Math.min(1,spent/CP_BUDGET);
+  $('budget').innerHTML=`<span>今月の割引・景品(目安) <b>約${spent.toLocaleString('ja-JP')}円</b> / 予算 ${CP_BUDGET.toLocaleString('ja-JP')}円</span><span class="bar"><i style="width:${f*100}%;background:${f<.7?'var(--ok)':f<1?'var(--warn)':'var(--ng)'}"></i></span>${f>=.8?'<b style="color:var(--ng)">予算に近づいています。確率を下げるか、キャンペーンをお休みしてください。</b>':''}
+    <span class="avg"><span>5%OFF 1回の割引を</span><input id="avg" type="number" inputmode="numeric" min="0" value="${D.avg}"><span>円として計算(Noirは4,500円)</span></span>`;
+  $('avg').onchange=e=>{D.avg=Math.max(0,parseInt(e.target.value,10)||0);save();render();};
+  const left=Math.max(0,CP_NOIR_PER_MONTH-n('N'));
+  $('noirLeft').textContent=left?`Noirのホールは今月あと${left}名さままで。`:'Noirのホールは今月の分が終了しました。';
+  const list=Object.entries(D.used).sort((a,b)=>b[1].t-a[1].t).slice(0,20);
+  $('hist').innerHTML=list.length?list.map(([key,u])=>`<div><span><span class="c">No.${esc(u.code||key.slice(0,4))}</span>${u.demo?'<span class="demo">見本</span>':''}<small>${CP_TYPES[u.type].short}${u.alt?'(Noirの代わり)':''} ・ ${fmt(u.t)}</small></span><span class="confirm"><button class="btn sub" data-undo="${esc(key)}">取り消す</button></span></div>`).join(''):'<p class="empty">まだありません</p>';
+  $('hist').querySelectorAll('[data-undo]').forEach(b=>b.onclick=()=>{const key=b.dataset.undo,wrap=b.parentElement;
+    wrap.innerHTML=`本当に取り消す? <button class="btn sub" data-yes>はい</button><button class="btn sub" data-no>いいえ</button>`;
+    wrap.querySelector('[data-yes]').onclick=()=>{delete D.used[key];save();render();};wrap.querySelector('[data-no]').onclick=render;});
+}
+$('code').addEventListener('input',e=>{const v=e.target.value.replace(/[０-９]/g,c=>String.fromCharCode(c.charCodeAt(0)-65248)).replace(/\D/g,'').slice(0,4);e.target.value=v;
+  if(v.length===4)check();else $('result').hidden=true;});
+$('pract').onchange=()=>{$('entry').classList.toggle('practice',demo());if($('code').value.length===4)check();};
+render();
+window.__staff={check,get D(){return D}};
+})();
+</script>

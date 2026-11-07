@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>チーズケーキ診断 | HEUREUSE</title>
+<meta name="description" content="8つの質問で、あなたをウールーズの8種類のチーズケーキにたとえる診断。">
+<meta property="og:title" content="チーズケーキ診断 | HEUREUSE">
+<meta property="og:description" content="あなたをチーズケーキにたとえると？ 8つの質問でわかります。">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#151312">
+<!-- ===== Googleアナリティクス:下の G-XXXXXXXXXX を自分の測定IDに書きかえる ===== -->
+<script>
+var GA_ID='G-FN1JGCH8JN';
+if(GA_ID.indexOf('XXXX')<0){var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;document.head.appendChild(g);
+window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config',GA_ID);}
+</script>
+<!-- ===================================================================== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
+</head>
+<body>
+<style>
+/* Layout: the shop's night look. Near-black concrete, copper lettering, a warm bulb glow at the top. Title -> one question per screen -> result. Single dark look. */
+:root{
+  --bg:#151312; --panel:#1f1b19; --panel-2:#262220; --concrete:#7c7874; --copper:#b98a5c; --copper-2:#d9ad7f; --text:#eee8df; --text-2:#a59c92; --line:rgba(185,138,92,.5);
+  --f-cap:"Cinzel","Trajan Pro","Times New Roman",serif;
+  --f-serif:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",sans-serif;
+  --noise:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --orn:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 14'%3E%3Cpath d='M4 7H56M84 7H136M58 7q6-7 12 0q6 7 12 0' fill='none' stroke='%23b98a5c' stroke-width='1'/%3E%3Ccircle cx='70' cy='7' r='1.8' fill='%23b98a5c'/%3E%3C/svg%3E");
+  color-scheme:dark;
+}
+html{height:100%;background:var(--bg)}
+body{min-height:100%;background-color:var(--bg);color:var(--text);font-family:var(--f-body);
+  background-image:radial-gradient(70% 38% at 50% 0%,rgba(255,186,110,.17),transparent 70%),var(--noise);background-attachment:fixed,scroll}
+.card{background:var(--panel);background-image:var(--noise);border:1px solid var(--line);border-radius:2px;box-shadow:0 14px 30px rgba(0,0,0,.35)}
+h1{font-family:var(--f-serif);font-weight:600;margin:0;line-height:1.4;color:var(--text);text-align:center;letter-spacing:.1em;text-wrap:balance}
+h1 small{display:block;font-family:var(--f-cap);font-weight:600;font-size:.62em;letter-spacing:.32em;color:var(--copper-2);margin-bottom:2px;padding-left:.32em;
+  text-shadow:0 0 18px rgba(255,186,110,.25)}
+h1 small::after{content:"Laboratoire De Gâteau Au Fromage";display:block;font-size:.3em;letter-spacing:.24em;color:var(--text-2);margin:6px 0 12px}
+h1::after{content:"";display:block;width:140px;height:14px;margin:12px auto 0;background:var(--orn) center/contain no-repeat}
+.btn{font-family:var(--f-serif);font-weight:600;font-size:17px;letter-spacing:.18em;border:1px solid var(--copper);background:linear-gradient(180deg,#c99a6b,#a87a4e);color:#1a1614;border-radius:2px;padding:13px 46px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.4),0 0 24px rgba(217,173,127,.12)}
+.btn.sub{background:transparent;color:var(--copper-2);box-shadow:none;font-size:14px;padding:10px 22px;letter-spacing:.1em}
+.btn:active{transform:translateY(1px)}
+.btn:disabled{opacity:.4;cursor:default}
+main{max-width:520px;margin:0 auto;box-sizing:border-box;padding-block:26px 40px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{display:flex;flex-direction:column;align-items:center;gap:16px}
+h1{font-size:clamp(28px,8.4vw,36px)}
+h1 small{font-size:.9em}
+.lead{margin:0;font-size:14px;line-height:1.9;text-align:center;color:var(--text-2)}
+.row6{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;width:100%}
+.row6 canvas{width:100%;aspect-ratio:1;height:auto}
+.btn:focus-visible,.opt:focus-visible,.back:focus-visible{outline:2px solid var(--copper-2);outline-offset:3px}
+.small{font-size:12px;color:var(--text-2);text-align:center;margin:0}
+.prog{width:100%;display:flex;align-items:center;gap:12px}
+.prog .bar{flex:1;height:2px;background:rgba(255,255,255,.12);overflow:hidden}
+.prog .bar i{display:block;height:100%;background:var(--copper-2);transition:width .3s}
+.prog span{font-family:var(--f-cap);font-weight:600;font-size:14px;font-variant-numeric:tabular-nums;color:var(--text-2)}
+.qcard{width:100%;box-sizing:border-box;padding:28px 20px;text-align:center}
+.qnum{font-family:var(--f-cap);font-weight:600;font-size:15px;letter-spacing:.2em;color:var(--copper-2)}
+.qtext{font-family:var(--f-serif);font-weight:600;font-size:clamp(19px,5.6vw,24px);line-height:1.6;margin-top:8px;text-wrap:balance}
+.opts{width:100%;display:grid;gap:8px}
+.opt{font:inherit;font-size:15px;text-align:left;border:1px solid rgba(185,138,92,.32);border-radius:2px;background:rgba(31,27,25,.85);color:var(--text);
+  padding:15px 16px;cursor:pointer;display:flex;align-items:center;gap:14px;transition:background .15s,border-color .15s}
+.opt i{font-style:normal;font-family:var(--f-cap);font-weight:600;font-size:15px;width:18px;flex:none;color:var(--copper);text-align:center}
+.opt:hover{border-color:var(--copper)}
+.opt.picked{background:rgba(185,138,92,.18);border-color:var(--copper-2)}
+.back{font:inherit;font-size:13px;border:0;background:transparent;color:var(--text-2);cursor:pointer;padding:6px}
+.qin{animation:qin .35s ease-out}
+@keyframes qin{from{transform:translateY(8px);opacity:0}to{transform:none;opacity:1}}
+.rcard{width:100%;box-sizing:border-box;padding:24px 20px 26px;text-align:center}
+.rcard .you{font-size:12px;color:var(--text-2);letter-spacing:.14em}
+.rcard .tname{font-family:var(--f-serif);font-weight:800;font-size:clamp(24px,7vw,30px);line-height:1.35;margin-top:6px;letter-spacing:.06em}
+.rcard .tname em{font-style:normal;color:var(--copper-2)}
+.rcard .cake{font-family:var(--f-serif);font-size:13px;margin-top:4px;color:var(--text-2)}
+.rcard canvas{width:min(58vw,210px);aspect-ratio:1;height:auto;display:block;margin:10px auto 2px}
+.rcard .catch{font-family:var(--f-serif);font-weight:600;font-size:16px;line-height:1.6;margin:4px 0 12px}
+.rcard .catch::after{content:"";display:block;width:120px;height:12px;margin:12px auto 0;background:var(--orn) center/contain no-repeat}
+.rcard p{margin:0;font-size:14px;line-height:2;text-align:left;color:#d8d0c5}
+.pros{width:100%;box-sizing:border-box;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pros > div{padding:16px 14px}
+.pros h3{margin:0 0 6px;font-family:var(--f-serif);font-weight:600;font-size:14px;letter-spacing:.12em}
+.pros p{margin:0;font-size:13px;line-height:1.8;color:#d8d0c5}
+.pros .good h3{color:var(--copper-2)}.pros .care h3{color:#c7a39a}
+.mix{width:100%;box-sizing:border-box;padding:18px 18px 14px}
+.mix h3{margin:0 0 14px;font-family:var(--f-serif);font-weight:600;font-size:15px;letter-spacing:.12em;text-align:center}
+.mrow{display:grid;grid-template-columns:7.4em 1fr 3em;white-space:nowrap;gap:10px;align-items:center;font-size:12px;margin-bottom:8px}
+.mrow .b{height:4px;border-radius:2px;overflow:hidden;background:rgba(255,255,255,.1)}
+.mrow .b i{display:block;height:100%}
+.mrow b{font-family:var(--f-cap);font-weight:600;font-size:13px;text-align:right;font-variant-numeric:tabular-nums;color:var(--copper-2)}
+.pair{width:100%;box-sizing:border-box;padding:14px 18px;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:center}
+.pair canvas{width:64px;height:64px;grid-row:1/3}
+.pair .l{font-size:11px;color:var(--text-2);letter-spacing:.1em}
+.pair .v{font-family:var(--f-serif);font-weight:600;font-size:15px}
+.btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+#toast{font-size:12px;color:var(--copper-2);min-height:1em;text-align:center}
+@media (max-width:360px){.pros{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.qin{animation:none}.btn:active{transform:none}}
+</style>
+
+<main>
+  <section id="sTitle">
+    <h1><small>HEUREUSE</small>チーズケーキ<br>診断</h1>
+    <p class="lead">あなたをチーズケーキにたとえると？<br>8つの質問でわかります。</p>
+    <div class="row6" id="row6"></div>
+    <button class="btn" id="btnStart">診断をはじめる</button>
+    <p class="small">所要時間 およそ1分</p>
+  </section>
+
+  <section id="sQ" hidden>
+    <div class="prog"><div class="bar"><i id="pbar"></i></div><span id="pnum">1/8</span></div>
+    <div class="card qcard qin" id="qcard"><div class="qnum" id="qnum">Q1</div><div class="qtext" id="qtext"></div></div>
+    <div class="opts" id="opts"></div>
+    <button class="back" id="btnBack">← ひとつもどる</button>
+  </section>
+
+  <section id="sR" hidden>
+    <div class="card rcard">
+      <div class="you">あなたは…</div>
+      <div class="tname" id="rName"></div>
+      <div class="cake" id="rCake"></div>
+      <canvas id="rCv" width="440" height="440"></canvas>
+      <div class="catch" id="rCatch"></div>
+      <p id="rDesc"></p>
+    </div>
+    <div class="pros"><div class="card good"><h3>いいところ</h3><p id="rGood"></p></div><div class="card care"><h3>ちょっと注意</h3><p id="rCare"></p></div></div>
+    <div class="card mix"><h3>あなたのチーズケーキ成分</h3><div id="rMix"></div></div>
+    <div class="card pair"><canvas id="rPairCv" width="128" height="128"></canvas><span class="l">相性ばつぐんのタイプ</span><span class="v" id="rPair"></span></div>
+    <div class="card pair"><span class="l" style="grid-row:auto">おすすめの組み合わせ</span><span class="v" id="rDrink" style="grid-column:1/3"></span></div>
+    <div class="btns"><button class="btn" id="btnShare">結果をコピー</button><button class="btn sub" id="btnAgain">もういちど</button></div>
+    <div id="toast"></div>
+  </section>
+</main>
+
+<script>
+/* ---- shared cheesecake illustrations: the eight HEUREUSE cakes, shaded (no outlines) ---- */
+const CAKE_FACES=true; // false にすると顔なしのリアルなケーキになる
+const CAKES={
+  noir:   {n:'ノワール',          fr:'Noir',              s:'ノワール'},
+  blanc:  {n:'ブラン',            fr:'blanche',           s:'ブラン'},
+  fromage:{n:'ガトーフロマージュ',fr:'gâteau au fromage', s:'フロマージュ'},
+  mochi:  {n:'モチブイ',          fr:'A moitié bouilli',  s:'モチブイ'},
+  bleue:  {n:'ブルー',            fr:'bleue',             s:'ブルー'},
+  patata: {n:'パタータ',          fr:'potato',            s:'パタータ'},
+  comte:  {n:'ガトーコンテ',      fr:'gâteau au Comté',   s:'コンテ'},
+  gruyere:{n:'グリュイエール',    fr:'gâteau au gruyère', s:'グリュイエール'},
+};
+const CAKE_KEYS=['noir','blanc','fromage','mochi','bleue','patata','comte','gruyere'];
+
+function _poly(g,pts){g.beginPath();pts.forEach(([x,y],i)=>i?g.lineTo(x,y):g.moveTo(x,y));g.closePath();}
+function _rnd(i){const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x);}
+function _dots(g,n,col,x0,x1,y0,y1,r0,r1,seed=1){g.fillStyle=col;for(let i=0;i<n;i++){const x=x0+(x1-x0)*_rnd(i+seed),y=y0+(y1-y0)*_rnd(i+seed+500),r=r0+(r1-r0)*_rnd(i+seed+900);g.beginPath();g.ellipse(x,y,r,r*.7,_rnd(i)*3,0,7);g.fill();}}
+function _shadow(g,cx,cy,rx,ry){const gr=g.createRadialGradient(cx,cy,0,cx,cy,rx);gr.addColorStop(0,'rgba(70,40,20,.28)');gr.addColorStop(1,'rgba(70,40,20,0)');
+  g.save();g.translate(cx,cy);g.scale(1,ry/rx);g.translate(-cx,-cy);g.fillStyle=gr;g.beginPath();g.arc(cx,cy,rx,0,7);g.fill();g.restore();}
+function cakeFace(g,x,y,s){
+  if(!CAKE_FACES)return;
+  const e=s*.11;g.fillStyle='#4a2a16';g.beginPath();g.arc(x-s*.42,y,e,0,7);g.arc(x+s*.42,y,e,0,7);g.fill();
+  g.strokeStyle='#4a2a16';g.lineWidth=s*.08;g.lineCap='round';g.beginPath();g.arc(x,y+s*.06,s*.18,.18*Math.PI,.82*Math.PI);g.stroke();
+  g.fillStyle='rgba(255,120,140,.42)';g.beginPath();g.ellipse(x-s*.72,y+s*.2,s*.17,s*.1,0,0,7);g.ellipse(x+s*.72,y+s*.2,s*.17,s*.1,0,0,7);g.fill();
+}
+
+/* wedge cut from a round cake, seen from the front-left */
+function wedge(g,s,o){
+  const T=[-1.0*s,.06*s],BL=[-.08*s,-.5*s],BR=[.98*s,-.18*s],C=[.62*s,-.64*s],h=o.h*s;
+  const Tb=[T[0],T[1]+h],BRb=[BR[0],BR[1]+h];
+  _shadow(g,0,BRb[1]+.12*s,1.15*s,.2*s);
+  // top face
+  g.beginPath();g.moveTo(...T);g.lineTo(...BL);g.quadraticCurveTo(...C,...BR);g.closePath();
+  g.save();g.clip();g.fillStyle=o.top;g.fillRect(-2*s,-2*s,4*s,4*s);if(o.topTex)o.topTex(g,s);
+  const hl=g.createRadialGradient(-.2*s,-.3*s,.05*s,-.2*s,-.3*s,1.1*s);hl.addColorStop(0,'rgba(255,255,255,'+(o.gloss||.12)+')');hl.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=hl;g.fillRect(-2*s,-2*s,4*s,4*s);
+  if(o.rim){g.strokeStyle=o.rim;g.lineWidth=.09*s;g.beginPath();g.moveTo(...BL);g.quadraticCurveTo(...C,...BR);g.stroke();}
+  g.restore();
+  // front (cut) face
+  _poly(g,[T,BR,BRb,Tb]);g.save();g.clip();
+  const bg=g.createLinearGradient(T[0],0,BR[0],0);bg.addColorStop(0,o.body0);bg.addColorStop(1,o.body1);g.fillStyle=bg;g.fillRect(-2*s,-2*s,4*s,4*s);
+  if(o.bodyTex)o.bodyTex(g,s,T,BR,h);
+  const along=(t,off)=>[T[0]+(BR[0]-T[0])*t,T[1]+(BR[1]-T[1])*t+off];
+  const band=(y0,y1,col)=>{_poly(g,[along(0,y0),along(1,y0),along(1,y1),along(0,y1)]);g.fillStyle=col;g.fill();};
+  if(o.crust)band(-.01*s,o.crustT*s,o.crust);
+  if(o.base){band(h-o.baseH*s,h+.01*s,o.base);_dots(g,40,'rgba(110,60,20,.35)',T[0],BR[0],T[1]+h-o.baseH*s,BR[1]+h,.01*s,.025*s,7);}
+  else if(o.bottom)band(h-.05*s,h+.01*s,o.bottom);
+  if(o.side){const sg=g.createLinearGradient(BR[0]-o.sideW*s,0,BR[0],0);sg.addColorStop(0,'rgba(0,0,0,0)');sg.addColorStop(.35,o.side);sg.addColorStop(1,o.side);g.fillStyle=sg;g.fillRect(BR[0]-o.sideW*s,-2*s,o.sideW*s,4*s);}
+  const sh=g.createLinearGradient(0,T[1],0,T[1]+h);sh.addColorStop(0,'rgba(255,255,255,.12)');sh.addColorStop(1,'rgba(60,30,10,.12)');g.fillStyle=sh;g.fillRect(-2*s,-2*s,4*s,4*s);
+  g.restore();
+  // soft edge highlight between top and cut face
+  g.strokeStyle='rgba(255,255,255,.35)';g.lineWidth=.025*s;g.beginPath();g.moveTo(...T);g.lineTo(...BR);g.stroke();
+  const cx=(T[0]+BR[0])/2-.05*s,cy=(T[1]+BR[1])/2+((o.crustT||0)*s+(h-(o.base?o.baseH*s:0)))/2;
+  cakeFace(g,cx,cy,s*.27);
+  if(o.after)o.after(g,s);
+}
+/* square-cut bar seen from the front-left */
+function bar(g,s,o){
+  const h=o.h*s,dx=.4*s,dy=-.26*s,L=-.8*s,R=.42*s,B=.5*s,Tp=B-h;
+  _shadow(g,.05*s,B+.05*s,1.15*s,.22*s);
+  const faceFill=(pts,base,tex,shade)=>{_poly(g,pts);g.save();g.clip();g.fillStyle=base;g.fillRect(-2*s,-2*s,4*s,4*s);if(tex)tex();if(shade){g.fillStyle=shade;g.fillRect(-2*s,-2*s,4*s,4*s);}g.restore();};
+  // side face
+  faceFill([[R,Tp],[R+dx,Tp+dy],[R+dx,B+dy],[R,B]],o.body,()=>{
+    if(o.bodyTex)o.bodyTex(g,s,R,R+dx,Tp,B,true);
+    if(o.crust){_poly(g,[[R,Tp],[R+dx,Tp+dy],[R+dx,Tp+dy+o.crustT*s],[R,Tp+o.crustT*s]]);g.fillStyle=o.crust;g.fill();}
+    if(o.bottom){_poly(g,[[R,B-.05*s],[R+dx,B+dy-.05*s],[R+dx,B+dy],[R,B]]);g.fillStyle=o.bottom;g.fill();}
+  },'rgba(70,40,15,.16)');
+  // top face
+  faceFill([[L,Tp],[R,Tp],[R+dx,Tp+dy],[L+dx,Tp+dy]],o.top,()=>{if(o.topTex)o.topTex(g,s,L,R,Tp,dx,dy);
+    const hl=g.createRadialGradient(-.15*s,Tp-.15*s,.02*s,-.15*s,Tp-.15*s,.9*s);hl.addColorStop(0,'rgba(255,255,255,'+(o.gloss||.15)+')');hl.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=hl;g.fillRect(-2*s,-2*s,4*s,4*s);});
+  // front face
+  faceFill([[L,Tp],[R,Tp],[R,B],[L,B]],o.body,()=>{
+    if(o.bodyTex)o.bodyTex(g,s,L,R,Tp,B,false);
+    if(o.crust){g.fillStyle=o.crust;g.fillRect(L,Tp,R-L,o.crustT*s);}
+    if(o.bottom){g.fillStyle=o.bottom;g.fillRect(L,B-.05*s,R-L,.05*s);}
+    const sh=g.createLinearGradient(0,Tp,0,B);sh.addColorStop(0,'rgba(255,255,255,.14)');sh.addColorStop(1,'rgba(60,30,10,.1)');g.fillStyle=sh;g.fillRect(L,Tp,R-L,h);
+  });
+  g.strokeStyle='rgba(255,255,255,.4)';g.lineWidth=.022*s;g.beginPath();g.moveTo(L,Tp);g.lineTo(R,Tp);g.lineTo(R+dx,Tp+dy);g.moveTo(R,Tp);g.lineTo(R,B);g.stroke();
+  cakeFace(g,(L+R)/2,Tp+(o.crustT||0)*s+(h-(o.crustT||0)*s)*.48,s*.27);
+  if(o.after)o.after(g,s,L,R,Tp,dx,dy);
+}
+function pick(g,x,y,s,col,ang,len){g.save();g.translate(x,y);g.rotate(ang);const gr=g.createLinearGradient(0,0,s*.14,0);gr.addColorStop(0,col);gr.addColorStop(1,'rgba(255,255,255,.35)');
+  g.fillStyle=col;g.beginPath();g.moveTo(0,0);g.quadraticCurveTo(s*.06,-len*.5*s,0,-len*s);g.lineTo(s*.13,-len*s*.95);g.quadraticCurveTo(s*.18,-len*.5*s,s*.12,0);g.closePath();g.fill();g.restore();}
+
+function drawCake(g,key,s){
+  g.save();
+  switch(key){
+  case 'noir': wedge(g,s,{h:.8,top:'#1c0f07',body0:'#fbebc4',body1:'#e9be78',crust:'#2a150a',crustT:.06,bottom:'#7a4520',side:'#9a5a26',sideW:.2,rim:'#120803',gloss:.1,
+    topTex:(g,s)=>{_dots(g,22,'rgba(110,55,20,.55)',-.9*s,.9*s,-.55*s,0,.03*s,.11*s,3);_dots(g,30,'rgba(0,0,0,.45)',-.9*s,.9*s,-.55*s,0,.02*s,.07*s,9);},
+    bodyTex:(g,s,T,BR,h)=>{_dots(g,26,'rgba(200,150,80,.25)',T[0],BR[0],T[1]+.1*s,T[1]+h-.1*s,.008*s,.02*s,4);
+      g.fillStyle='rgba(150,80,30,.35)';for(let i=0;i<5;i++){g.fillRect(BR[0]-.18*s+i*.035*s,-1*s,.012*s,2*s);}}});break;
+  case 'blanc': wedge(g,s,{h:.74,top:'#fdfcf8',body0:'#faf7ef',body1:'#efe9dc',base:'#d6a35e',baseH:.15,gloss:.0,
+    topTex:(g,s)=>{const gr=g.createLinearGradient(0,-.45*s,0,0);gr.addColorStop(0,'rgba(200,205,215,.25)');gr.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=gr;g.fillRect(-2*s,-2*s,4*s,4*s);},
+    bodyTex:(g,s,T,BR,h)=>{_dots(g,30,'rgba(210,200,180,.35)',T[0],BR[0],T[1]+.06*s,T[1]+h-.2*s,.006*s,.014*s,5);}});break;
+  case 'comte': wedge(g,s,{h:.72,top:'#d98a2b',body0:'#fae6a6',body1:'#f2cf7c',crust:'#c4782a',crustT:.05,base:'#b4834a',baseH:.11,side:'#d9a050',sideW:.12,rim:'#a85f1c',gloss:.3,
+    topTex:(g,s)=>{_dots(g,16,'rgba(160,80,15,.45)',-.9*s,.9*s,-.42*s,0,.04*s,.12*s,11);_dots(g,10,'rgba(255,220,140,.35)',-.8*s,.8*s,-.4*s,-.05*s,.03*s,.08*s,21);}});break;
+  case 'gruyere': wedge(g,s,{h:.7,top:'#b06c34',body0:'#f6e7bf',body1:'#ebd39b',crust:'#9a5a26',crustT:.045,bottom:'#c79a5a',side:'#c98f4a',sideW:.12,rim:'#8a4d1e',gloss:.1,
+    topTex:(g,s)=>{_dots(g,14,'rgba(130,70,25,.4)',-.9*s,.9*s,-.42*s,0,.04*s,.1*s,31);g.fillStyle='rgba(255,255,255,.28)';g.fillRect(-2*s,-2*s,4*s,4*s);_dots(g,520,'rgba(255,255,255,.9)',-1*s,1*s,-.6*s,.06*s,.005*s,.014*s,41);_dots(g,40,'rgba(255,255,255,.55)',-1*s,1*s,-.6*s,.06*s,.02*s,.04*s,47);}});break;
+  case 'fromage': bar(g,s,{h:.8,top:'#d9a04c',body:'#f8e8b8',crust:'#c88a3c',crustT:.05,bottom:'#e3c88e',gloss:.18,
+    topTex:(g,s,L,R,T)=>{_dots(g,9,'rgba(160,85,25,.35)',L,R+.4*s,T-.26*s,T,.04*s,.09*s,51);}});break;
+  case 'mochi': bar(g,s,{h:.78,top:'#f4e4ae',body:'#fcf4da',crust:'#efdca2',crustT:.03,bottom:'#efe2bc',gloss:.35,
+    topTex:(g,s,L,R,T)=>{_dots(g,6,'rgba(230,200,120,.3)',L,R+.4*s,T-.26*s,T,.05*s,.12*s,61);}});break;
+  case 'bleue': bar(g,s,{h:.78,top:'#c3a65c',body:'#e2d9ab',crust:'#b39248',crustT:.045,bottom:'#cfc08a',gloss:.15,
+    topTex:(g,s,L,R,T)=>{_dots(g,10,'rgba(120,85,30,.3)',L,R+.4*s,T-.26*s,T,.025*s,.06*s,71);},
+    bodyTex:(g,s,x0,x1,T,B)=>{_dots(g,60,'rgba(90,120,110,.5)',x0,x1,T+.08*s,B-.08*s,.006*s,.016*s,81);},
+    after:(g,s,L,R,T)=>{pick(g,-.12*s,T-.12*s,s,'#7fc241',-.3,.55);pick(g,.02*s,T-.13*s,s,'#f2c936',-.1,.45);}});break;
+  case 'patata': bar(g,s,{h:.78,top:'#e0a238',body:'#fde38e',crust:'#d48f2e',crustT:.05,bottom:'#e8c66a',gloss:.35,
+    topTex:(g,s,L,R,T)=>{_dots(g,10,'rgba(160,80,20,.35)',L,R+.4*s,T-.26*s,T,.03*s,.07*s,91);},
+    bodyTex:(g,s,x0,x1,T,B)=>{_dots(g,14,'rgba(235,190,80,.4)',x0,x1,T+.1*s,B-.1*s,.01*s,.03*s,95);}});break;
+  }
+  g.restore();
+}
+function cakeCanvas(cv,key,opt={}){
+  const g=cv.getContext('2d'),w=cv.width,h=cv.height;g.clearRect(0,0,w,h);
+  if(opt.bg){g.fillStyle=opt.bg;g.beginPath();g.arc(w/2,h/2,Math.min(w,h)*.47,0,7);g.fill();}
+  const s=Math.min(w,h)*.36;
+  if(opt.silhouette){
+    const t=document.createElement('canvas');t.width=w;t.height=h;const tg=t.getContext('2d');
+    tg.translate(w/2,h*.55);drawCake(tg,key,s);tg.setTransform(1,0,0,1,0,0);
+    tg.globalCompositeOperation='source-in';tg.fillStyle='rgba(238,232,223,.09)';tg.fillRect(0,0,w,h);
+    g.drawImage(t,0,0);return;
+  }
+  g.save();g.translate(w/2,h*.55);drawCake(g,key,s);g.restore();
+}
+
+(()=>{
+const $=id=>document.getElementById(id);
+const track=(n,p)=>{try{window.gtag&&window.gtag('event',n,p||{})}catch(e){}};
+const TYPES={
+  noir:{name:'<em>黒の誘惑</em>タイプ',plain:'黒の誘惑タイプ',catch:'外はクール、中はとろける。',
+    desc:'第一印象はちょっとクールで近寄りがたいのに、話してみるとやさしくて情に厚い。そのギャップにやられる人が続出します。人気No.1のノワールのように、みんなの記憶に残る人です。',
+    good:'ギャップの魅力。こだわりと集中力。',care:'最初の壁が高すぎて、誤解されがち。',pair:'blanc',drink:'ノワール × カフェラテ'},
+  blanc:{name:'<em>白いやさしさ</em>タイプ',plain:'白いやさしさタイプ',catch:'ふわっとやさしく、芯は濃い。',
+    desc:'そこにいるだけで場の空気がやわらかくなる人。主張は強くないけれど、細かいところまで気がついて、さりげなく周りを整えています。やさしいだけでなく、中身はしっかり濃厚です。',
+    good:'聞き上手で、誰とでもなじめる。',care:'自分の本音を後まわしにしがち。',pair:'noir',drink:'ブラン × アールグレイ'},
+  fromage:{name:'<em>こだわりの王道</em>タイプ',plain:'こだわりの王道タイプ',catch:'正統派なのに、細部まで手を抜かない。',
+    desc:'流行に流されず、いいものを知っている正統派。見えないところまでこだわるので、周りからの信頼は抜群です。ベーシックなのに飽きられないガトーフロマージュのように、長く愛される人です。',
+    good:'ブレない安心感と、妥協しないこだわり。',care:'理想が高く、自分にも人にもきびしくなりがち。',pair:'mochi',drink:'ガトーフロマージュ × ダージリン'},
+  mochi:{name:'<em>おだやかマイペース</em>タイプ',plain:'おだやかマイペースタイプ',catch:'急がない。でも、ちゃんと深い。',
+    desc:'自分のペースを大切にする、おだやかな人。最初は目立たなくても、付き合うほどに良さがわかって、気づけばみんなの安心できる場所になっています。人気にこたえて復活したモチブイのように、「また会いたい」と言われる人です。',
+    good:'ねばり強さと、ゆるがないマイペース。',care:'スタートが遅く、ギリギリになりがち。',pair:'fromage',drink:'モチブイ × ティーソーダ'},
+  bleue:{name:'<em>クセになる個性派</em>タイプ',plain:'クセになる個性派タイプ',catch:'好き嫌いが分かれる。それが魅力。',
+    desc:'流行よりも、自分の「好き」に正直な人。独特のセンスに最初は驚かれるけれど、ハマった人はとことんハマります。コーヒーにもお酒にも合うブルーのように、どんな場にもなじむ大人の深みがあります。',
+    good:'独自のセンスと、本物を見抜く目。',care:'こだわりが伝わりにくく、マニアックと言われがち。',pair:'patata',drink:'ブルー × アイスコーヒー'},
+  patata:{name:'<em>ほっこり人気者</em>タイプ',plain:'ほっこり人気者タイプ',catch:'飾らないのに、なぜか人が集まる。',
+    desc:'素朴で親しみやすく、誰とでもすぐ打ち解ける人。あなたのまわりはいつもにぎやかで、みんなをおなかいっぱい幸せにしてくれます。期間限定のパタータのように、会えるとうれしいレアキャラです。',
+    good:'誰とでも打ち解ける親しみやすさ。',care:'頼まれると断れず、予定がぎゅうぎゅうに。',pair:'bleue',drink:'パタータ × ロイヤルミルクティー'},
+  comte:{name:'<em>忘れられない人</em>タイプ',plain:'忘れられない人タイプ',catch:'一度会ったら、もう忘れられない。',
+    desc:'ひと言ひと言に深みがあって、会った人の心に長く残る人。経験を重ねるほど魅力が増していく、熟成型です。15ヶ月熟成のコンテを使ったガトーコンテのように、ちょっとレアで、濃厚な存在感があります。',
+    good:'深みのある魅力と、ぶれない芯の強さ。',care:'こだわりが強く、妥協できずに疲れがち。',pair:'gruyere',drink:'ガトーコンテ × ホットコーヒー'},
+  gruyere:{name:'<em>気品の女王</em>タイプ',plain:'気品の女王タイプ',catch:'そこにいるだけで、場が華やぐ。',
+    desc:'堂々としていて、自然とみんなを引っぱっていくリーダー気質。品があるのに親しみやすく、まわりからの憧れの的です。「スイスの女王様」と呼ばれるチーズを使ったグリュイエールのように、気品と深みを兼ね備えています。',
+    good:'リーダーシップと、人を惹きつける華。',care:'弱みを見せられず、ひとりで抱えこみがち。',pair:'comte',drink:'グリュイエール × キャラメルラテ'},
+};
+const Q=[
+  {q:'休日の過ごし方は？',a:[['気になるカフェを開拓',{bleue:2,comte:1}],['家でゆっくり映画',{mochi:2,blanc:1}],['友だちを集めてワイワイ',{patata:2,gruyere:1}],['ひとりで趣味に没頭',{noir:2,fromage:1}]]},
+  {q:'初対面の人によく言われるのは？',a:[['「クールだね」',{noir:2,gruyere:1}],['「やさしそう」',{blanc:2,mochi:1}],['「話しかけやすい」',{patata:3}],['「ふしぎな人」',{bleue:2,comte:1}]]},
+  {q:'ケーキ屋さんで最初に見るのは？',a:[['人気No.1の定番',{fromage:2,noir:1}],['季節限定や希少品',{comte:2,patata:1}],['見たことない新作',{bleue:3}],['いちばん上品そうなもの',{gruyere:2,blanc:1}]]},
+  {q:'いちばん好きな食感は？',a:[['とろ〜り',{noir:3}],['なめらか',{blanc:2,mochi:1}],['ほくほく',{patata:3}],['ずっしり濃厚',{comte:2,fromage:1}]]},
+  {q:'旅行の計画を立てるなら？',a:[['分刻みで完璧に',{fromage:3}],['行き先だけ決めて現地で',{bleue:2,patata:1}],['みんなを引っぱる係',{gruyere:3}],['予定はゆるめにのんびり',{mochi:3}]]},
+  {q:'ちょっと落ち込んだときは？',a:[['甘いものを食べる',{patata:2,blanc:1}],['寝て忘れる',{mochi:3}],['ちょっといいもので自分にごほうび',{comte:2,gruyere:1}],['ひとりで考え抜く',{noir:2,fromage:1}]]},
+  {q:'好きな色は？',a:[['黒・ブラウン',{noir:3}],['白・パステル',{blanc:3}],['黄色・オレンジ',{patata:2,fromage:1}],['青・グリーン',{bleue:3}],['ゴールド・ボルドー',{gruyere:2,comte:1}]]},
+  {q:'あなたをひとことで言うと？',a:[['ギャップがある',{noir:3}],['こだわりが強い',{fromage:3}],['マイペース',{mochi:3}],['個性的',{bleue:3}],['一度会ったら忘れられない',{comte:3}],['堂々としている',{gruyere:3}]]},
+];
+const MIXCOL={noir:'#eee8df',blanc:'#c7d8e6',fromage:'#d9bf8c',mochi:'#e8dcb8',bleue:'#8fc4b6',patata:'#e6c46a',comte:'#c9a46a',gruyere:'#a77b55'};
+const ORDER=['noir','blanc','fromage','mochi','bleue','patata','comte','gruyere'];
+
+let idx=0,ans=[];
+const show=id=>['sTitle','sQ','sR'].forEach(s=>$(s).hidden=s!==id);
+
+function renderQ(){
+  const q=Q[idx];
+  $('pbar').style.width=(idx/Q.length*100)+'%';$('pnum').textContent=`${idx+1}/${Q.length}`;
+  $('qnum').textContent='Q'+(idx+1);$('qtext').textContent=q.q;
+  const c=$('qcard');c.classList.remove('qin');void c.offsetWidth;c.classList.add('qin');
+  const o=$('opts');o.innerHTML='';
+  q.a.forEach(([t],i)=>{const b=document.createElement('button');b.className='opt'+(ans[idx]===i?' picked':'');
+    b.innerHTML=`<i>${'ABCDEF'[i]}</i><span></span>`;b.querySelector('span').textContent=t;
+    b.onclick=()=>{ans[idx]=i;b.classList.add('picked');setTimeout(()=>{if(idx<Q.length-1){idx++;renderQ();}else result();},180);};o.append(b);});
+  $('btnBack').style.visibility='visible';
+  o.firstChild.focus({preventScroll:true});
+}
+function scoreAll(){
+  const s=Object.fromEntries(ORDER.map(k=>[k,0]));
+  ans.forEach((a,i)=>{const pts=Q[i].a[a][1];for(const k in pts)s[k]+=pts[k];});
+  return s;
+}
+function result(){
+  const s=scoreAll();
+  let top=ORDER[0];for(const k of ORDER)if(s[k]>s[top])top=k;
+  const T=TYPES[top],tot=Object.values(s).reduce((a,b)=>a+b,0)||1;
+  $('rName').innerHTML=T.name;$('rCake').textContent=CAKES[top].n;
+  cakeCanvas($('rCv'),top,{bg:'#2a2522'});
+  $('rCatch').textContent=T.catch;$('rDesc').textContent=T.desc;
+  $('rGood').textContent=T.good;$('rCare').textContent=T.care;
+  const sorted=ORDER.slice().sort((a,b)=>s[b]-s[a]);
+  // percentages that add up to 100
+  const raw=sorted.map(k=>s[k]/tot*100),fl=raw.map(Math.floor);let rest=100-fl.reduce((a,b)=>a+b,0);
+  raw.map((v,i)=>[v-fl[i],i]).sort((a,b)=>b[0]-a[0]).slice(0,rest).forEach(([,i])=>fl[i]++);
+  $('rMix').innerHTML=sorted.map((k,i)=>`<div class="mrow"><span>${CAKES[k].s}</span><span class="b"><i style="width:${fl[i]}%;background:${MIXCOL[k]}"></i></span><b>${fl[i]}%</b></div>`).join('');
+  $('rPair').textContent=`${TYPES[T.pair].plain}(${CAKES[T.pair].s})`;
+  cakeCanvas($('rPairCv'),T.pair,{bg:'#2a2522'});
+  $('rDrink').textContent=T.drink;
+  $('toast').textContent='';
+  show('sR');scrollTo({top:0});$('btnShare').focus({preventScroll:true});
+  $('btnShare').onclick=()=>{
+    const txt=`わたしは「${T.plain}」！ ${CAKES[top].n} 成分${fl[0]}% #ウールーズ #チーズケーキ診断 ${location.origin}${location.pathname}`;
+    try{navigator.clipboard.writeText(txt).then(()=>$('toast').textContent='コピーしました',()=>$('toast').textContent=txt);}catch(e){$('toast').textContent=txt;}
+  };
+  track('shindan_result',{type:top});
+}
+$('btnStart').onclick=()=>{idx=0;ans=[];show('sQ');renderQ();track('shindan_start');};
+$('btnBack').onclick=()=>{if(idx>0){idx--;renderQ();}else show('sTitle');};
+$('btnAgain').onclick=()=>{show('sTitle');scrollTo({top:0});};
+
+const row=$('row6');CAKE_KEYS.forEach(k=>{const c=document.createElement('canvas');c.width=c.height=200;c.setAttribute('aria-label',CAKES[k].n);row.append(c);cakeCanvas(c,k,{bg:'#221e1c'});});
+})();
+</script>
+</body>
+</html>

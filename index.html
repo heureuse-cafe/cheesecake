@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="1日2回まわせる!チーズケーキ専門店ウールーズのおみくじガチャ。5%OFFクーポンやNoirのホールが当たるかも。">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FN1JGCH8JN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FN1JGCH8JN');</script>
+<style>[hidden]{display:none!important}html,body{margin:0}</style>
+<title>今日のしあわせケーキ</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
+<style>
+/* Layout: the shop's night look. Near-black concrete, copper lettering, a warm bulb glow at the top. Title -> machine -> collection; result as an overlay. Single dark look. */
+:root{
+  --bg:#151312; --panel:#1f1b19; --panel-2:#262220; --concrete:#7c7874; --copper:#b98a5c; --copper-2:#d9ad7f; --text:#eee8df; --text-2:#a59c92; --line:rgba(185,138,92,.5);
+  --f-cap:"Cinzel","Trajan Pro","Times New Roman",serif;
+  --f-serif:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",sans-serif;
+  --noise:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --orn:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 14'%3E%3Cpath d='M4 7H56M84 7H136M58 7q6-7 12 0q6 7 12 0' fill='none' stroke='%23b98a5c' stroke-width='1'/%3E%3Ccircle cx='70' cy='7' r='1.8' fill='%23b98a5c'/%3E%3C/svg%3E");
+  color-scheme:dark;
+}
+html{height:100%;background:var(--bg)}
+body{min-height:100%;background-color:var(--bg);color:var(--text);font-family:var(--f-body);
+  background-image:radial-gradient(70% 38% at 50% 0%,rgba(255,186,110,.17),transparent 70%),var(--noise);background-attachment:fixed,scroll}
+.card{background:var(--panel);background-image:var(--noise);border:1px solid var(--line);border-radius:2px;box-shadow:0 14px 30px rgba(0,0,0,.35)}
+h1{font-family:var(--f-serif);font-weight:600;margin:0;line-height:1.4;color:var(--text);text-align:center;letter-spacing:.1em;text-wrap:balance}
+h1 small{display:block;font-family:var(--f-cap);font-weight:600;font-size:.62em;letter-spacing:.32em;color:var(--copper-2);margin-bottom:2px;padding-left:.32em;
+  text-shadow:0 0 18px rgba(255,186,110,.25)}
+h1 small::after{content:"Laboratoire De Gâteau Au Fromage";display:block;font-size:.3em;letter-spacing:.24em;color:var(--text-2);margin:6px 0 12px}
+h1::after{content:"";display:block;width:140px;height:14px;margin:12px auto 0;background:var(--orn) center/contain no-repeat}
+.btn{font-family:var(--f-serif);font-weight:600;font-size:17px;letter-spacing:.18em;border:1px solid var(--copper);background:linear-gradient(180deg,#c99a6b,#a87a4e);color:#1a1614;border-radius:2px;padding:13px 46px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.4),0 0 24px rgba(217,173,127,.12)}
+.btn.sub{background:transparent;color:var(--copper-2);box-shadow:none;font-size:14px;padding:10px 22px;letter-spacing:.1em}
+.btn:active{transform:translateY(1px)}
+.btn:disabled{opacity:.4;cursor:default}
+main{max-width:520px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:20px;box-sizing:border-box;
+  padding-block:26px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1{font-size:clamp(22px,6.4vw,28px)}
+h1 small{font-size:1.5em}
+.sub{margin:-6px 0 0;font-size:13px;line-height:1.9;text-align:center;color:var(--text-2)}
+.machine{position:relative;width:min(70vw,260px);display:flex;flex-direction:column;align-items:center}
+.dome{position:relative;width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;z-index:1;border:1px solid rgba(255,255,255,.18);
+  background:radial-gradient(circle at 32% 26%,rgba(255,236,210,.28) 0 9%,rgba(255,255,255,.06) 10% 60%,rgba(255,255,255,.02) 100%);box-shadow:inset 0 -18px 40px rgba(0,0,0,.45),0 0 40px rgba(255,186,110,.08)}
+.dome::after{content:"";position:absolute;left:16%;top:11%;width:22%;height:10%;border-radius:50%;background:rgba(255,240,220,.35);transform:rotate(-30deg)}
+.cap{position:absolute;width:23%;aspect-ratio:1;border-radius:50%;box-sizing:border-box;border:1px solid rgba(0,0,0,.35);
+  background:linear-gradient(180deg,var(--c) 0 50%,#e9e2d8 50% 100%);box-shadow:inset -4px -5px 8px rgba(0,0,0,.25);transition:transform .2s}
+.shake .cap{animation:jiggle .18s ease-in-out infinite alternate}
+.shake .cap:nth-child(odd){animation-duration:.14s}
+@keyframes jiggle{from{transform:translate(-3px,2px) rotate(-12deg)}to{transform:translate(3px,-4px) rotate(14deg)}}
+.body{position:relative;width:88%;margin-top:-8px;background-color:#6d6965;background-image:var(--noise),var(--noise);border-radius:3px;padding:20px 14px 14px;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;box-sizing:border-box;box-shadow:0 14px 26px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.12)}
+.brand{font-family:var(--f-cap);font-weight:700;font-size:14px;letter-spacing:.12em;color:#c79565;text-shadow:1px 1px 0 rgba(0,0,0,.45),0 0 1px rgba(0,0,0,.4)}
+.handle{position:relative;width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#e3b88a,#9d7046);border:0;cursor:pointer;flex:none;
+  box-shadow:0 4px 10px rgba(0,0,0,.5);transition:transform .9s cubic-bezier(.3,1.4,.5,1)}
+.handle::before{content:"";position:absolute;left:50%;top:9px;bottom:9px;width:8px;margin-left:-4px;border-radius:4px;background:#5a3f28}
+.handle.turn{transform:rotate(360deg)}
+.handle:focus-visible,.btn:focus-visible,.zc:focus-visible,.bigcap:focus-visible{outline:2px solid var(--copper-2);outline-offset:3px}
+.slot{width:50px;height:28px;border-radius:3px;background:#2a2725;box-shadow:inset 0 4px 8px rgba(0,0,0,.6);flex:none}
+.status{font-size:13px;text-align:center;min-height:1.6em;color:var(--text-2)}
+.status b{font-family:var(--f-cap);font-weight:600;font-size:18px;color:var(--copper-2)}
+.zukan{width:100%;box-sizing:border-box;padding:20px 14px 18px}
+.zhead{display:flex;flex-direction:column;align-items:center;gap:2px;margin-bottom:14px}
+.zhead h2{margin:0;font-family:var(--f-serif);font-weight:600;font-size:17px;letter-spacing:.14em}
+.zhead h2::before{content:"COLLECTION";display:block;font-family:var(--f-cap);font-size:11px;letter-spacing:.3em;color:var(--copper);text-align:center;margin-bottom:2px}
+.zhead span{font-size:11px;color:var(--text-2);font-variant-numeric:tabular-nums}
+.zgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.zc{border:1px solid rgba(185,138,92,.28);border-radius:2px;background:rgba(0,0,0,.18);padding:16px 2px 6px;display:flex;flex-direction:column;align-items:center;gap:1px;position:relative;font:inherit;color:var(--text);cursor:pointer}
+.zc canvas{width:100%;max-width:100px;aspect-ratio:1;height:auto}
+.zc .rar{position:absolute;top:3px;left:0;right:0;text-align:center;font-size:9px;letter-spacing:.06em}
+.zc b{font-family:var(--f-serif);font-size:10px;font-weight:600;line-height:1.3;min-height:2.6em;display:flex;align-items:center;text-align:center;word-break:break-all}
+.zc .cnt{font-size:10px;color:var(--text-2);font-variant-numeric:tabular-nums}
+.zc .kira{position:absolute;top:16px;right:3px;font-size:9px;color:#1a1614;background:linear-gradient(120deg,#b98a5c,#f2d6ad,#b98a5c);border-radius:99px;padding:0 5px}
+.zc.none{cursor:default}
+.ov{position:fixed;inset:0;z-index:10;background-color:rgba(18,16,15,.97);background-image:radial-gradient(70% 40% at 50% 0%,rgba(255,186,110,.16),transparent 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;overflow-y:auto;
+  padding:calc(16px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));box-sizing:border-box}
+.bigcap{width:150px;height:150px;position:relative;cursor:pointer;animation:bob 1.1s ease-in-out infinite alternate;border:0;background:transparent;padding:0}
+.bigcap .h{position:absolute;left:0;right:0;height:50%;box-sizing:border-box;border:1px solid rgba(0,0,0,.4);transition:transform .55s cubic-bezier(.3,1.3,.5,1),opacity .55s}
+.bigcap .h.t{top:0;border-radius:75px 75px 0 0;background:var(--c);box-shadow:inset -10px -8px 18px rgba(0,0,0,.25)}
+.bigcap .h.b{bottom:0;border-radius:0 0 75px 75px;background:#e9e2d8;box-shadow:inset -10px -12px 18px rgba(0,0,0,.2)}
+.bigcap.open{animation:none}
+.bigcap.open .h.t{transform:translate(-60px,-80px) rotate(-35deg);opacity:0}
+.bigcap.open .h.b{transform:translate(60px,80px) rotate(35deg);opacity:0}
+@keyframes bob{from{transform:translateY(0) rotate(-3deg)}to{transform:translateY(-10px) rotate(3deg)}}
+.tap{font-family:var(--f-serif);font-size:14px;letter-spacing:.14em;color:var(--text-2)}
+.res{width:min(100%,420px);display:flex;flex-direction:column;align-items:center;gap:12px;animation:pop .5s cubic-bezier(.3,1.3,.5,1)}
+@keyframes pop{from{transform:scale(.75);opacity:0}to{transform:scale(1);opacity:1}}
+.rcard{position:relative;width:100%;box-sizing:border-box;padding:22px 12px 22px;text-align:center;overflow:hidden}
+.rays{position:absolute;inset:-40%;background:repeating-conic-gradient(from 0deg,rgba(217,173,127,.08) 0 8deg,transparent 8deg 16deg);animation:spin 18s linear infinite;pointer-events:none}
+.rays.ssr{background:repeating-conic-gradient(from 0deg,rgba(242,214,173,.13) 0 8deg,transparent 8deg 16deg)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.rtag{position:relative;display:inline-block;font-family:var(--f-serif);font-weight:600;font-size:12px;letter-spacing:.18em;color:var(--copper-2);border-top:1px solid var(--c);border-bottom:1px solid var(--c);padding:3px 14px}
+.rnew{position:absolute;top:14px;right:14px;font-family:var(--f-cap);font-weight:700;font-size:12px;letter-spacing:.14em;color:var(--copper-2)}
+.rkira{position:absolute;top:14px;left:14px;font-size:11px;color:#1a1614;background:linear-gradient(120deg,#b98a5c,#f2d6ad,#b98a5c);border-radius:99px;padding:1px 10px}
+.rcard canvas{position:relative;width:min(60vw,220px);aspect-ratio:1;height:auto;display:block;margin:8px auto 0}
+.rcard .shine{position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,236,210,.32) 45%,rgba(242,214,173,.2) 50%,transparent 62%);background-size:250% 100%;animation:shine 2.4s ease-in-out infinite;pointer-events:none;mix-blend-mode:screen}
+@keyframes shine{from{background-position:120% 0}to{background-position:-120% 0}}
+.rname{position:relative;font-family:var(--f-serif);font-weight:600;font-size:22px;letter-spacing:.1em;line-height:1.3}
+.rname::after{content:"";display:block;width:120px;height:12px;margin:10px auto 0;background:var(--orn) center/contain no-repeat}
+.rdesc .sen{display:block;margin-bottom:.55em}.rdesc .sen:last-child{margin-bottom:0}
+.rdesc{position:relative;font-size:12.5px;line-height:1.75;margin:12px -6px 0;text-align:center;color:#d8d0c5;word-break:keep-all;overflow-wrap:anywhere;letter-spacing:0}
+.fortune{width:100%;box-sizing:border-box;padding:16px 18px;display:flex;flex-direction:column;gap:4px;text-align:left}
+.fortune .luck{font-family:var(--f-serif);font-weight:800;font-size:24px;line-height:1.3;color:var(--copper-2)}
+.fortune .luck small{font-size:11px;font-weight:600;color:var(--text-2);margin-right:8px;letter-spacing:.14em}
+.fortune p{margin:0;font-size:13px;line-height:1.85}
+.fortune .lucky{font-size:12px;color:var(--text-2)}
+.rbtns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.rbtns .btn{font-size:14px;padding:11px 24px}
+.toast{font-size:12px;color:var(--copper-2);min-height:1em;text-align:center}
+.conf{position:fixed;top:-20px;width:6px;height:10px;z-index:11;pointer-events:none;animation:fall linear forwards;border-radius:1px}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+
+
+/* jackpot */
+.jp{position:relative;width:min(100%,360px);display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.jp .burst{position:fixed;inset:-50%;background:repeating-conic-gradient(from 0deg,rgba(242,214,173,.16) 0 7deg,transparent 7deg 14deg);animation:spin 10s linear infinite;pointer-events:none;z-index:-1}
+.jp .glow{position:fixed;inset:0;background:radial-gradient(circle at 50% 35%,rgba(255,200,120,.35),transparent 55%);pointer-events:none;z-index:-1;animation:flash 1.2s ease-out}
+@keyframes flash{0%{opacity:0}15%{opacity:1}100%{opacity:.7}}
+.jp .big{font-family:var(--f-serif);font-weight:800;font-size:clamp(44px,14vw,64px);letter-spacing:.06em;line-height:1.1;color:#f2d6ad;
+  text-shadow:0 0 24px rgba(255,186,110,.6),0 2px 0 #8a5a32;animation:papan .7s cubic-bezier(.2,1.6,.4,1) both}
+.jp .big small{display:block;font-family:var(--f-cap);font-size:.26em;letter-spacing:.4em;color:var(--copper-2);text-shadow:none}
+.jp .big small{font-family:var(--f-serif);font-weight:700;font-size:max(13px,.26em);letter-spacing:.2em;margin-bottom:6px}
+@keyframes papan{0%{transform:scale(.2) rotate(-12deg);opacity:0}60%{transform:scale(1.18) rotate(3deg);opacity:1}100%{transform:scale(1) rotate(0)}}
+.jp .ticket{animation:pop .6s .35s cubic-bezier(.3,1.4,.5,1) both}
+.jp .note{font-size:13px;color:var(--text-2);line-height:1.8;margin:0}
+/* coupon */
+.mycp{width:100%;box-sizing:border-box;padding:14px 14px 12px;display:flex;flex-direction:column;gap:8px}
+.mycp h2{margin:0;font-family:var(--f-serif);font-weight:600;font-size:15px;letter-spacing:.12em;text-align:center}
+.cprow{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;border:1px dashed rgba(185,138,92,.5);padding:10px 12px;border-radius:2px}
+.cprow b{font-family:var(--f-cap);font-size:18px;color:var(--copper-2)}
+.cprow small{display:block;font-size:11px;color:var(--text-2)}
+.cprow.off{opacity:.45}
+.cpwin{position:relative;width:100%;box-sizing:border-box;padding:16px;text-align:center;border:1px solid var(--copper-2);background:linear-gradient(135deg,rgba(217,173,127,.22),rgba(185,138,92,.08));border-radius:2px}
+.cpwin b{display:block;font-family:var(--f-serif);font-weight:800;font-size:20px;color:var(--copper-2);letter-spacing:.08em}
+.cpwin p{margin:4px 0 10px;font-size:12px;color:var(--text-2)}
+.ticket{position:relative;width:min(100%,340px);box-sizing:border-box;padding:22px 20px 18px;text-align:center;background:linear-gradient(160deg,#2b2420,#1c1816);border:1px solid var(--copper-2);border-radius:6px;overflow:hidden}
+.ticket::before,.ticket::after{content:"";position:absolute;top:58%;width:22px;height:22px;border-radius:50%;background:var(--bg);border:1px solid var(--copper-2)}
+.ticket::before{left:-12px}.ticket::after{right:-12px}
+.ticket .tl{font-family:var(--f-cap);letter-spacing:.32em;font-size:11px;color:var(--copper)}
+.ticket .off{font-family:var(--f-cap);font-weight:700;font-size:64px;line-height:1;color:var(--copper-2);margin:6px 0 2px;text-shadow:0 0 24px rgba(255,186,110,.3)}
+.ticket .off small{font-size:.4em}
+.ticket ul.rules{list-style:none;padding:0}.ticket ul.rules li{padding-left:1em;text-indent:-1em}.ticket ul.rules li::before{content:'・'}
+.jp .ticket .fort{display:none}
+.ticket .off .what+.what{}.ticket .sub b{font-size:20px;color:var(--text);font-weight:800;letter-spacing:.06em}.ticket .off:has(.what:last-child) .what{font-size:15px;flex-basis:100%;margin-top:4px}.jp .ticket .tl{margin-bottom:4px}
+.ticket .fort{font-family:var(--f-serif);font-weight:800;font-size:26px;letter-spacing:.08em;color:var(--text);margin-top:10px}
+.ticket .off{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;column-gap:10px;font-size:58px}
+.ticket .off .what{font-family:var(--f-serif);font-weight:800;font-size:28px;letter-spacing:.04em;color:var(--copper-2)}
+.ticket .sub{font-family:var(--f-serif);font-size:13px;color:var(--text-2);margin:0 0 12px}
+.ticket .msg{font-family:var(--f-serif);font-size:14px;margin:0 0 10px}
+.ticket .perf{border-top:1px dashed rgba(185,138,92,.6);margin:12px -20px 12px}
+.ticket dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0;font-size:12px;text-align:left}
+.ticket dt{color:var(--text-2)}.ticket dd{margin:0;font-variant-numeric:tabular-nums;text-align:right}
+.ticket .clock{font-family:var(--f-cap);font-weight:700;font-size:22px;letter-spacing:.08em;color:var(--text);font-variant-numeric:tabular-nums;margin-top:6px}
+.ticket .live{font-size:10px;color:var(--text-2)}
+.ticket .sweep{position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,236,210,.14) 50%,transparent 65%);background-size:250% 100%;animation:shine 2.6s linear infinite;pointer-events:none}
+.ticket .rules{font-size:10px;color:var(--text-2);line-height:1.6;margin:10px 0 0;text-align:left}
+.stamp{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%) rotate(-14deg);border:3px solid #d9776a;color:#d9776a;font-family:var(--f-serif);font-weight:800;font-size:26px;letter-spacing:.1em;padding:6px 16px;border-radius:6px;background:rgba(21,19,18,.55);white-space:nowrap;line-height:1.2}
+.stamp small{display:block;font-size:11px;letter-spacing:0}
+.demo{position:absolute;top:10px;right:-34px;transform:rotate(35deg);background:#d9776a;color:#1a1614;font-size:11px;font-weight:700;letter-spacing:.1em;padding:3px 40px;z-index:2}
+.ticket .code{font-family:ui-monospace,Menlo,monospace;font-weight:700;font-size:24px;letter-spacing:.12em;color:var(--text);background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:4px;padding:8px 10px;margin:4px auto 0;display:inline-block}
+.ticket .code{font-size:40px;letter-spacing:.32em;padding:6px 8px 6px 20px;margin-top:2px}
+.ticket .codel{font-size:11px;letter-spacing:.2em;color:var(--text-2);margin-top:2px}
+.hold{position:relative;overflow:hidden;width:min(100%,340px);font:inherit;font-size:13px;font-weight:700;border:1px solid var(--line);background:transparent;color:var(--text-2);border-radius:2px;padding:14px;cursor:pointer;touch-action:none;-webkit-user-select:none;user-select:none}
+.hold i{position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(217,119,106,.35)}
+.hold span{position:relative}
+@media (prefers-reduced-motion:reduce){.ticket .sweep{animation:none}.shake .cap,.bigcap,.rays,.rcard .shine,.conf{animation:none!important}.handle{transition:none}}
+
+/* ---- shooting star ---- */
+.shoot{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.shoot i{position:absolute;width:160px;height:1.5px;border-radius:2px;background:linear-gradient(90deg,rgba(255,240,210,0),rgba(255,236,200,.85) 85%,#fff);
+  box-shadow:0 0 6px rgba(255,220,160,.8);transform:rotate(var(--a));opacity:0;animation:shoot 1.1s ease-out forwards}
+.shoot i::after{content:"";position:absolute;right:-3px;top:-2.5px;width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 10px 3px rgba(255,230,180,.9)}
+@keyframes shoot{0%{opacity:0;translate:0 0}10%{opacity:1}100%{opacity:0;translate:var(--dx) var(--dy)}}
+main{position:relative;z-index:1}
+h1{background:linear-gradient(100deg,#f3e6d2 0%,#f3e6d2 40%,#fff6d8 47%,#ffd27a 50%,#fff6d8 53%,#f3e6d2 60%,#f3e6d2 100%);background-size:250% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 4.5s linear infinite;filter:drop-shadow(0 0 14px rgba(255,200,120,.35))}
+h1 small{-webkit-text-fill-color:var(--copper-2)}
+@keyframes shimmer{from{background-position:120% 0}to{background-position:-130% 0}}
+.dome{animation:domeglow 3.2s ease-in-out infinite}
+@keyframes domeglow{50%{box-shadow:inset 0 -18px 40px rgba(0,0,0,.45),0 0 60px rgba(255,200,120,.35),0 0 120px rgba(255,170,90,.15)}}
+.machine::before{content:"";position:absolute;inset:-14% -20% 20%;background:radial-gradient(circle,rgba(255,210,140,.22),transparent 62%);z-index:0;pointer-events:none;animation:halo 3.2s ease-in-out infinite}
+@keyframes halo{50%{opacity:.5;transform:scale(1.06)}}
+#btnSpin{position:relative;overflow:hidden;box-shadow:0 0 22px rgba(255,190,110,.45),0 6px 0 #6e4a2c}
+#btnSpin::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.65) 50%,transparent 65%);background-size:250% 100%;animation:shimmer 2.4s linear infinite}
+#btnSpin:disabled::after{display:none}
+.rlead{font-family:var(--f-serif);font-weight:600;font-size:14px;letter-spacing:.08em;color:var(--copper-2);text-align:center;margin:6px 0 2px;text-shadow:0 0 12px rgba(255,190,110,.5)}
+@media (prefers-reduced-motion: reduce){.shoot i,h1,.dome,.machine::before,#btnSpin::after{animation:none}.shoot{display:none}}
+</style>
+
+<div class="shoot" id="shoot" aria-hidden="true"></div>
+<main>
+  <h1><small>HEUREUSE</small>今日のしあわせケーキ</h1>
+  <p class="sub"><span id="subLimit"></span>ガチャをまわして、<br>今日のあなたにおすすめのケーキと運勢をうらなおう。<br>1日2回まわせるよ。<br><b style="color:var(--copper-2)">5%OFFクーポンやNoirのホール</b>が当たるかも!</p>
+  <div class="machine">
+    <div class="dome" id="dome"></div>
+    <div class="body"><span class="brand">HEUREUSE</span><button class="handle" id="handle" aria-label="ハンドルをまわす"></button><span class="slot"></span></div>
+  </div>
+  <div class="status" id="status"></div>
+  <button class="btn" id="btnSpin">まわす！</button>
+  <section class="card mycp" id="mycp" hidden><h2>マイクーポン</h2><div id="cplist"></div><button class="btn sub" id="cpReset" style="margin-top:12px;font-size:12px" hidden>見本のクーポンをぜんぶ消す</button></section>
+
+
+  <section class="card zukan">
+    <div class="zhead"><h2>ケーキ図鑑</h2><span id="zstat"></span></div>
+    <div class="zgrid" id="zgrid"></div>
+  </section>
+</main>
+
+<div class="ov" id="ov" hidden></div>
+
+<script>
+/* ---- shared cheesecake illustrations: the eight HEUREUSE cakes, shaded (no outlines) ---- */
+const CAKE_FACES=true; // false にすると顔なしのリアルなケーキになる
+const CAKES={
+  noir:   {n:'ノワール',          fr:'Noir',              s:'ノワール'},
+  blanc:  {n:'ブラン',            fr:'blanche',           s:'ブラン'},
+  fromage:{n:'ガトーフロマージュ',fr:'gâteau au fromage', s:'フロマージュ'},
+  mochi:  {n:'モチブイ',          fr:'A moitié bouilli',  s:'モチブイ'},
+  bleue:  {n:'ブルー',            fr:'bleue',             s:'ブルー'},
+  patata: {n:'パタータ',          fr:'potato',            s:'パタータ'},
+  comte:  {n:'ガトーコンテ',      fr:'gâteau au Comté',   s:'コンテ'},
+  gruyere:{n:'グリュイエール',    fr:'gâteau au gruyère', s:'グリュイエール'},
+};
+const CAKE_KEYS=['noir','blanc','fromage','mochi','bleue','patata','comte','gruyere'];
+
+function _poly(g,pts){g.beginPath();pts.forEach(([x,y],i)=>i?g.lineTo(x,y):g.moveTo(x,y));g.closePath();}
+function _rnd(i){const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x);}
+function _dots(g,n,col,x0,x1,y0,y1,r0,r1,seed=1){g.fillStyle=col;for(let i=0;i<n;i++){const x=x0+(x1-x0)*_rnd(i+seed),y=y0+(y1-y0)*_rnd(i+seed+500),r=r0+(r1-r0)*_rnd(i+seed+900);g.beginPath();g.ellipse(x,y,r,r*.7,_rnd(i)*3,0,7);g.fill();}}
+function _shadow(g,cx,cy,rx,ry){const gr=g.createRadialGradient(cx,cy,0,cx,cy,rx);gr.addColorStop(0,'rgba(70,40,20,.28)');gr.addColorStop(1,'rgba(70,40,20,0)');
+  g.save();g.translate(cx,cy);g.scale(1,ry/rx);g.translate(-cx,-cy);g.fillStyle=gr;g.beginPath();g.arc(cx,cy,rx,0,7);g.fill();g.restore();}
+function cakeFace(g,x,y,s){
+  if(!CAKE_FACES)return;
+  const e=s*.11;g.fillStyle='#4a2a16';g.beginPath();g.arc(x-s*.42,y,e,0,7);g.arc(x+s*.42,y,e,0,7);g.fill();
+  g.strokeStyle='#4a2a16';g.lineWidth=s*.08;g.lineCap='round';g.beginPath();g.arc(x,y+s*.06,s*.18,.18*Math.PI,.82*Math.PI);g.stroke();
+  g.fillStyle='rgba(255,120,140,.42)';g.beginPath();g.ellipse(x-s*.72,y+s*.2,s*.17,s*.1,0,0,7);g.ellipse(x+s*.72,y+s*.2,s*.17,s*.1,0,0,7);g.fill();
+}
+
+/* wedge cut from a round cake, seen from the front-left */
+function wedge(g,s,o){
+  const T=[-1.0*s,.06*s],BL=[-.08*s,-.5*s],BR=[.98*s,-.18*s],C=[.62*s,-.64*s],h=o.h*s;
+  const Tb=[T[0],T[1]+h],BRb=[BR[0],BR[1]+h];
+  _shadow(g,0,BRb[1]+.12*s,1.15*s,.2*s);
+  // top face
+  g.beginPath();g.moveTo(...T);g.lineTo(...BL);g.quadraticCurveTo(...C,...BR);g.closePath();
+  g.save();g.clip();g.fillStyle=o.top;g.fillRect(-2*s,-2*s,4*s,4*s);if(o.topTex)o.topTex(g,s);
+  const hl=g.createRadialGradient(-.2*s,-.3*s,.05*s,-.2*s,-.3*s,1.1*s);hl.addColorStop(0,'rgba(255,255,255,'+(o.gloss||.12)+')');hl.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=hl;g.fillRect(-2*s,-2*s,4*s,4*s);
+  if(o.rim){g.strokeStyle=o.rim;g.lineWidth=.09*s;g.beginPath();g.moveTo(...BL);g.quadraticCurveTo(...C,...BR);g.stroke();}
+  g.restore();
+  // front (cut) face
+  _poly(g,[T,BR,BRb,Tb]);g.save();g.clip();
+  const bg=g.createLinearGradient(T[0],0,BR[0],0);bg.addColorStop(0,o.body0);bg.addColorStop(1,o.body1);g.fillStyle=bg;g.fillRect(-2*s,-2*s,4*s,4*s);
+  if(o.bodyTex)o.bodyTex(g,s,T,BR,h);
+  const along=(t,off)=>[T[0]+(BR[0]-T[0])*t,T[1]+(BR[1]-T[1])*t+off];
+  const band=(y0,y1,col)=>{_poly(g,[along(0,y0),along(1,y0),along(1,y1),along(0,y1)]);g.fillStyle=col;g.fill();};
+  if(o.crust)band(-.01*s,o.crustT*s,o.crust);
+  if(o.base){band(h-o.baseH*s,h+.01*s,o.base);_dots(g,40,'rgba(110,60,20,.35)',T[0],BR[0],T[1]+h-o.baseH*s,BR[1]+h,.01*s,.025*s,7);}
+  else if(o.bottom)band(h-.05*s,h+.01*s,o.bottom);
+  if(o.side){const sg=g.createLinearGradient(BR[0]-o.sideW*s,0,BR[0],0);sg.addColorStop(0,'rgba(0,0,0,0)');sg.addColorStop(.35,o.side);sg.addColorStop(1,o.side);g.fillStyle=sg;g.fillRect(BR[0]-o.sideW*s,-2*s,o.sideW*s,4*s);}
+  const sh=g.createLinearGradient(0,T[1],0,T[1]+h);sh.addColorStop(0,'rgba(255,255,255,.12)');sh.addColorStop(1,'rgba(60,30,10,.12)');g.fillStyle=sh;g.fillRect(-2*s,-2*s,4*s,4*s);
+  g.restore();
+  // soft edge highlight between top and cut face
+  g.strokeStyle='rgba(255,255,255,.35)';g.lineWidth=.025*s;g.beginPath();g.moveTo(...T);g.lineTo(...BR);g.stroke();
+  const cx=(T[0]+BR[0])/2-.05*s,cy=(T[1]+BR[1])/2+((o.crustT||0)*s+(h-(o.base?o.baseH*s:0)))/2;
+  cakeFace(g,cx,cy,s*.27);
+  if(o.after)o.after(g,s);
+}
+/* square-cut bar seen from the front-left */
+function bar(g,s,o){
+  const h=o.h*s,dx=.4*s,dy=-.26*s,L=-.8*s,R=.42*s,B=.5*s,Tp=B-h;
+  _shadow(g,.05*s,B+.05*s,1.15*s,.22*s);
+  const faceFill=(pts,base,tex,shade)=>{_poly(g,pts);g.save();g.clip();g.fillStyle=base;g.fillRect(-2*s,-2*s,4*s,4*s);if(tex)tex();if(shade){g.fillStyle=shade;g.fillRect(-2*s,-2*s,4*s,4*s);}g.restore();};
+  // side face
+  faceFill([[R,Tp],[R+dx,Tp+dy],[R+dx,B+dy],[R,B]],o.body,()=>{
+    if(o.bodyTex)o.bodyTex(g,s,R,R+dx,Tp,B,true);
+    if(o.crust){_poly(g,[[R,Tp],[R+dx,Tp+dy],[R+dx,Tp+dy+o.crustT*s],[R,Tp+o.crustT*s]]);g.fillStyle=o.crust;g.fill();}
+    if(o.bottom){_poly(g,[[R,B-.05*s],[R+dx,B+dy-.05*s],[R+dx,B+dy],[R,B]]);g.fillStyle=o.bottom;g.fill();}
+  },'rgba(70,40,15,.16)');
+  // top face
+  faceFill([[L,Tp],[R,Tp],[R+dx,Tp+dy],[L+dx,Tp+dy]],o.top,()=>{if(o.topTex)o.topTex(g,s,L,R,Tp,dx,dy);
+    const hl=g.createRadialGradient(-.15*s,Tp-.15*s,.02*s,-.15*s,Tp-.15*s,.9*s);hl.addColorStop(0,'rgba(255,255,255,'+(o.gloss||.15)+')');hl.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=hl;g.fillRect(-2*s,-2*s,4*s,4*s);});
+  // front face
+  faceFill([[L,Tp],[R,Tp],[R,B],[L,B]],o.body,()=>{
+    if(o.bodyTex)o.bodyTex(g,s,L,R,Tp,B,false);
+    if(o.crust){g.fillStyle=o.crust;g.fillRect(L,Tp,R-L,o.crustT*s);}
+    if(o.bottom){g.fillStyle=o.bottom;g.fillRect(L,B-.05*s,R-L,.05*s);}
+    const sh=g.createLinearGradient(0,Tp,0,B);sh.addColorStop(0,'rgba(255,255,255,.14)');sh.addColorStop(1,'rgba(60,30,10,.1)');g.fillStyle=sh;g.fillRect(L,Tp,R-L,h);
+  });
+  g.strokeStyle='rgba(255,255,255,.4)';g.lineWidth=.022*s;g.beginPath();g.moveTo(L,Tp);g.lineTo(R,Tp);g.lineTo(R+dx,Tp+dy);g.moveTo(R,Tp);g.lineTo(R,B);g.stroke();
+  cakeFace(g,(L+R)/2,Tp+(o.crustT||0)*s+(h-(o.crustT||0)*s)*.48,s*.27);
+  if(o.after)o.after(g,s,L,R,Tp,dx,dy);
+}
+function pick(g,x,y,s,col,ang,len){g.save();g.translate(x,y);g.rotate(ang);const gr=g.createLinearGradient(0,0,s*.14,0);gr.addColorStop(0,col);gr.addColorStop(1,'rgba(255,255,255,.35)');
+  g.fillStyle=col;g.beginPath();g.moveTo(0,0);g.quadraticCurveTo(s*.06,-len*.5*s,0,-len*s);g.lineTo(s*.13,-len*s*.95);g.quadraticCurveTo(s*.18,-len*.5*s,s*.12,0);g.closePath();g.fill();g.restore();}
+
+function drawCake(g,key,s){
+  g.save();
+  switch(key){
+  case 'noir': wedge(g,s,{h:.8,top:'#1c0f07',body0:'#fbebc4',body1:'#e9be78',crust:'#2a150a',crustT:.06,bottom:'#7a4520',side:'#9a5a26',sideW:.2,rim:'#120803',gloss:.1,
+    topTex:(g,s)=>{_dots(g,22,'rgba(110,55,20,.55)',-.9*s,.9*s,-.55*s,0,.03*s,.11*s,3);_dots(g,30,'rgba(0,0,0,.45)',-.9*s,.9*s,-.55*s,0,.02*s,.07*s,9);},
+    bodyTex:(g,s,T,BR,h)=>{_dots(g,26,'rgba(200,150,80,.25)',T[0],BR[0],T[1]+.1*s,T[1]+h-.1*s,.008*s,.02*s,4);
+      g.fillStyle='rgba(150,80,30,.35)';for(let i=0;i<5;i++){g.fillRect(BR[0]-.18*s+i*.035*s,-1*s,.012*s,2*s);}}});break;
+  case 'blanc': wedge(g,s,{h:.74,top:'#fdfcf8',body0:'#faf7ef',body1:'#efe9dc',base:'#d6a35e',baseH:.15,gloss:.0,
+    topTex:(g,s)=>{const gr=g.createLinearGradient(0,-.45*s,0,0);gr.addColorStop(0,'rgba(200,205,215,.25)');gr.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=gr;g.fillRect(-2*s,-2*s,4*s,4*s);},
+    bodyTex:(g,s,T,BR,h)=>{_dots(g,30,'rgba(210,200,180,.35)',T[0],BR[0],T[1]+.06*s,T[1]+h-.2*s,.006*s,.014*s,5);}});break;
+  case 'comte': wedge(g,s,{h:.72,top:'#d98a2b',body0:'#fae6a6',body1:'#f2cf7c',crust:'#c4782a',crustT:.05,base:'#b4834a',baseH:.11,side:'#d9a050',sideW:.12,rim:'#a85f1c',gloss:.3,
+    topTex:(g,s)=>{_dots(g,16,'rgba(160,80,15,.45)',-.9*s,.9*s,-.42*s,0,.04*s,.12*s,11);_dots(g,10,'rgba(255,220,140,.35)',-.8*s,.8*s,-.4*s,-.05*s,.03*s,.08*s,21);}});break;
+  case 'gruyere': wedge(g,s,{h:.7,top:'#b06c34',body0:'#f6e7bf',body1:'#ebd39b',crust:'#9a5a26',crustT:.045,bottom:'#c79a5a',side:'#c98f4a',sideW:.12,rim:'#8a4d1e',gloss:.1,
+    topTex:(g,s)=>{_dots(g,14,'rgba(130,70,25,.4)',-.9*s,.9*s,-.42*s,0,.04*s,.1*s,31);g.fillStyle='rgba(255,255,255,.28)';g.fillRect(-2*s,-2*s,4*s,4*s);_dots(g,520,'rgba(255,255,255,.9)',-1*s,1*s,-.6*s,.06*s,.005*s,.014*s,41);_dots(g,40,'rgba(255,255,255,.55)',-1*s,1*s,-.6*s,.06*s,.02*s,.04*s,47);}});break;
+  case 'fromage': bar(g,s,{h:.8,top:'#d9a04c',body:'#f8e8b8',crust:'#c88a3c',crustT:.05,bottom:'#e3c88e',gloss:.18,
+    topTex:(g,s,L,R,T)=>{_dots(g,9,'rgba(160,85,25,.35)',L,R+.4*s,T-.26*s,T,.04*s,.09*s,51);}});break;
+  case 'mochi': bar(g,s,{h:.78,top:'#f4e4ae',body:'#fcf4da',crust:'#efdca2',crustT:.03,bottom:'#efe2bc',gloss:.35,
+    topTex:(g,s,L,R,T)=>{_dots(g,6,'rgba(230,200,120,.3)',L,R+.4*s,T-.26*s,T,.05*s,.12*s,61);}});break;
+  case 'bleue': bar(g,s,{h:.78,top:'#c3a65c',body:'#e2d9ab',crust:'#b39248',crustT:.045,bottom:'#cfc08a',gloss:.15,
+    topTex:(g,s,L,R,T)=>{_dots(g,10,'rgba(120,85,30,.3)',L,R+.4*s,T-.26*s,T,.025*s,.06*s,71);},
+    bodyTex:(g,s,x0,x1,T,B)=>{_dots(g,60,'rgba(90,120,110,.5)',x0,x1,T+.08*s,B-.08*s,.006*s,.016*s,81);},
+    after:(g,s,L,R,T)=>{pick(g,-.12*s,T-.12*s,s,'#7fc241',-.3,.55);pick(g,.02*s,T-.13*s,s,'#f2c936',-.1,.45);}});break;
+  case 'patata': bar(g,s,{h:.78,top:'#e0a238',body:'#fde38e',crust:'#d48f2e',crustT:.05,bottom:'#e8c66a',gloss:.35,
+    topTex:(g,s,L,R,T)=>{_dots(g,10,'rgba(160,80,20,.35)',L,R+.4*s,T-.26*s,T,.03*s,.07*s,91);},
+    bodyTex:(g,s,x0,x1,T,B)=>{_dots(g,14,'rgba(235,190,80,.4)',x0,x1,T+.1*s,B-.1*s,.01*s,.03*s,95);}});break;
+  }
+  g.restore();
+}
+function cakeCanvas(cv,key,opt={}){
+  const g=cv.getContext('2d'),w=cv.width,h=cv.height;g.clearRect(0,0,w,h);
+  if(opt.bg){g.fillStyle=opt.bg;g.beginPath();g.arc(w/2,h/2,Math.min(w,h)*.47,0,7);g.fill();}
+  const s=Math.min(w,h)*.36;
+  if(opt.silhouette){
+    const t=document.createElement('canvas');t.width=w;t.height=h;const tg=t.getContext('2d');
+    tg.translate(w/2,h*.55);drawCake(tg,key,s);tg.setTransform(1,0,0,1,0,0);
+    tg.globalCompositeOperation='source-in';tg.fillStyle='rgba(238,232,223,.09)';tg.fillRect(0,0,w,h);
+    g.drawImage(t,0,0);return;
+  }
+  g.save();g.translate(w/2,h*.55);drawCake(g,key,s);g.restore();
+}
+
+/* ---- HEUREUSE coupon codes (shared by the gacha and the staff checker) ----
+   Code = type(1) + issue day(3) + random(4) + check(2), shown as XXXXX-XXXXX.
+   The check letters prove the code came from this gacha; the staff checker keeps the used list. */
+const CP_ALPHA='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+const CP_SECRET='HEUREUSE/noir-blanc/2026';
+const CP_DEMO_SECRET='HEUREUSE/DEMO';
+const CP_DAYS=7;           // 有効期限(発行日をふくめて何日間)
+const CP_NOIR_PER_MONTH=1; // Noirのホールは毎月何名まで
+const CP_NOIR_SIZE='12cm';  // Noirのホールのサイズ
+const CP_NOIR_VALUE='4,500円相当';
+const CP_BUDGET=13000;     // 1か月の景品予算(円)= 月の売上の2%
+const CP_TYPES={
+  N:{id:'noir',fortune:'ノワール大吉',title:'Noirのホール('+CP_NOIR_SIZE+') プレゼント',short:'Noir12cm',value:'ホール'+CP_NOIR_SIZE+'・'+CP_NOIR_VALUE,
+    head:'<span>Noir</span><span class="what">(バスクチーズケーキ)</span>',sub:'<b>ホール'+CP_NOIR_SIZE+'</b> プレゼント<br>('+CP_NOIR_VALUE+')',staff:'Noir(バスクチーズケーキ)のホール'+CP_NOIR_SIZE+'をお渡しください。',
+    rules:['Noir(バスクチーズケーキ)のホール'+CP_NOIR_SIZE+'('+CP_NOIR_VALUE+')を1台プレゼント','数に限りがあります。なくなった場合は、<br>お会計5%OFFとしてお使いいただけます']},
+  B:{id:'bill',fortune:'大大大大吉',title:'お会計から5%OFF',short:'お会計5%OFF',value:'お会計',
+    head:'<span class="what">お会計</span><span>5<small>%OFF</small></span>',sub:'ケーキ・ドリンク・フード・セット、ぜんぶOK',staff:'お会計の合計(ケーキ・ドリンク・フード・ケーキセットもふくむ)から5%OFFにしてください。',
+    rules:['ケーキ・ドリンク・フード・ケーキセットをふくむ、<br>お会計の合計から5%OFF']},
+  C:{id:'cake',fortune:'大吉',title:'ケーキ5%OFF',short:'ケーキ5%OFF',value:'ケーキ',
+    head:'<span class="what">ケーキ</span><span>5<small>%OFF</small></span>',sub:'何個でもOK',staff:'ケーキの代金を5%OFFにしてください(個数制限なし)。ドリンク・フード・平日限定の日替わり「本日のケーキセット」は対象外です。',
+    rules:['ケーキが何個でも5%OFF','ドリンク・フード、<br>平日限定の日替わり「本日のケーキセット」は対象外です']},
+};
+const CP_RULES_COMMON=['有効期限内に1回だけお使いいただけます','お会計1回につき1枚までです。<br>ほかのクーポン・割引とはいっしょに使えません','スクリーンショットの画面でもお使いいただけます'];
+const CP_DAY=86400000;
+function cpDayNum(t){const d=new Date(t);return Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/CP_DAY);}
+function cpDayStr(n){const d=new Date(n*CP_DAY);return `${d.getUTCFullYear()}/${d.getUTCMonth()+1}/${d.getUTCDate()}`;}
+/* 4ケタの確認番号: [発行日の下1ケタ][種類の数字][ランダム2ケタ]
+   種類の数字: 0〜4=大吉(ケーキ) 5〜8=大大大大吉(お会計) 9=ノワール大吉 */
+const CP_TDIG={C:[0,1,2,3,4],B:[5,6,7,8],N:[9]};
+function cpTypeOf(dg){return dg===9?'N':dg>=5?'B':'C';}
+function cpMake(type,t){
+  const ds=CP_TDIG[type],r=Math.floor(Math.random()*100);
+  return String(cpDayNum(t)%10)+ds[Math.floor(Math.random()*ds.length)]+String(r).padStart(2,'0');
+}
+/* returns {ok:false,reason} or {ok:true,code,type,issue,exp,key} */
+function cpParse(input,now){
+  const s=String(input).replace(/[０-９]/g,c=>String.fromCharCode(c.charCodeAt(0)-65248)).replace(/\D/g,'');
+  if(s.length!==4)return{ok:false,reason:'確認番号は4ケタの数字です'};
+  const today=cpDayNum(now||Date.now()),d=+s[0],issue=today-((today-d)%10+10)%10;
+  return{ok:true,code:s,type:cpTypeOf(+s[1]),issue,exp:issue+CP_DAYS-1,key:s+'@'+issue};
+}
+
+(()=>{
+const $=id=>document.getElementById(id);
+const track=(n,p)=>{try{window.gtag&&window.gtag('event',n,p||{})}catch(e){}};
+
+/* ====== お店で変えるところ ====== */
+const DEMO=false;   // 見本版:何回でもまわせる・クーポンに「見本」がつく。お客さん用に公開するときは false にする
+const TEST=DEMO;
+const PRIZE_RATE=DEMO?{N:0.1,B:0.2,C:0.2}:{N:0.0005,B:0.07,C:0.23}; // 1回あたりの確率 N=ホールNoir(2000回に1回) B=お会計5%(大大大大吉) C=ケーキ5%(大吉)  → 100回で約30回当たり
+const SLOT_NAMES={a:'15時まで',b:'15時以降'}; // 0〜15時・15〜24時に1回ずつ
+/* ================================= */
+
+const POOL=[
+  {k:'noir',   r:'N',  w:19, d:'当店一番人気のバスクチーズケーキ。\nスペイン・バスク地方の\n伝統的なレシピをもとに独自にアレンジ。\n香ばしく焼き上げた表面と、\nクリームチーズの濃厚なコク、ふんわり広がる\nバニラの香りが楽しめる贅沢な一品。'},
+  {k:'blanc',  r:'N',  w:19, d:'クリームチーズ・サワークリーム・\nマスカルポーネを贅沢に使用。\nふんわりなめらかな口どけと、\nやさしい酸味が織りなすまろやかな味わい。\n軽やかな美味しさが魅力の、\n当店人気No.2のレアチーズケーキ。'},
+  {k:'fromage',r:'N',  w:19, d:'クリームチーズをベースに、\n生クリームやブロンドチョコを贅沢に使用。\nバニラの甘い香りに、\n杏仁を思わせるトンカ豆の独特な風味が重なる。\nしっとりとした口あたりと、\n思わずクセになる奥深い味わいが魅力の、\n当店人気No.3のベイクドチーズケーキ。'},
+  {k:'mochi',  r:'R',  w:13, d:'ヨーグルトの風味を生かし、\n超低温でじっくり焼き上げたチーズケーキ。\nチーズのまろやかなコクと\nヨーグルトの爽やかな酸味が絶妙に調和。\nヨーグルトの美味しさを存分に楽しめる一品。'},
+  {k:'bleue',  r:'R',  w:13, d:'ゴルゴンゾーラをふんだんに使用。\nブルーチーズならではの芳醇な香りと\n豊かなコクに、ほどよい甘さと黒胡椒がアクセント。\nお酒との相性も抜群で、ブルーチーズ好きには\nたまらない大人のチーズケーキ。'},
+  {k:'comte',  r:'SR', w:7,  d:'フランスで最も親しまれている\nチーズのひとつ「コンテ」を贅沢に使用。\n熟成チーズならではの\n豊かな旨みと香ばしさが広がる、\nコク深い味わいのチーズケーキ。'},
+  {k:'gruyere',r:'SR', w:7,  d:'「スイスチーズの女王」と呼ばれる\nグリュイエールチーズを使用。\nナッツのような香ばしさと熟成チーズならではの\n豊かなコクが楽しめる、贅沢なチーズケーキ。'},
+  {k:'patata', r:'SSR',w:3,  d:'じゃがいも×チーズ×焦がしバターを\n組み合わせた季節限定のチーズケーキ。\n口いっぱいに広がる濃厚なバターの風味と、\nじゃがいもの素朴な味わいが魅力。\n素材の美味しさを楽しめる、\n個性豊かなチーズケーキ。'},
+];
+const brk=s=>s.split(/(?<=。)\n/).map(b=>'<span class="sen">'+b.split('\n').join('<br>')+'</span>').join('');
+const LBL={N:'定番',R:'変わり種',SR:'ちょっとレア',SSR:'季節限定'};
+const KIRA_RATE=1/12;
+const RCOL={N:'#8d8a86',R:'#a5876e',SR:'#c99a6b',SSR:'#e2be8e'};
+const LUCK=[
+  {k:'中吉',w:25,m:['思いつきが当たる日。いつもと違うメニューを頼んでみて。','人にやさしくすると、2倍になって返ってきます。']},
+  {k:'小吉',w:30,m:['小さなしあわせが見つかる日。窓ぎわの席がおすすめ。','のんびりが吉。コーヒーはゆっくり味わって。']},
+  {k:'吉',  w:25,m:['いつもどおりがいちばん。定番のケーキでほっとして。','誰かとケーキを半分こすると、いいことがあるかも。']},
+  {k:'末吉',w:5, m:['今日はひかえめに。そのぶん明日のケーキがおいしくなります。']},
+];
+const PRIZE_MSG={N:'奇跡みたいなしあわせが、あなたのもとに。<br>まっ黒でなめらかなノワールを、<br>ホールでまるごとどうぞ。',B:'今日はとびきりハッピーな日。<br>好きなケーキと飲みものを並べて、<br>ゆっくりしあわせ時間を。',C:'しあわせの予感。<br>チーズケーキをひとくち、<br>がんばったあなたへのごほうびにどうぞ。'};
+const DRINKS=['ホットコーヒー(ハンドドリップ)','ホットコーヒー(ハンドドリップ)','アイスコーヒー','アールグレイ','ダージリン','ロイヤルミルクティー','ティーソーダ','キャラメルラテ','カフェラテ','レモンスカッシュ','りんごジュース'];
+
+/* ---- storage ---- */
+const KEY='heureuse-gacha-v1';
+const today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
+let S={col:{},total:0,coupons:[],spun:{}};
+try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s)S=Object.assign(S,s);}catch(e){}
+if(!S.spun||typeof S.spun!=='object')S.spun={};
+S.coupons=(S.coupons||[]).filter(c=>c&&/^\d{4}$/.test(c.code));
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+function slotNow(d=new Date()){const key=`${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;return{key,slot:d.getHours()<15?'a':'b'};}
+function canSpin(){if(TEST)return true;const {key,slot}=slotNow();return !(S.spun[key]||[]).includes(slot);}
+function markSpun(){if(TEST)return;const {key,slot}=slotNow();S.spun={[key]:[...(S.spun[key]||[]),slot]};}
+const left=()=>canSpin()?1:0;
+function rollDay(){}
+
+/* ---- machine ---- */
+const CAPC=['#b98a5c','#8d8a86','#3a3532','#d9ad7f','#6f6a66','#a5876e'];
+function fillDome(){
+  const d=$('dome');d.innerHTML='';
+  const spots=[[8,56],[30,62],[52,58],[72,60],[18,36],[40,40],[62,38],[78,34],[28,16],[50,18],[66,74],[10,76],[38,78]];
+  spots.forEach(([x,y],i)=>{const c=document.createElement('span');c.className='cap';c.style.left=x+'%';c.style.top=y+'%';c.style.setProperty('--c',CAPC[i%CAPC.length]);c.style.transform=`rotate(${(i*47)%360}deg)`;d.append(c);});
+}
+function status(){
+  if(TEST){$('status').innerHTML=`見本版:何回でもまわせます(クーポンには「見本」がつきます)${S.total?`<br>これまでに <b>${S.total}</b> 回`:''}`;$('btnSpin').disabled=false;return;}
+  const {key,slot}=slotNow(),done=S.spun[key]||[];
+  const dots=['a','b'].map(k=>`<span style="opacity:${done.includes(k)?.35:1}">${SLOT_NAMES[k]}${done.includes(k)?'✓':''}</span>`).join(' ・ ');
+  if(canSpin()){$('status').innerHTML=`今は<b>${SLOT_NAMES[slot]}</b>の回。まわせるよ!<br><small>${dots}</small>`;$('btnSpin').disabled=false;}
+  else{const next=slot==='a'?'15時以降':'明日';
+    $('status').innerHTML=`${SLOT_NAMES[slot]}の回はまわしたよ。次は<b>${next}</b><br><small>${dots}</small>`;$('btnSpin').disabled=true;}
+}
+function pick(arr){let t=arr.reduce((a,x)=>a+x.w,0),r=Math.random()*t;for(const x of arr){r-=x.w;if(r<0)return x;}return arr[0];}
+
+/* ---- pull ---- */
+let busy=false;
+function spin(){
+  if(busy||!canSpin())return;busy=true;
+  const r=Math.random();let type=r<PRIZE_RATE.N?'N':r<PRIZE_RATE.N+PRIZE_RATE.B?'B':r<PRIZE_RATE.N+PRIZE_RATE.B+PRIZE_RATE.C?'C':null;
+  if(type==='N'&&S.noirWon)type='B'; // 同じスマホでNoirのホールは1回まで
+  if(type==='N'&&!TEST)S.noirWon=true;
+  let coupon=null;if(type){let code,n=0;do{code=cpMake(type,Date.now());}while(S.coupons.some(x=>x.code===code)&&++n<50);coupon={code,type,at:Date.now(),test:TEST};S.coupons.unshift(coupon);}
+  const item=pick(POOL),kira=!coupon&&Math.random()<KIRA_RATE;
+  const luck=coupon?{k:CP_TYPES[type].fortune,m:[PRIZE_MSG[type]]}:pick(LUCK),msg=luck.m[Math.floor(Math.random()*luck.m.length)],drink=DRINKS[Math.floor(Math.random()*DRINKS.length)];
+  const prev=S.col[item.k]||{n:0,kira:0};const isNew=!coupon&&prev.n===0;
+  if(!coupon)S.col[item.k]={n:prev.n+1,kira:prev.kira+(kira?1:0)};S.total++;markSpun();save();
+  track('gacha_pull',{cake:item.k,rarity:item.r,kira,prize:type||'none'});if(coupon&&!coupon.test)track('coupon_win',{type});
+  const h=$('handle');h.classList.remove('turn');void h.offsetWidth;h.classList.add('turn');
+  $('dome').classList.add('shake');
+  setTimeout(()=>{$('dome').classList.remove('shake');showCapsule({item,kira,luck,msg,drink,isNew,coupon});},1000);
+  status();
+}
+function showCapsule(R){
+  const ov=$('ov');ov.innerHTML='';
+  const cap=document.createElement('button');cap.className='bigcap';cap.style.setProperty('--c',R.coupon?'#f2d6ad':RCOL[R.item.r]);if(R.coupon)cap.style.filter='drop-shadow(0 0 18px rgba(255,200,120,.8))';cap.setAttribute('aria-label','カプセルをあける');
+  cap.innerHTML='<span class="h t"></span><span class="h b"></span>';
+  const t=document.createElement('div');t.className='tap';t.textContent='タップしてあけてね';
+  ov.append(cap,t);ov.hidden=false;cap.focus();
+  cap.onclick=()=>{cap.onclick=null;cap.classList.add('open');t.remove();setTimeout(()=>showCard(R),420);};
+}
+function showCard(R){
+  const ov=$('ov');ov.innerHTML='';
+  if(R.coupon){showJackpot(R);return;}
+  const c=CAKES[R.item.k],sr=R.item.r==='SR'||R.item.r==='SSR';
+  const wrap=document.createElement('div');wrap.className='res';
+  wrap.innerHTML=`
+    <div class="card rcard" style="--c:${RCOL[R.item.r]}">
+      ${sr?`<div class="rays ${R.item.r==='SSR'?'ssr':''}"></div>`:''}
+      <span class="rtag">${R.item.r==='SSR'?'★ '+LBL.SSR+' ★':LBL[R.item.r]}</span>
+      ${R.isNew?'<span class="rnew">NEW!</span>':''}${R.kira?'<span class="rkira">キラ</span>':''}
+      <div class="rlead">今日のあなたにおすすめのケーキは…</div>
+      <canvas width="460" height="460" aria-label="${c.n}"></canvas>
+      ${R.kira?'<div class="shine"></div>':''}
+      <div class="rname">${c.n}</div>
+      <p class="rdesc">${brk(R.item.d)}</p>
+    </div>
+    <div class="card fortune"><span class="luck"><small>今日の運勢</small>${R.luck.k}</span><p>${R.msg}</p><p class="lucky">ラッキードリンク:${R.drink}</p></div>
+    <div class="rbtns"><button class="btn" id="btnClose">図鑑にしまう</button><button class="btn sub" id="btnShare">シェア用にコピー</button></div>
+    <div class="toast" id="rToast"></div>`;
+  ov.append(wrap);
+  cakeCanvas(wrap.querySelector('canvas'),R.item.k,{bg:R.kira?'#3a2f26':'#2a2522'});
+  if(sr||R.kira)confetti(R.item.r==='SSR'?70:36);
+  $('btnClose').onclick=()=>{ov.hidden=true;ov.innerHTML='';busy=false;renderZukan();renderCoupons();status();$('btnSpin').focus();};
+  $('btnShare').onclick=()=>{
+    const txt=`今日のあなたにおすすめのケーキは「${c.n}」${R.kira?'(キラ)':''}【${LBL[R.item.r]}】! 運勢は${R.luck.k} #ウールーズ #今日のしあわせケーキ`;
+    try{navigator.clipboard.writeText(txt).then(()=>$('rToast').textContent='コピーしました',()=>$('rToast').textContent=txt);}catch(e){$('rToast').textContent=txt;}
+  };
+  $('btnClose').focus();
+}
+
+function showJackpot(R){
+  const ov=$('ov');ov.innerHTML='';
+  const c=R.coupon,T=CP_TYPES[c.type],w=document.createElement('div');w.className='jp';
+  w.innerHTML=`<div class="burst"></div><div class="glow"></div>
+    <div class="big" style="${T.fortune.length>3?'font-size:clamp(34px,10.5vw,50px);white-space:nowrap':''}"><small>おめでとうございます</small>${T.fortune}!</div>
+    ${ticketHTML(c,false)}
+    <p class="note">${R.msg}<br><br>クーポンは下の「マイクーポン」に入っています。<br><b style="color:var(--copper-2)">スクショしておくと安心</b>です。</p>
+    <div class="rbtns"><button class="btn" id="jpOpen">クーポンを見る</button><button class="btn sub" id="jpClose">とじる</button></div>`;
+  ov.append(w);confetti(c.type==='N'?160:110);setTimeout(()=>confetti(60),600);if(c.type==='N')setTimeout(()=>confetti(80),1300);
+  $('jpOpen').onclick=()=>openCoupon(c.code);
+  $('jpClose').onclick=()=>{ov.hidden=true;ov.innerHTML='';busy=false;renderCoupons();status();$('btnSpin').focus();};
+  $('jpOpen').focus();
+}
+function confetti(n){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const cols=['#b98a5c','#d9ad7f','#f2d6ad','#8d8a86','#eee8df'];
+  for(let i=0;i<n;i++){const e=document.createElement('i');e.className='conf';e.style.left=Math.random()*100+'vw';e.style.background=cols[i%5];
+    e.style.animationDuration=(1.6+Math.random()*1.6)+'s';e.style.animationDelay=(Math.random()*.4)+'s';
+    document.body.append(e);setTimeout(()=>e.remove(),3800);}
+}
+
+
+/* ---- coupons ---- */
+const expired=c=>cpDayNum(Date.now())>cpDayNum(c.at)+CP_DAYS-1;
+function ticketHTML(c,full){
+  const T=CP_TYPES[c.type],iss=cpDayNum(c.at);
+  return `<div class="ticket"><div class="sweep"></div>
+    <div class="tl">HEUREUSE COUPON</div>
+    <div class="fort">${T.fortune}!</div>
+    <div class="off">${T.head}</div>
+    <div class="sub">${T.sub}</div>
+    <p class="msg">お会計のときに、<br>この画面をお見せください</p>
+    <div class="codel">確認番号</div><div class="code">${c.code}</div>
+    ${full?`<div class="perf"></div><dl><dt>発行日</dt><dd>${cpDayStr(iss)}</dd><dt>有効期限</dt><dd>${cpDayStr(iss+CP_DAYS-1)} まで</dd></dl>
+    <ul class="rules">${T.rules.concat(CP_RULES_COMMON).map(r=>'<li>'+r+'</li>').join('')}</ul>`:''}
+    ${expired(c)?'<div class="stamp">期限切れ</div>':''}${c.test?'<div class="demo">見本</div>':''}</div>`;
+}
+function renderCoupons(){
+  const rb=$('cpReset');if(rb){rb.hidden=!TEST||!(S.coupons||[]).length;rb.onclick=()=>{S.coupons=[];S.noirWon=false;save();renderCoupons();};}
+  const list=(S.coupons||[]).filter(c=>!expired(c)||Date.now()-c.at<30*CP_DAY);
+  $('mycp').hidden=!list.length;
+  $('cplist').innerHTML=list.map(c=>{const T=CP_TYPES[c.type],ex=expired(c);
+    return `<div class="cprow ${ex?'off':''}"><div><b>${T.short}</b><small>${c.test?'見本 ・ ':''}No.${c.code} ・ ${ex?'期限切れ':cpDayStr(cpDayNum(c.at)+CP_DAYS-1)+'まで'}</small></div><button class="btn sub" data-cp="${c.code}">ひらく</button></div>`;}).join('');
+  $('cplist').querySelectorAll('[data-cp]').forEach(b=>b.onclick=()=>openCoupon(b.dataset.cp));
+}
+function openCoupon(code){
+  const c=S.coupons.find(x=>x.code===code);if(!c)return;
+  const ov=$('ov');ov.innerHTML='';ov.hidden=false;
+  const w=document.createElement('div');w.className='res';
+  w.innerHTML=ticketHTML(c,true)+`<p class="note" style="font-size:12px;color:var(--text-2);margin:0;text-align:center">スクショして保存しておくと安心です。</p>
+    <div class="rbtns"><button class="btn sub" id="cpClose">とじる</button></div>`;
+  ov.append(w);
+  $('cpClose').onclick=()=>{ov.hidden=true;ov.innerHTML='';busy=false;renderCoupons();};$('cpClose').focus();
+}
+
+/* ---- collection ---- */
+function renderZukan(){
+  const g=$('zgrid');g.innerHTML='';let got=0,kira=0;
+  POOL.forEach(p=>{
+    const c=CAKES[p.k],s=S.col[p.k]||{n:0,kira:0};if(s.n)got++;if(s.kira)kira++;
+    const b=document.createElement(s.n?'button':'div');b.className='zc'+(s.n?'':' none');
+    const cv=document.createElement('canvas');cv.width=cv.height=220;
+    b.innerHTML=`<span class="rar" style="color:${s.n?'#d9ad7f':'#5c5550'}">${LBL[p.r]}</span>${s.kira?'<span class="kira">キラ</span>':''}`;
+    b.append(cv);
+    b.insertAdjacentHTML('beforeend',`<b>${s.n?c.n:'？？？'}</b><span class="cnt">${s.n?'×'+s.n:'まだ'}</span>`);
+    cakeCanvas(cv,p.k,s.n?{bg:s.kira?'#3a2f26':'#2a2522'}:{silhouette:true});
+    if(s.n){b.setAttribute('aria-label',`${c.n} ${s.n}回`);b.onclick=()=>peek(p,s);}
+    g.append(b);
+  });
+  $('zstat').textContent=`${got}/${POOL.length} しゅるい ・ キラ ${kira}/${POOL.length}`;
+}
+function peek(p,s){
+  const ov=$('ov');ov.innerHTML='';const c=CAKES[p.k];
+  const w=document.createElement('div');w.className='res';
+  w.innerHTML=`<div class="card rcard"><span class="rtag" style="background:${RCOL[p.r]}">${LBL[p.r]}</span>${s.kira?'<span class="rkira">キラ ×'+s.kira+'</span>':''}
+    <canvas width="460" height="460" aria-label="${c.n}"></canvas><div class="rname">${c.n}</div><p class="rdesc">${brk(p.d)}</p><p class="rdesc" style="color:var(--mute)">これまでに ${s.n} 回でた</p></div>
+    <div class="rbtns"><button class="btn" id="btnPeekClose">とじる</button></div>`;
+  ov.append(w);cakeCanvas(w.querySelector('canvas'),p.k,{bg:s.kira?'#3a2f26':'#2a2522'});ov.hidden=false;
+  $('btnPeekClose').onclick=()=>{ov.hidden=true;ov.innerHTML='';};$('btnPeekClose').focus();
+}
+
+
+$('btnSpin').onclick=spin;$('handle').onclick=spin;
+if(!Array.isArray(S.coupons))S.coupons=[];if(TEST)$('subLimit').textContent='';fillDome();status();renderZukan();renderCoupons();
+setInterval(status,30000);
+})();
+
+/* shooting star: one thin streak now and then */
+(()=>{const w=document.getElementById('shoot');if(!w||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  function one(){const i=document.createElement('i'),ang=18+Math.random()*22,dist=260+Math.random()*220,rad=ang*Math.PI/180;
+    i.style.left=(Math.random()*70-10)+'%';i.style.top=(Math.random()*45)+'%';i.style.setProperty('--a',ang+'deg');
+    i.style.setProperty('--dx',(Math.cos(rad)*dist)+'px');i.style.setProperty('--dy',(Math.sin(rad)*dist)+'px');
+    w.append(i);setTimeout(()=>i.remove(),1300);setTimeout(one,3500+Math.random()*4500);}
+  setTimeout(one,1200);})();
+</script>
