@@ -867,7 +867,7 @@ async function openShareCard(R){
   o.onclick=e=>{if(e.target===o)close();};
   const {url,file,can}=await prepShare(R);
   o.innerHTML=`<div class="shbox"><img class="shimg" alt="${c.n}のシェアカード" src="${url}">
-    <p class="shmsg">${can?'画像を長押ししても保存できます':'画像を長押し →「写真に保存」で保存できます'}</p>
+    <p class="shmsg">${can?'「シェアする」からインスタやLINEに送れます<br>画像を長押しして保存もできます':'画像を長押し →「写真に保存」で保存できます'}</p>
     <div class="rbtns">${can?'<button class="btn" id="shGo">シェアする</button>':''}<button class="btn sub" id="shX">とじる</button></div>
     <button class="shcopy" id="shCopy">文章だけコピー</button></div>`;
   $('shX').onclick=close;
@@ -898,7 +898,7 @@ function showCard(R){
   cakeCanvas(wrap.querySelector('canvas'),R.item.k,{bg:R.kira?'#f1dcb8':'#f6ead7'});
   if(sr||R.kira)confetti(R.item.r==='SSR'?70:36);
   $('btnClose').onclick=()=>{ov.hidden=true;ov.innerHTML='';busy=false;renderZukan();renderCoupons();status();$('btnSpin').focus({preventScroll:true});};
-  $('btnShare').onclick=()=>shareCard(R);setTimeout(()=>prepShare(R),900);
+  $('btnShare').onclick=()=>openShareCard(R);setTimeout(()=>prepShare(R),900);
 
   $('btnClose').focus({preventScroll:true});
 }
