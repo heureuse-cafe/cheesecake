@@ -4,13 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="1日2回まわせる!チーズケーキ専門店ウールーズのおみくじガチャ。5%OFFクーポンやNoirのホールが当たるかも。">
+<meta name="theme-color" content="#f7f0e5">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FN1JGCH8JN"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FN1JGCH8JN');</script>
 <style>[hidden]{display:none!important}html,body{margin:0}</style>
 <title>今日のしあわせケーキ</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
 <style>
 /* Layout: the shop's night look. Near-black concrete, copper lettering, a warm bulb glow at the top. Title -> machine -> collection; result as an overlay. Single dark look. */
 :root{
@@ -40,7 +41,7 @@ main{max-width:520px;margin:0 auto;display:flex;flex-direction:column;align-item
 h1{font-size:clamp(22px,6.4vw,28px)}
 h1 small{font-size:1.5em}
 .sub{margin:-6px 0 0;font-size:13px;line-height:1.9;text-align:center;color:var(--text-2)}
-.machine{position:relative;width:min(70vw,260px);display:flex;flex-direction:column;align-items:center}
+.machine{position:relative;width:min(56vw,208px);margin-top:12px;display:flex;flex-direction:column;align-items:center}
 .dome{position:relative;width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;z-index:1;border:1px solid rgba(255,255,255,.18);
   background:radial-gradient(circle at 32% 26%,rgba(255,236,210,.28) 0 9%,rgba(255,255,255,.06) 10% 60%,rgba(255,255,255,.02) 100%);box-shadow:inset 0 -18px 40px rgba(0,0,0,.45),0 0 40px rgba(255,186,110,.08)}
 .dome::after{content:"";position:absolute;left:16%;top:11%;width:22%;height:10%;border-radius:50%;background:rgba(255,240,220,.35);transform:rotate(-30deg)}
@@ -107,6 +108,8 @@ h1 small{font-size:1.5em}
 .fortune .lucky{font-size:12px;color:var(--text-2)}
 .rbtns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 .rbtns .btn{font-size:14px;padding:11px 24px}
+.rbtns{align-items:stretch}.rbtns .btn{line-height:1.4;margin:0}
+body.big-text .rbtns .btn,body.big-text .rbtns .btn.sub{font-size:17px;line-height:1.4;padding:14px 26px;min-width:240px}
 .toast{font-size:12px;color:var(--copper-2);min-height:1em;text-align:center}
 .conf{position:fixed;top:-20px;width:6px;height:10px;z-index:11;pointer-events:none;animation:fall linear forwards;border-radius:1px}
 @keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
@@ -159,7 +162,7 @@ h1 small{font-size:1.5em}
 .stamp small{display:block;font-size:11px;letter-spacing:0}
 .demo{position:absolute;top:10px;right:-34px;transform:rotate(35deg);background:#d9776a;color:#1a1614;font-size:11px;font-weight:700;letter-spacing:.1em;padding:3px 40px;z-index:2}
 .ticket .code{font-family:ui-monospace,Menlo,monospace;font-weight:700;font-size:24px;letter-spacing:.12em;color:var(--text);background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:4px;padding:8px 10px;margin:4px auto 0;display:inline-block}
-.ticket .code{font-size:40px;letter-spacing:.32em;padding:6px 8px 6px 20px;margin-top:2px}
+.ticket .code{font-size:34px;letter-spacing:.14em;padding:6px 10px 6px 16px;margin-top:2px;white-space:nowrap}
 .ticket .codel{font-size:11px;letter-spacing:.2em;color:var(--text-2);margin-top:2px}
 .hold{position:relative;overflow:hidden;width:min(100%,340px);font:inherit;font-size:13px;font-weight:700;border:1px solid var(--line);background:transparent;color:var(--text-2);border-radius:2px;padding:14px;cursor:pointer;touch-action:none;-webkit-user-select:none;user-select:none}
 .hold i{position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(217,119,106,.35)}
@@ -187,18 +190,261 @@ h1 small{-webkit-text-fill-color:var(--copper-2)}
 .rlead{font-family:var(--f-serif);font-weight:600;font-size:14px;letter-spacing:.08em;color:var(--copper-2);text-align:center;margin:6px 0 2px;text-shadow:0 0 12px rgba(255,190,110,.5)}
 @media (prefers-reduced-motion: reduce){.shoot i,h1,.dome,.machine::before,#btnSpin::after{animation:none}.shoot{display:none}}
 .ver{font-size:10px;color:var(--text-2);opacity:.6;margin:0;letter-spacing:.1em}
+
+/* ===== light colors only (layout, sizes and spacing are the same as the dark version) ===== */
+:root{--bg:#f7f0e5;--panel:#fffaf3;--panel-2:#f4e9da;--copper:#9a6331;--copper-2:#8a5226;--text:#3d2a1b;--text-2:#5e4633;--line:rgba(164,110,60,.38);--mute:#6a513d;color-scheme:light}
+html{background:var(--bg)}
+body{background-color:var(--bg);background-image:radial-gradient(80% 40% at 50% 0%,rgba(255,214,150,.55),transparent 70%),radial-gradient(60% 30% at 100% 100%,rgba(255,226,190,.5),transparent 70%)}
+.card{background-color:var(--panel);box-shadow:0 10px 26px rgba(130,85,40,.12);border-color:rgba(180,119,62,.35)}
+h1{background:linear-gradient(100deg,#3a2a1e 0%,#3a2a1e 40%,#c8873f 47%,#e7b260 50%,#c8873f 53%,#3a2a1e 60%,#3a2a1e 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;filter:none}
+h1 small{-webkit-text-fill-color:#9a6331;text-shadow:none}
+h1 small::after{-webkit-text-fill-color:#7a6250;color:#7a6250}
+.sub{color:#56402d}
+.sub b{color:#8a4c1e!important}
+.dome{border-color:rgba(130,85,40,.25);background:radial-gradient(circle at 32% 26%,rgba(255,255,255,.9) 0 9%,rgba(255,255,255,.45) 10% 60%,rgba(255,250,240,.35) 100%);box-shadow:inset 0 -18px 40px rgba(130,85,40,.18),0 10px 40px rgba(200,140,70,.25)}
+@keyframes domeglow{50%{box-shadow:inset 0 -18px 40px rgba(130,85,40,.18),0 0 60px rgba(255,190,110,.55)}}
+.machine::before{background:radial-gradient(circle,rgba(255,200,120,.45),transparent 62%)}
+.body{background-color:#e9dccb;box-shadow:0 14px 26px rgba(130,85,40,.25),inset 0 1px 0 rgba(255,255,255,.6)}
+.brand{color:#a46e3c;text-shadow:none}
+.slot{background:#5a4434}
+.status{color:var(--text-2)}
+.status b{color:#8a4c1e}
+#btnSpin{box-shadow:0 0 22px rgba(230,170,90,.45),0 6px 0 #8a5a30;color:#fff;text-shadow:0 1px 2px rgba(80,40,10,.4);background:linear-gradient(180deg,#e2a866,#b5783f)}
+.btn.sub{color:#7a4520;border-color:rgba(164,110,60,.7)}
+.zc{background:#fff6ea;color:var(--text);border-color:rgba(164,110,60,.3)}
+.zc .cnt{color:var(--text-2)}
+.ov{background-color:rgba(250,244,234,.97);background-image:radial-gradient(70% 40% at 50% 0%,rgba(255,206,140,.5),transparent 70%)}
+.tap{color:var(--text-2)}
+.rdesc{color:var(--text)}
+.rtag{background:#f2e1c8;color:#6b3a17}
+.rays{background:repeating-conic-gradient(from 0deg,rgba(214,150,80,.12) 0 8deg,transparent 8deg 16deg)}
+.rays.ssr{background:repeating-conic-gradient(from 0deg,rgba(230,170,80,.2) 0 8deg,transparent 8deg 16deg)}
+.fortune p{color:var(--text)}
+.fortune .lucky{color:var(--text-2)}
+.jp .burst{background:repeating-conic-gradient(from 0deg,rgba(230,170,80,.22) 0 7deg,transparent 7deg 14deg)}
+.jp .glow{background:radial-gradient(circle at 50% 35%,rgba(255,200,110,.55),transparent 55%)}
+.jp .big{color:#8a4c1e;text-shadow:0 2px 0 #fff,0 0 22px rgba(255,190,90,.65)}
+.jp .big small{color:#9a6331}
+.jp .note{color:var(--text-2)}
+.ticket{background:linear-gradient(160deg,#fffaf0,#f3e3c9);border-color:#9a6331;color:var(--text);box-shadow:0 8px 24px rgba(120,70,30,.18)}
+.ticket::before,.ticket::after{background:var(--bg);border-color:#9a6331}
+.ticket .tl{color:#9a6331}
+.ticket .off,.ticket .off small,.ticket .off .what{color:#6b3a17;text-shadow:none}
+.ticket .fort,.ticket .sub b{color:#8a4c1e}
+.ticket .sub{color:#56402d}
+.ticket .code{background:rgba(164,110,60,.08);color:var(--text)}
+.ticket dt{color:#5e4633}.ticket dd{color:var(--text)}
+.ticket .rules{color:#4a3424}
+.ticket .sweep{background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.7) 50%,transparent 65%);background-size:250% 100%}
+.stamp{background:rgba(255,250,242,.85)}
+.cprow{border-color:rgba(164,110,60,.55)}
+.cprow b{color:#6b3a17}
+.cprow small{color:var(--text-2)}
+.cpwin{background:linear-gradient(135deg,rgba(230,170,90,.22),rgba(255,240,215,.5))}
+.shoot i{background:linear-gradient(90deg,rgba(220,150,70,0),rgba(220,150,70,.9) 85%,#fff3d9);box-shadow:0 0 6px rgba(230,160,80,.7)}
+.shoot i::after{background:#ffe7b8;box-shadow:0 0 10px 3px rgba(240,170,80,.8)}
+.ver{color:var(--text-2)}
+
+/* tags: soft caramel pills */
+.rtag{background:#f2e1c8!important;color:#6b3a17;border:1px solid rgba(164,110,60,.35)!important;border-radius:99px;padding:4px 16px;letter-spacing:.14em}
+.zc .rar{position:static;align-self:center;display:inline-block;white-space:nowrap;background:#f2e1c8;color:#6b3a17!important;border-radius:99px;padding:1px 6px;font-size:9px;margin-bottom:2px;letter-spacing:.02em}
+.zc.none .rar{background:#efe6da;color:#a8957f!important}
+.zc{padding-top:8px}
+
+/* ===== patisserie refinement ===== */
+:root{--text:#3D2B23;--text-2:#78513A;--gold:#B77D48;--copper:#B77D48;--copper-2:#B77D48;--mute:#78513A;--line:rgba(183,125,72,.42)}
+/* accents: logo, ornaments, labels */
+h1 small{-webkit-text-fill-color:#B77D48}
+h1 small::after{-webkit-text-fill-color:#78513A;color:#78513A}
+h1{background:linear-gradient(100deg,#3D2B23 0%,#3D2B23 40%,#B77D48 47%,#e2b27a 50%,#B77D48 53%,#3D2B23 60%,#3D2B23 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text}
+.brand{color:#B77D48}
+.zhead h2{color:#3D2B23}.zhead h2::before{color:#B77D48}
+.zhead span{color:#78513A}
+.card{border-color:rgba(183,125,72,.45);box-shadow:0 1px 0 rgba(255,255,255,.8) inset,0 12px 30px rgba(61,43,35,.10)}
+/* text */
+.sub{color:#78513A}
+.sub b{color:#3D2B23!important}
+.status{color:#78513A}.status b{color:#3D2B23}
+.zc b{color:#3D2B23}.zc .cnt{color:#78513A}
+.rname{color:#3D2B23}
+.fortune p{color:#3D2B23}.fortune .lucky,.fortune .luck small{color:#78513A}
+.fortune .luck{color:#B77D48}
+.cprow b{color:#3D2B23}.cprow small{color:#78513A}
+.btn.sub{color:#3D2B23;border-color:rgba(183,125,72,.75)}
+.tap{color:#78513A}
+.rtag{color:#3D2B23;border-color:rgba(183,125,72,.5)!important}
+.zc .rar{color:#3D2B23!important}
+/* cake description: compact product card */
+.rdesc{font-size:min(13.5px,3.45vw);line-height:1.8;letter-spacing:.02em;color:#3D2B23;margin:14px auto 0;white-space:nowrap;text-align:center}
+.rdesc .sen{margin-bottom:.45em}
+.rname::after{margin:8px auto 0}
+/* jackpot: coupon is the hero */
+.jp .big{color:#3D2B23;text-shadow:0 2px 0 #fff,0 0 20px rgba(230,170,90,.55)}
+.jp .big small{color:#B77D48}
+.jp .note{color:#78513A}
+.jp .note b{color:#3D2B23!important}
+.ticket{border-color:#B77D48;box-shadow:0 0 0 4px rgba(255,250,242,.9),0 14px 36px rgba(61,43,35,.18)}
+.ticket::before,.ticket::after{border-color:#B77D48}
+.ticket .tl{color:#B77D48}
+.ticket .off,.ticket .off .what{color:#3D2B23}
+.ticket .off small{color:#B77D48}
+.ticket .fort{color:#3D2B23}
+.ticket .sub{color:#78513A}
+.ticket .msg{color:#3D2B23}
+.ticket .code{color:#3D2B23;background:#fffaf2;border-color:rgba(183,125,72,.5)}
+.ticket dt,.ticket .codel{color:#78513A}.ticket dd{color:#3D2B23}
+.ticket .rules{color:#78513A}
+.jp{position:relative;z-index:2}
+.ov > .conf{z-index:1}
+.res{position:relative;z-index:2}
+.sndbtn{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:12px;z-index:20;font:inherit;font-size:13px;letter-spacing:.06em;padding:6px 12px;border-radius:99px;border:1px solid var(--line);background:rgba(255,250,242,.85);color:var(--text-2);cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+
+/* ---- machine: more depth, still soft ivory ---- */
+.machine::after{content:"";position:absolute;left:8%;right:8%;bottom:-14px;height:22px;border-radius:50%;background:radial-gradient(closest-side,rgba(90,55,25,.32),transparent);z-index:0;pointer-events:none}
+.dome{border:2px solid rgba(183,125,72,.6);
+  background:radial-gradient(circle at 30% 24%,rgba(255,255,255,.95) 0 8%,rgba(255,255,255,.5) 9% 45%,rgba(255,246,232,.35) 70%,rgba(214,170,120,.28) 100%);
+  box-shadow:inset 0 -22px 38px rgba(120,75,35,.28),inset 0 12px 22px rgba(255,255,255,.75),inset 0 0 0 3px rgba(255,255,255,.35),0 0 0 6px rgba(255,250,242,.75),0 0 0 7.5px rgba(183,125,72,.45),0 18px 36px rgba(110,70,30,.25)}
+@keyframes domeglow{50%{box-shadow:inset 0 -22px 38px rgba(120,75,35,.28),inset 0 12px 22px rgba(255,255,255,.75),inset 0 0 0 3px rgba(255,255,255,.35),0 0 0 6px rgba(255,250,242,.75),0 0 0 7.5px rgba(183,125,72,.6),0 18px 36px rgba(110,70,30,.25),0 0 60px rgba(255,190,110,.55)}}
+.dome::after{background:rgba(255,255,255,.75)}
+.cap{box-shadow:inset -4px -5px 8px rgba(90,55,25,.3),0 2px 4px rgba(90,55,25,.18)}
+.body{background-color:#e7d5bc;background-image:linear-gradient(180deg,#f6ebdb 0%,#e3cdae 70%,#d2b591 100%);border:1px solid rgba(183,125,72,.55);
+  box-shadow:0 16px 28px rgba(100,62,28,.30),inset 0 2px 0 rgba(255,255,255,.85),inset 0 -8px 14px rgba(120,75,35,.20)}
+.brand{color:#9a6331;text-shadow:0 1px 0 rgba(255,255,255,.8)}
+.handle{background:radial-gradient(circle at 34% 28%,#ffe2b8 0%,#e0a364 38%,#a8692f 100%);box-shadow:0 6px 12px rgba(90,52,20,.45),inset 0 -4px 6px rgba(90,52,20,.35),inset 0 3px 4px rgba(255,255,255,.6),0 0 0 3px rgba(255,250,242,.8),0 0 0 4px rgba(183,125,72,.5)}
+.handle::before{background:#6b3f1d;box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+.slot{background:#4a3324;box-shadow:inset 0 4px 8px rgba(0,0,0,.55),0 1px 0 rgba(255,255,255,.7)}
+/* ---- cake description: tighter paragraphs ---- */
+.rdesc .sen{margin-bottom:.2em}
+
+/* ---- sound button: small round, bottom-right, never over the logo ---- */
+.sndbtn{top:auto;bottom:calc(14px + env(safe-area-inset-bottom,0px));right:calc(12px + env(safe-area-inset-right,0px));width:42px;height:42px;padding:0;border-radius:50%;
+  font-size:18px;line-height:42px;text-align:center;letter-spacing:0;color:#B77D48;background:rgba(255,250,242,.92);border:1px solid rgba(183,125,72,.55);box-shadow:0 4px 12px rgba(61,43,35,.15)}
+.sndbtn.off{color:#a8957f}
+.sndbtn.off::after{content:"";position:absolute;left:11px;right:11px;top:50%;height:1.5px;background:#a8957f;transform:rotate(-45deg)}
+/* ---- coupon notes: darker chocolate for dates and conditions ---- */
+.ticket .rules,.ticket ul.rules{color:#3D2B23}
+.ticket dt{color:#4a3424}.ticket dd{color:#3D2B23}
+
+/* ---- coupon notes never sparkle: dates and conditions sit above the shine ---- */
+.ticket .perf,.ticket dl,.ticket ul.rules{position:relative;z-index:1}
+/* ---- "文字を大きく" button ---- */
+.bigbtn{position:fixed;left:calc(12px + env(safe-area-inset-left,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:20;height:42px;padding:0 14px;border-radius:99px;
+  font-family:var(--f-body);font-size:13px;font-weight:700;letter-spacing:.06em;color:#3D2B23;background:rgba(255,250,242,.92);border:1px solid rgba(183,125,72,.55);
+  box-shadow:0 4px 12px rgba(61,43,35,.15);cursor:pointer;display:flex;align-items:center;gap:6px}
+.bigbtn i{font-style:normal;font-family:var(--f-serif);font-size:17px;color:#B77D48;line-height:1}
+.bigbtn[aria-pressed="true"]{background:#3D2B23;color:#fff6e8;border-color:#3D2B23}
+.bigbtn[aria-pressed="true"] i{color:#e2b27a}
+.bigbtn:focus-visible,.sndbtn:focus-visible{outline:2px solid #3D2B23;outline-offset:2px}
+main{padding-bottom:84px}
+.ov{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))!important}
+/* ---- large-text mode (about 1.4x on small reading text only) ---- */
+body.big-text .sub{font-size:18px;line-height:1.8}
+body.big-text .status{font-size:18px;line-height:1.6}
+body.big-text .status small{font-size:16px}
+body.big-text .zhead span{font-size:15px}
+body.big-text .zc b{font-size:13.5px;min-height:2.7em}
+body.big-text .zc .cnt{font-size:13px}
+body.big-text .tap{font-size:18px}
+body.big-text .toast{font-size:16px}
+body.big-text .rdesc{font-size:18px;line-height:1.75;white-space:normal;margin-left:0;margin-right:0}
+body.big-text .rdesc .sen{margin-bottom:.45em}
+body.big-text .rdesc .ln{word-break:keep-all;overflow-wrap:anywhere;text-wrap:balance}
+.fortune p.fmsg,body.big-text .fortune p.fmsg{word-break:keep-all;overflow-wrap:anywhere}
+body.big-text .fortune p{font-size:18px;line-height:1.75}
+body.big-text .fortune .lucky{font-size:16px}
+body.big-text .jp .note{font-size:17.5px;line-height:1.75}
+body.big-text .jp .note small{font-size:15.5px}
+body.big-text .res > .note{font-size:17.5px!important;line-height:1.75!important}
+body.big-text .cprow small{font-size:15px;line-height:1.5}
+body.big-text .ticket .msg{font-size:19px;line-height:1.55}
+body.big-text .ticket .sub{font-size:17px}
+body.big-text .ticket dl{font-size:16.5px;gap:6px 10px}
+body.big-text .ticket .rules{font-size:15px;line-height:1.7}
+body.big-text .ticket ul.rules li{margin-bottom:4px}
+body.big-text .ticket{width:min(100%,380px)}
+
+/* large-text: tidy line breaks (no 1-character orphans) */
+body.big-text .sub,body.big-text .ticket .msg,body.big-text .jp .note,body.big-text .res > .note,body.big-text .rdesc,body.big-text .fortune p,body.big-text .zc b{word-break:normal;overflow-wrap:normal;text-wrap:balance;line-break:strict}
+body.big-text .ticket ul.rules li{text-wrap:pretty}
+body.big-text .zc b{font-size:12.5px}
+/* overlay: safe centering so the bottom padding keeps buttons clear of the floating buttons */
+.ov{justify-content:flex-start}
+.ov > :first-child{margin-top:auto}.ov > :last-child{margin-bottom:auto}
+
+.rdesc .ln{display:block}
+br.bb{display:none}
+body.big-text br.bb{display:inline}
+body.big-text .rdesc .ln{text-wrap:balance}
+
+/* "あ" as a small round badge so it reads as an icon, not part of the label */
+.bigbtn{padding:0 14px 0 6px;gap:8px}
+.bigbtn i{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#3D2B23;color:#fff6e8;
+  font-family:var(--f-body);font-weight:900;font-size:17px;line-height:1;flex:none}
+.bigbtn[aria-pressed="true"] i{background:#fff6e8;color:#3D2B23}
+
+/* fit the spin button on the first screen */
+main{gap:10px;padding-top:14px}
+.sub{line-height:1.75}
+h1::after{margin-top:8px}
+.body{padding:13px 11px 9px;gap:7px;width:96%}
+.handle{width:44px;height:44px}
+.brand{font-size:12px;letter-spacing:.1em}
+.slot{width:36px;height:23px}
+
+/* ① coupon conditions: a touch heavier, always chocolate, never under the shine */
+.ticket dl,.ticket ul.rules,.ticket .rules{font-weight:500;color:#3D2B23}
+.ticket dt{color:#4a3424;font-weight:500}.ticket dd{color:#3D2B23;font-weight:700}
+/* ② large-text: let the coupon grow, keep phrases together */
+body.big-text .ticket ul.rules li{word-break:normal;line-break:strict;text-wrap:pretty}
+body.big-text .ticket dl{grid-template-columns:auto 1fr}
+body.big-text .ticket dd{white-space:nowrap}
+body.big-text .cprow{grid-template-columns:1fr;justify-items:start}
+/* ③ floating buttons */
+.bigbtn,.sndbtn{transition:opacity .25s,transform .25s,width .25s,padding .25s}
+.bigbtn span{white-space:nowrap;overflow:hidden}
+body.fab-compact .bigbtn{width:42px;padding:0;justify-content:center;gap:0}
+body.fab-compact .bigbtn span{display:none}
+body.fab-compact .bigbtn i{width:30px;height:30px}
+body.fab-moving .bigbtn,body.fab-moving .sndbtn{opacity:0;transform:translateY(10px);pointer-events:none}
+main{padding-bottom:96px}
+.ov{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))!important}
+.cpleft{display:inline-block;margin-top:4px;padding:1px 10px;border-radius:99px;font-size:12px;font-weight:700;letter-spacing:.06em;background:#f2e1c8;color:#3D2B23}
+.cpleft.soon{background:#B77D48;color:#fff}
+.tleft{text-align:right;margin-top:6px;position:relative;z-index:1}
+body.big-text .cpleft{font-size:15px}
+
+/* coupon conditions: ~22% larger in normal view */
+.ticket .rules,.ticket ul.rules{font-size:12.5px;line-height:1.7}
+.ticket ul.rules{width:fit-content;max-width:100%;margin-left:auto;margin-right:auto}.ticket ul.rules li{word-break:keep-all;overflow-wrap:anywhere}
+br.sb{display:inline}body.big-text br.sb{display:none}
+.ticket dl{font-size:13px;gap:5px 12px}
+.pause{margin:0;padding:10px 14px;border:1px solid var(--line);border-radius:6px;font-size:13px;line-height:1.7;text-align:center;color:var(--text);background:rgba(183,125,72,.1)}
+.fine{margin:0;font-size:11px;color:var(--text-2);text-align:center}
+body.big-text .fine{font-size:14px}
+body.big-text .pause{font-size:17px}
+
+/* シェアカード */
+.shov{position:fixed;inset:0;z-index:40;background:rgba(61,43,35,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:16px;overflow-y:auto}
+.shbox{display:flex;flex-direction:column;align-items:center;gap:12px;margin:auto}
+.shimg{display:block;width:auto;max-width:min(86vw,380px);max-height:62vh;border-radius:6px;box-shadow:0 14px 40px rgba(40,24,14,.35);-webkit-touch-callout:default}
+.shmsg{margin:0;font-size:13px;color:#fff8ee;text-align:center;letter-spacing:.04em}
+.shcopy{background:none;border:0;color:#fff3e2;font-size:13px;text-decoration:underline;text-underline-offset:3px;padding:6px 10px;cursor:pointer}
+.shov .btn.sub{background:#fffaf2}
+body.big-text .shmsg,body.big-text .shcopy{font-size:16px}
+body.big-text .rbtns .btn.sub{font-size:15px;padding:11px 22px;min-width:200px}
 </style>
 
 <div class="shoot" id="shoot" aria-hidden="true"></div>
 <main>
   <h1><small>HEUREUSE</small>今日のしあわせケーキ</h1>
-  <p class="sub"><span id="subLimit"></span>ガチャをまわして、<br>今日のあなたにおすすめのケーキと運勢をうらなおう。<br>1日2回まわせるよ。<br><b style="color:var(--copper-2)">5%OFFクーポンやNoirのホール</b>が当たるかも!</p>
+  <p class="pause" id="pauseNote" hidden>ただいまクーポンのプレゼントはお休み中です。<br>ケーキうらないは、いつでもお楽しみいただけます。</p>
+  <p class="sub"><span id="subLimit"></span>ガチャをまわして、<br>今日のあなたにおすすめのケーキと<br class="bb">運勢をうらなおう。<br>1日2回まわせるよ。<br><b style="color:var(--copper-2)">5%OFFクーポンやNoirのホール</b><br class="bb">が当たるかも!</p>
   <div class="machine">
     <div class="dome" id="dome"></div>
     <div class="body"><span class="brand">HEUREUSE</span><button class="handle" id="handle" aria-label="ハンドルをまわす"></button><span class="slot"></span></div>
   </div>
-  <div class="status" id="status"></div>
   <button class="btn" id="btnSpin">まわす！</button>
+  <div class="status" id="status"></div>
   <section class="card mycp" id="mycp" hidden><h2>マイクーポン</h2><div id="cplist"></div><button class="btn sub" id="cpReset" style="margin-top:12px;font-size:12px" hidden>見本のクーポンをぜんぶ消す</button></section>
 
 
@@ -206,7 +452,8 @@ h1 small{-webkit-text-fill-color:var(--copper-2)}
     <div class="zhead"><h2>ケーキ図鑑</h2><span id="zstat"></span></div>
     <div class="zgrid" id="zgrid"></div>
   </section>
-  <p class="ver" id="ver">ver. 11/07 ③</p>
+  <p class="fine">※本キャンペーンは予告なく変更・終了する場合があります。<br>ただし、発行済みのクーポンは記載の有効期限までご利用いただけます。</p>
+  <p class="ver" id="ver">ver. 11/19</p>
 </main>
 
 <div class="ov" id="ov" hidden></div>
@@ -330,7 +577,7 @@ function cakeCanvas(cv,key,opt={}){
   if(opt.silhouette){
     const t=document.createElement('canvas');t.width=w;t.height=h;const tg=t.getContext('2d');
     tg.translate(w/2,h*.55);drawCake(tg,key,s);tg.setTransform(1,0,0,1,0,0);
-    tg.globalCompositeOperation='source-in';tg.fillStyle='rgba(238,232,223,.09)';tg.fillRect(0,0,w,h);
+    tg.globalCompositeOperation='source-in';tg.fillStyle='rgba(150,110,70,.16)';tg.fillRect(0,0,w,h);
     g.drawImage(t,0,0);return;
   }
   g.save();g.translate(w/2,h*.55);drawCake(g,key,s);g.restore();
@@ -342,41 +589,97 @@ function cakeCanvas(cv,key,opt={}){
 const CP_ALPHA='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 const CP_SECRET='HEUREUSE/noir-blanc/2026';
 const CP_DEMO_SECRET='HEUREUSE/DEMO';
-const CP_DAYS=7;           // 有効期限(発行日をふくめて何日間)
-const CP_NOIR_PER_MONTH=1; // Noirのホールは毎月何名まで
+const CP_DAYS=8;           // 5%OFFの有効期限(発行日をふくめて何日間)= 翌週の同じ曜日まで
+const CP_DAYS_BY={C:8,B:8,N:31}; // 種類ごとの有効期限の目安。Noirのホールは1ヶ月(cpExpDayで計算)
+function cpDays(type){return CP_DAYS_BY[type]||CP_DAYS;}
+/* 有効期限の最終日(日番号)。5%OFFは翌週の同じ曜日まで(発行日+7日)。Noirは翌月の同じ日まで(翌月にその日がなければ翌月の末日まで) */
+function cpExpDay(type,issue){
+  if(type==='N'){const d=new Date(issue*CP_DAY),y=d.getUTCFullYear(),m=d.getUTCMonth()+1,day=d.getUTCDate(),last=new Date(Date.UTC(y,m+1,0)).getUTCDate();
+    return Date.UTC(y,m,Math.min(day,last))/CP_DAY;}
+  return issue+cpDays(type)-1;
+}
+const CP_NOIR_PER_MONTH=0; // 0 = 月の上限なし(当たった方は全員プレゼント)
 const CP_NOIR_SIZE='12cm';  // Noirのホールのサイズ
 const CP_NOIR_VALUE='4,500円相当';
 const CP_BUDGET=13000;     // 1か月の景品予算(円)= 月の売上の2%
 const CP_TYPES={
   N:{id:'noir',fortune:'ノワール大吉',title:'Noirのホール('+CP_NOIR_SIZE+') プレゼント',short:'Noir12cm',value:'ホール'+CP_NOIR_SIZE+'・'+CP_NOIR_VALUE,
-    head:'<span>Noir</span><span class="what">(バスクチーズケーキ)</span>',sub:'<b>ホール'+CP_NOIR_SIZE+'</b> プレゼント<br>('+CP_NOIR_VALUE+')',staff:'Noir(バスクチーズケーキ)のホール'+CP_NOIR_SIZE+'をお渡しください。',
-    rules:['Noir(バスクチーズケーキ)のホール'+CP_NOIR_SIZE+'('+CP_NOIR_VALUE+')を1台プレゼント','数に限りがあります。なくなった場合は、<br>お会計5%OFFとしてお使いいただけます']},
+    head:'<span>Noir</span><span class="what">(バスクチーズケーキ)</span>',sub:'<b>ホール'+CP_NOIR_SIZE+'</b> プレゼント<br>('+CP_NOIR_VALUE+')',staff:'Noir(バスクチーズケーキ)のホール'+CP_NOIR_SIZE+'をお渡しください。<br>品切れのときは、同等価格帯の別商品(4,200〜4,300円のホール、ホール＋焼き菓子など)をご案内。ご希望があれば予約票を作って、後日ノワールをお渡しします。',
+    rules:['Noir(バスクチーズケーキ)のホール'+CP_NOIR_SIZE+'<br>('+CP_NOIR_VALUE+')を1台プレゼント','ノワールが品切れの場合は、<br class="bb">同等価格帯の<br class="sb">別商品を<br class="bb">ご案内する場合がございます']},
   B:{id:'bill',fortune:'大大大大吉',title:'お会計から5%OFF',short:'お会計5%OFF',value:'お会計',
     head:'<span class="what">お会計</span><span>5<small>%OFF</small></span>',sub:'ケーキ・ドリンク・フード・セット、ぜんぶOK',staff:'お会計の合計(ケーキ・ドリンク・フード・ケーキセットもふくむ)から5%OFFにしてください。',
-    rules:['ケーキ・ドリンク・フード・ケーキセットをふくむ、<br>お会計の合計から5%OFF']},
+    rules:['ケーキ・ドリンク・フード・<br class="bb">ケーキセットをふくむ、<br>お会計の合計から5%OFF']},
   C:{id:'cake',fortune:'大吉',title:'ケーキ5%OFF',short:'ケーキ5%OFF',value:'ケーキ',
-    head:'<span class="what">ケーキ</span><span>5<small>%OFF</small></span>',sub:'何個でもOK',staff:'ケーキの代金を5%OFFにしてください(個数制限なし)。ドリンク・フード・平日限定の日替わり「本日のケーキセット」は対象外です。',
-    rules:['ケーキが何個でも5%OFF','ドリンク・フード、<br>平日限定の日替わり「本日のケーキセット」は対象外です']},
+    head:'<span class="what">ケーキ</span><span>5<small>%OFF</small></span>',sub:'何個でもOK',staff:'ケーキの代金を5%OFFにしてください(個数制限なし)。ドリンク・フード・平日限定の日替わり<br class="bb">「本日のケーキセット」は対象外です。',
+    rules:['ケーキが何個でも5%OFF','ドリンク・フード、<br>平日限定の日替わり<br class="bb">「本日のケーキセット」は対象外です']},
 };
-const CP_RULES_COMMON=['有効期限内に1回だけお使いいただけます','お会計1回につき1枚までです。<br>ほかのクーポン・割引とはいっしょに使えません','スクリーンショットの画面でもお使いいただけます'];
+const CP_RULES_COMMON=['有効期限日の営業時間内まで、<br>1回だけお使いいただけます','お会計1回につき1枚までです。<br>ほかのクーポン・割引とは<br class="bb">いっしょに使えません','本キャンペーンは予告なく<br>変更・終了する場合があります。<br>ただし、発行済みのクーポンは<br>記載の有効期限までご利用いただけます'];
 const CP_DAY=86400000;
 function cpDayNum(t){const d=new Date(t);return Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/CP_DAY);}
+function cpDayStrW(n){return cpDayStr(n)+'('+'日月火水木金土'[new Date(n*CP_DAY).getUTCDay()]+')';}
+/* 残り日数のバッジ: 今日まで / あと◯日 */
+function cpLeftHTML(exp,now){const l=exp-cpDayNum(now||Date.now());if(l<0)return '';return `<span class="cpleft${l<=2?' soon':''}">${l===0?'今日まで！':l===1?'明日まで！':'あと'+l+'日'}</span>`;}
 function cpDayStr(n){const d=new Date(n*CP_DAY);return `${d.getUTCFullYear()}/${d.getUTCMonth()+1}/${d.getUTCDate()}`;}
-/* 4ケタの確認番号: [発行日の下1ケタ][種類の数字][ランダム2ケタ]
-   種類の数字: 0〜4=大吉(ケーキ) 5〜8=大大大大吉(お会計) 9=ノワール大吉 */
+/* 確認番号(6ケタ): [発行日の下1ケタ][種類の数字][ランダム4ケタ]
+   種類の数字: 0〜4=大吉(ケーキ) 5〜8=大大大大吉(お会計) 9=ノワール大吉
+   ノワールだけは期限が30日なので、3ケタ目に発行日の十の位を入れる: [日の1の位][9][日の10の位][ランダム3ケタ]
+   (2026年11月までに配った4ケタの番号も、期限まで確認できるようにしてある) */
 const CP_TDIG={C:[0,1,2,3,4],B:[5,6,7,8],N:[9]};
 function cpTypeOf(dg){return dg===9?'N':dg>=5?'B':'C';}
 function cpMake(type,t){
-  const ds=CP_TDIG[type],r=Math.floor(Math.random()*100);
-  return String(cpDayNum(t)%10)+ds[Math.floor(Math.random()*ds.length)]+String(r).padStart(2,'0');
+  const day=cpDayNum(t),ds=CP_TDIG[type];
+  if(type==='N')return String(day%10)+'9'+String(Math.floor(day/10)%10)+String(Math.floor(Math.random()*1000)).padStart(3,'0');
+  return String(day%10)+ds[Math.floor(Math.random()*ds.length)]+String(Math.floor(Math.random()*10000)).padStart(4,'0');
 }
+function cpShow(code){return code.length===6?code.slice(0,3)+' '+code.slice(3):code;}
 /* returns {ok:false,reason} or {ok:true,code,type,issue,exp,key} */
 function cpParse(input,now){
   const s=String(input).replace(/[０-９]/g,c=>String.fromCharCode(c.charCodeAt(0)-65248)).replace(/\D/g,'');
-  if(s.length!==4)return{ok:false,reason:'確認番号は4ケタの数字です'};
-  const today=cpDayNum(now||Date.now()),d=+s[0],issue=today-((today-d)%10+10)%10;
-  return{ok:true,code:s,type:cpTypeOf(+s[1]),issue,exp:issue+CP_DAYS-1,key:s+'@'+issue};
+  if(s.length!==6&&s.length!==4)return{ok:false,reason:'確認番号は6ケタの数字です'};
+  const today=cpDayNum(now||Date.now()),type=cpTypeOf(+s[1]);
+  let issue,days;
+  if(s.length===6&&type==='N'){const dd=(+s[2])*10+(+s[0]);issue=today-((today-dd)%100+100)%100;return{ok:true,code:s,type,issue,exp:cpExpDay('N',issue),key:s+'@'+issue};}
+  else{const d=+s[0];issue=today-((today-d)%10+10)%10;days=s.length===4?7:cpDays(type);}
+  return{ok:true,code:s,type,issue,exp:issue+days-1,key:s+'@'+issue};
 }
+
+
+/* ---- sound (Web Audio, no files). Off/on remembered on this phone ---- */
+const SFX=(()=>{let ctx=null,on=true;try{on=localStorage.getItem('heureuse-sound')!=='off';}catch(e){}
+  const ac=()=>{if(!on)return null;try{if(!ctx)ctx=new (window.AudioContext||window.webkitAudioContext)();if(ctx.state==='suspended')ctx.resume();}catch(e){return null;}return ctx;};
+  const tone=(f,d,type='sine',v=.15,w=0,slide=0)=>{const a=ac();if(!a)return;const t=a.currentTime+w,o=a.createOscillator(),g=a.createGain();o.type=type;o.frequency.setValueAtTime(f,t);
+    if(slide)o.frequency.exponentialRampToValueAtTime(Math.max(40,f*slide),t+d);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.008);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g).connect(a.destination);o.start(t);o.stop(t+d+.03);};
+  const noise=(d,v=.2,f=2000,w=0,hp=false)=>{const a=ac();if(!a)return;const t=a.currentTime+w,b=a.createBuffer(1,Math.max(1,a.sampleRate*d|0),a.sampleRate),x=b.getChannelData(0);
+    for(let i=0;i<x.length;i++)x[i]=(Math.random()*2-1)*(1-i/x.length);const s=a.createBufferSource(),fl=a.createBiquadFilter(),g=a.createGain();fl.type=hp?'highpass':'lowpass';fl.frequency.value=f;g.gain.value=v;s.buffer=b;s.connect(fl).connect(g).connect(a.destination);s.start(t);};
+  const m=n=>440*Math.pow(2,(n-69)/12);
+  const bell=(n,w,v=.09,d=1.2)=>{tone(m(n),d,'sine',v,w);tone(m(n+12),d*.6,'sine',v*.35,w);tone(m(n+19),d*.4,'triangle',v*.12,w);};
+  return{
+    get on(){return on},
+    set on(x){on=!!x;try{localStorage.setItem('heureuse-sound',on?'on':'off');}catch(e){}if(on)ac();},
+    crank(){noise(.95,.32,380);for(let i=0;i<16;i++){const w=i*.055+Math.random()*.03;tone(110+Math.random()*120,.09,'sine',.16,w,.6);noise(.04,.12,900,w);}tone(70,.9,'sine',.08,0,.8);},
+    drop(){tone(220,.18,'sine',.2,0,.45);noise(.12,.18,700,.02);tone(660,.08,'triangle',.06,.12);},
+    open(){ // ぱかっ!
+      const a=ac();if(!a)return;const t=a.currentTime;
+      [[0,620,.22],[.05,880,.12]].forEach(([w,f,v])=>{const o=a.createOscillator(),g=a.createGain();o.type='sine';o.frequency.setValueAtTime(f,t+w);o.frequency.exponentialRampToValueAtTime(f*.45,t+w+.07);
+        g.gain.setValueAtTime(0,t+w);g.gain.linearRampToValueAtTime(v,t+w+.004);g.gain.exponentialRampToValueAtTime(.0001,t+w+.09);o.connect(g).connect(a.destination);o.start(t+w);o.stop(t+w+.12);});
+      const b=a.createBuffer(1,a.sampleRate*.03|0,a.sampleRate),x=b.getChannelData(0);for(let i=0;i<x.length;i++)x[i]=(Math.random()*2-1)*(1-i/x.length);
+      const s=a.createBufferSource(),bp=a.createBiquadFilter(),g=a.createGain();bp.type='bandpass';bp.frequency.value=1800;bp.Q.value=3;g.gain.value=.25;s.buffer=b;s.connect(bp).connect(g).connect(a.destination);s.start(t);},
+    reveal(r,kira){const base={N:[72,76,79],R:[72,76,79,84],SR:[71,74,79,83,86],SSR:[72,76,79,84,88,91]}[r]||[72,76,79];
+      base.forEach((n,i)=>bell(n,i*.09,.08));if(kira||r==='SSR')for(let i=0;i<6;i++)tone(m(96+(i%3)*4),.25,'sine',.03,.4+i*.07);},
+    jackpot(type){ // ぱぱーん⤴ : bright, consonant fanfare (G major -> C major, then a rising flourish)
+      const a=ac();if(!a)return;const t0=a.currentTime+.02,big=type==='N';
+      const brass=(notes,w,d,v)=>{const t=t0+w,f=a.createBiquadFilter(),g=a.createGain();f.type='lowpass';f.Q.value=.7;
+        f.frequency.setValueAtTime(1200,t);f.frequency.linearRampToValueAtTime(4200,t+.04);
+        g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.02);g.gain.setValueAtTime(v,t+d*.75);g.gain.linearRampToValueAtTime(0,t+d);
+        f.connect(g).connect(a.destination);
+        notes.forEach(n=>[-3,3].forEach(dt=>{const o=a.createOscillator();o.type='sawtooth';o.frequency.value=m(n);o.detune.value=dt;o.connect(f);o.start(t);o.stop(t+d+.02);}));};
+      const ping=(n,w,v)=>tone(m(n),.35,'triangle',v,w);
+      brass([67,71,74],0,.12,.13);          // ぱ
+      brass([60,64,67,72],.16,big?1.3:1.0,.15); // ぱーん
+      [76,79,84].forEach((n,i)=>ping(n,.3+i*.07,.07)); // ⤴
+      if(big){brass([64,67,72,76],1.0,1.2,.13);[79,84,88].forEach((n,i)=>ping(n,1.1+i*.07,.07));}},
+    tap(){tone(880,.06,'triangle',.05);}
+  };})();
 
 (()=>{
 const $=id=>document.getElementById(id);
@@ -385,7 +688,8 @@ const track=(n,p)=>{try{window.gtag&&window.gtag('event',n,p||{})}catch(e){}};
 /* ====== お店で変えるところ ====== */
 const DEMO=false;   // 見本版:何回でもまわせる・クーポンに「見本」がつく。お客さん用に公開するときは false にする
 const TEST=DEMO;
-const PRIZE_RATE=DEMO?{N:0.1,B:0.2,C:0.2}:{N:0.0005,B:0.07,C:0.23}; // 1回あたりの確率 N=ホールNoir(2000回に1回) B=お会計5%(大大大大吉) C=ケーキ5%(大吉)  → 100回で約30回当たり
+const PRIZE_RATE=DEMO?{N:0.6,B:0.15,C:0.15}:{N:0.0005,B:0.07,C:0.23}; // 1回あたりの確率 N=ホールNoir(2000回に1回) B=お会計5%(大大大大吉) C=ケーキ5%(大吉)  → 100回で約30回当たり
+const LOW_FACTOR=0.5; // 当選後3日間の確率(通常の何倍か)
 const SLOT_NAMES={a:'15時まで',b:'15時以降'}; // 0〜15時・15〜24時に1回ずつ
 /* ================================= */
 
@@ -399,7 +703,18 @@ const POOL=[
   {k:'gruyere',r:'SR', w:7,  d:'「スイスチーズの女王」と呼ばれる\nグリュイエールチーズを使用。\nナッツのような香ばしさと熟成チーズならではの\n豊かなコクが楽しめる、贅沢なチーズケーキ。'},
   {k:'patata', r:'SSR',w:3,  d:'じゃがいも×チーズ×焦がしバターを\n組み合わせた季節限定のチーズケーキ。\n口いっぱいに広がる濃厚なバターの風味と、\nじゃがいもの素朴な味わいが魅力。\n素材の美味しさを楽しめる、\n個性豊かなチーズケーキ。'},
 ];
-const brk=s=>s.split(/(?<=。)\n/).map(b=>'<span class="sen">'+b.split('\n').join('<br>')+'</span>').join('');
+// 文字拡大で折り返すときに「奥/深い」のような変な所で切れないよう、文節ごとに<wbr>を入れる
+const _seg=(()=>{try{return new Intl.Segmenter('ja',{granularity:'word'});}catch(e){return null;}})();
+const phr=l=>{if(!_seg)return l;const ch=[];for(const {segment:x} of _seg.segment(l)){
+  const pv=ch.length?ch[ch.length-1]:'',K='\u4e00-\u9fff',KA='\u30a0-\u30ff';
+  const glue=/^[ぁ-んー]{1,3}$/.test(x)||/^[、。，．・」』）)！？!?×]+$/.test(x)||/[「『（(×]$/.test(pv)||/^[ごお]$/.test(pv)
+    ||(new RegExp('['+KA+']$').test(pv)&&new RegExp('^['+KA+']').test(x))              // カタカナどうし(ベイ+クド)
+    ||(new RegExp('['+K+']$').test(pv)&&new RegExp('^['+K+']').test(x))                // 漢字どうし(季節+限定)
+    ||new RegExp('^['+K+']$').test(x)                                                  // 1文字の漢字(トンカ+豆)
+    ||(/[A-Za-z0-9.]$/.test(pv)&&/^[A-Za-z0-9.]/.test(x))                            // No.3
+    ||/^(上げ|上が|込|出し|切|付け|合わ|立て)/.test(x);                                   // 焼き+上げた
+  if(glue&&ch.length)ch[ch.length-1]+=x;else ch.push(x);}return ch.join('<wbr>');};
+const brk=s=>s.split(/(?<=。)\n/).map(b=>'<span class="sen">'+b.split('\n').map(l=>'<span class="ln">'+phr(l)+'</span>').join('')+'</span>').join('');
 const LBL={N:'定番',R:'変わり種',SR:'ちょっとレア',SSR:'季節限定'};
 const KIRA_RATE=1/12;
 const RCOL={N:'#8d8a86',R:'#a5876e',SR:'#c99a6b',SSR:'#e2be8e'};
@@ -418,7 +733,7 @@ const today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMon
 let S={col:{},total:0,coupons:[],spun:{}};
 try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s)S=Object.assign(S,s);}catch(e){}
 if(!S.spun||typeof S.spun!=='object')S.spun={};
-S.coupons=(S.coupons||[]).filter(c=>c&&/^\d{4}$/.test(c.code));
+S.coupons=(S.coupons||[]).filter(c=>c&&/^(\d{4}|\d{6})$/.test(c.code));
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
 function slotNow(d=new Date()){const key=`${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;return{key,slot:d.getHours()<15?'a':'b'};}
 function canSpin(){if(TEST)return true;const {key,slot}=slotNow();return !(S.spun[key]||[]).includes(slot);}
@@ -445,18 +760,26 @@ function pick(arr){let t=arr.reduce((a,x)=>a+x.w,0),r=Math.random()*t;for(const 
 
 /* ---- pull ---- */
 let busy=false;
+/* 休止スイッチ: ページと同じ場所に pause.txt があると、クーポンは出ない(ケーキうらないは遊べる) */
+let PAUSED=false,pauseDone=false;
+const pauseCheck=(location.protocol.startsWith('http')?fetch('pause.txt?'+Date.now(),{cache:'no-store'}).then(r=>{PAUSED=r.ok;if(PAUSED){const n=document.getElementById('pauseNote');if(n)n.hidden=false;}}).catch(()=>{}).finally(()=>{pauseDone=true;}):(pauseDone=true,Promise.resolve()));
+const spinGo=()=>{if(pauseDone)spin();else pauseCheck.then(spin);};
 function spin(){
   if(busy||!canSpin())return;busy=true;
-  const r=Math.random();let type=r<PRIZE_RATE.N?'N':r<PRIZE_RATE.N+PRIZE_RATE.B?'B':r<PRIZE_RATE.N+PRIZE_RATE.B+PRIZE_RATE.C?'C':null;
-  if(type==='N'&&S.noirWon)type='B'; // 同じスマホでNoirのホールは1回まで
+  // 当選した直後(その日の残り)と翌日から3日間は、ケーキ5%・お会計5%の確率を半分に(ノワールは固定)。期間中に当たっても延長しない
+  const today=cpDayNum(Date.now()),low=S.lowUntil!=null&&today>=S.lowFrom&&today<=S.lowUntil,RT={N:PRIZE_RATE.N,B:PRIZE_RATE.B*(low?LOW_FACTOR:1),C:PRIZE_RATE.C*(low?LOW_FACTOR:1)};
+  const r=Math.random();let type=r<RT.N?'N':r<RT.N+RT.B?'B':r<RT.N+RT.B+RT.C?'C':null;
+  if((type==='B'||type==='C')&&!(S.lowUntil!=null&&today<=S.lowUntil)){S.lowFrom=today;S.lowUntil=today+3;}
+  if(type==='N'&&S.noirWon&&!TEST)type='B'; // 同じスマホでNoirのホールは1回まで
   if(type==='N'&&!TEST)S.noirWon=true;
+  if(PAUSED)type=null;
   let coupon=null;if(type){let code,n=0;do{code=cpMake(type,Date.now());}while(S.coupons.some(x=>x.code===code)&&++n<50);coupon={code,type,at:Date.now(),test:TEST};S.coupons.unshift(coupon);}
   const item=pick(POOL),kira=!coupon&&Math.random()<KIRA_RATE;
   const luck=coupon?{k:CP_TYPES[type].fortune,m:[PRIZE_MSG[type]]}:pick(LUCK),msg=luck.m[Math.floor(Math.random()*luck.m.length)],drink=DRINKS[Math.floor(Math.random()*DRINKS.length)];
   const prev=S.col[item.k]||{n:0,kira:0};const isNew=!coupon&&prev.n===0;
   if(!coupon)S.col[item.k]={n:prev.n+1,kira:prev.kira+(kira?1:0)};S.total++;markSpun();save();
   track('gacha_pull',{cake:item.k,rarity:item.r,kira,prize:type||'none'});if(coupon&&!coupon.test)track('coupon_win',{type});
-  const h=$('handle');h.classList.remove('turn');void h.offsetWidth;h.classList.add('turn');
+  SFX.crank();const h=$('handle');h.classList.remove('turn');void h.offsetWidth;h.classList.add('turn');
   $('dome').classList.add('shake');
   setTimeout(()=>{$('dome').classList.remove('shake');showCapsule({item,kira,luck,msg,drink,isNew,coupon});},1000);
   status();
@@ -466,17 +789,100 @@ function showCapsule(R){
   const cap=document.createElement('button');cap.className='bigcap';cap.style.setProperty('--c',R.coupon?'#f2d6ad':RCOL[R.item.r]);if(R.coupon)cap.style.filter='drop-shadow(0 0 18px rgba(255,200,120,.8))';cap.setAttribute('aria-label','カプセルをあける');
   cap.innerHTML='<span class="h t"></span><span class="h b"></span>';
   const t=document.createElement('div');t.className='tap';t.textContent='タップしてあけてね';
-  ov.append(cap,t);ov.hidden=false;cap.focus();
-  cap.onclick=()=>{cap.onclick=null;cap.classList.add('open');t.remove();setTimeout(()=>showCard(R),420);};
+  ov.append(cap,t);ov.hidden=false;SFX.drop();cap.focus({preventScroll:true});
+  cap.onclick=()=>{cap.onclick=null;SFX.open();cap.classList.add('open');t.remove();setTimeout(()=>showCard(R),420);};
+}
+/* ---- シェア用カード(1080x1350の画像) ---- */
+const SHARE_URL='https://heureuse-cafe.github.io/cheesecake/';
+function shareText(R){const c=CAKES[R.item.k];return `今日のしあわせケーキは「${c.n}」${R.kira?'(キラ)':''}! 運勢は${R.luck.k} #ウールーズ #今日のしあわせケーキ\n${SHARE_URL}`;}
+function _sp(g,t,x,y,sp){ // 字間つき・中央そろえ
+  const ch=[...t],w=ch.reduce((a,c)=>a+g.measureText(c).width,0)+sp*(ch.length-1);let cx=x-w/2;const al=g.textAlign;g.textAlign='left';
+  ch.forEach(c=>{g.fillText(c,cx,y);cx+=g.measureText(c).width+sp;});g.textAlign=al;}
+function _wrap(g,t,maxW){
+  const NG='、。,.!！?？)）」』ー…〜ぁぃぅぇぉっゃゅょァィゥェォッャュョ';
+  const run=W=>{const L=[];let cur='';for(const c of [...t]){if(cur&&g.measureText(cur+c).width>W&&!NG.includes(c)){L.push(cur);cur=c;}else cur+=c;}if(cur)L.push(cur);return L;};
+  const seg=t.match(/[^。！!？?]+[。！!？?]*/g)||[t];
+  if(seg.length>1&&seg.every(x=>g.measureText(x).width<=maxW))return seg;
+  let L=run(maxW);if(L.length>1){const b=run(g.measureText(t).width/L.length+g.measureText('あ').width*1.2);if(b.length===L.length)L=b;}return L;}
+function _star(g,x,y,r,col,a=1){g.save();g.globalAlpha=a;g.fillStyle=col;g.beginPath();
+  g.moveTo(x,y-r);g.quadraticCurveTo(x,y,x+r,y);g.quadraticCurveTo(x,y,x,y+r);g.quadraticCurveTo(x,y,x-r,y);g.quadraticCurveTo(x,y,x,y-r);g.fill();g.restore();}
+function _rr(g,x,y,w,h,r){g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath();}
+function drawShareCard(R){
+  const W=1080,H=1350,cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d');
+  const c=CAKES[R.item.k],INK='#3D2B23',MID='#78513A',CAR='#B77D48',SER='"Shippori Mincho B1","Hiragino Mincho ProN",serif',GO='"Zen Kaku Gothic New","Hiragino Sans",sans-serif',CAP='Cinzel,"Times New Roman",serif';
+  let gr=g.createLinearGradient(0,0,0,H);gr.addColorStop(0,'#fcf8f1');gr.addColorStop(1,'#f3e5d0');g.fillStyle=gr;g.fillRect(0,0,W,H);
+  gr=g.createRadialGradient(W/2,430,0,W/2,430,560);gr.addColorStop(0,R.kira?'rgba(255,206,130,.55)':'rgba(255,214,160,.38)');gr.addColorStop(1,'rgba(255,214,160,0)');g.fillStyle=gr;g.fillRect(0,0,W,H);
+  // 枠
+  g.strokeStyle=CAR;g.lineWidth=3;g.strokeRect(36,36,W-72,H-72);g.strokeStyle='rgba(183,125,72,.45)';g.lineWidth=1.5;g.strokeRect(50,50,W-100,H-100);
+  [[36,36],[W-36,36],[36,H-36],[W-36,H-36]].forEach(([x,y])=>{g.save();g.translate(x,y);g.rotate(Math.PI/4);g.fillStyle=CAR;g.fillRect(-9,-9,18,18);g.fillStyle='#fcf8f1';g.fillRect(-4,-4,8,8);g.restore();});
+  g.textAlign='center';g.textBaseline='alphabetic';
+  g.fillStyle=CAR;g.font='700 40px '+CAP;_sp(g,'HEUREUSE',W/2,138,16);
+  g.fillStyle=INK;g.font='600 42px '+SER;_sp(g,'今日のしあわせケーキ',W/2,200,6);
+  const d=new Date();g.fillStyle=MID;g.font='600 22px '+CAP;_sp(g,`${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`,W/2,242,5);
+  // ケーキ
+  const cx=W/2,cy=492,rad=196;
+  g.save();g.shadowColor='rgba(120,81,58,.22)';g.shadowBlur=40;g.shadowOffsetY=14;g.fillStyle=R.kira?'#f1dcb8':'#f6ead7';g.beginPath();g.arc(cx,cy,rad,0,7);g.fill();g.restore();
+  g.strokeStyle=R.kira?'#d9a85c':'rgba(183,125,72,.55)';g.lineWidth=R.kira?5:2;g.beginPath();g.arc(cx,cy,rad+12,0,7);g.stroke();
+  const t=document.createElement('canvas');t.width=t.height=460;cakeCanvas(t,R.item.k,{});g.drawImage(t,cx-230,cy-230);
+  const sc=R.kira?'#e0a94a':'#d4a373';
+  [[-1.0,1.0,28],[-0.45,1.16,16],[0.25,1.12,22],[1.0,1.08,34],[2.3,1.12,18],[2.75,1.06,26],[3.6,1.14,20],[4.1,1.07,14]].forEach(([a,k,r],i)=>_star(g,cx+Math.cos(a)*rad*k*1.18,cy+Math.sin(a)*rad*k*1.05,R.kira?r*1.25:r*.85,sc,R.kira?.95:.7));
+  // レア度ラベル
+  const lab=R.item.r==='SSR'?'★ '+LBL.SSR+' ★':LBL[R.item.r];g.font='700 28px '+GO;
+  const tags=[lab].concat(R.kira?['キラ']:[]);const tw=tags.map(x=>g.measureText(x).width+56),tot=tw.reduce((a,b)=>a+b,0)+14*(tags.length-1);let tx=cx-tot/2;const ty=cy+rad-4;
+  tags.forEach((x,i)=>{const kir=x==='キラ';_rr(g,tx,ty,tw[i],50,25);g.fillStyle=kir?'#d9a85c':'#fffaf2';g.fill();g.strokeStyle=CAR;g.lineWidth=2;g.stroke();g.fillStyle=kir?'#fff':MID;g.fillText(x,tx+tw[i]/2,ty+35);tx+=tw[i]+14;});
+  // 名前
+  g.fillStyle=INK;let fs=66;g.font=`800 ${fs}px ${SER}`;while(g.measureText(c.n).width>W-220&&fs>40){fs-=2;g.font=`800 ${fs}px ${SER}`;}_sp(g,c.n,W/2,800,4);
+  g.fillStyle=CAR;g.font='italic 600 28px '+CAP;g.fillText(c.fr,W/2,842);
+  g.strokeStyle='rgba(183,125,72,.6)';g.lineWidth=1.5;g.beginPath();g.moveTo(W/2-150,874);g.lineTo(W/2-18,874);g.moveTo(W/2+18,874);g.lineTo(W/2+150,874);g.stroke();_star(g,W/2,874,11,CAR);
+  // 運勢
+  g.fillStyle=MID;g.font='600 26px '+GO;_sp(g,'今日の運勢',W/2,924,8);
+  g.fillStyle=CAR;g.font='800 76px '+SER;_sp(g,R.luck.k,W/2,1004,6);
+  g.fillStyle=INK;g.font='500 33px '+GO;let L=_wrap(g,R.msg,800),lh=50;if(L.length>2){g.font='500 29px '+GO;L=_wrap(g,R.msg,820);lh=43;}let y=1064;L.slice(0,3).forEach(l=>{g.fillText(l,W/2,y);y+=lh;});
+  g.fillStyle=MID;g.font='500 27px '+GO;g.fillText('ラッキードリンク:'+R.drink,W/2,y+12);
+  // フッター
+  g.fillStyle=CAR;g.font='700 26px '+GO;g.fillText('#ウールーズ　#今日のしあわせケーキ',W/2,1238);
+  g.fillStyle=MID;g.font='500 22px '+GO;g.fillText(SHARE_URL.replace(/^https:\/\//,'').replace(/\/$/,''),W/2,1274);
+  return cv;
+}
+function prepShare(R){ // 結果画面が出た時点で裏でカードを作っておく(押したらすぐ共有画面を出すため)
+  if(R._shP)return R._shP;
+  R._shP=(async()=>{const c=CAKES[R.item.k];
+    try{const txt=[c.n,c.fr,R.luck.k,R.msg,R.drink,LBL[R.item.r],'今日のしあわせケーキ運勢ラッキードリンクキラ★#ウールーズ：:'].join('');
+      await Promise.race([Promise.all(['800 66px "Shippori Mincho B1"','600 42px "Shippori Mincho B1"','500 33px "Zen Kaku Gothic New"','700 26px "Zen Kaku Gothic New"','700 40px Cinzel','600 22px Cinzel'].map(f=>document.fonts.load(f,txt))),new Promise(r=>setTimeout(r,2500))]);}catch(e){}
+    const cv=drawShareCard(R),url=cv.toDataURL('image/png');
+    let file=null;try{const b=await new Promise(r=>cv.toBlob(r,'image/png'));file=new File([b],'heureuse-shiawase-cake.png',{type:'image/png'});}catch(e){}
+    const can=!!(file&&navigator.canShare&&navigator.canShare({files:[file]}));
+    return R._sh={url,file,can};})();
+  return R._shP;
+}
+function shareCard(R){ // 1タップで共有画面へ。使えないブラウザではカードを表示
+  const d=R._sh;
+  if(d&&d.can){navigator.share({files:[d.file],text:shareText(R)}).catch(e=>{if(!e||e.name!=='AbortError')openShareCard(R);});return;}
+  openShareCard(R);
+}
+async function openShareCard(R){
+  const c=CAKES[R.item.k];
+  const o=document.createElement('div');o.className='shov';o.innerHTML='<div class="shbox"><p class="shmsg">カードを作っています…</p></div>';document.body.append(o);
+  const close=()=>{o.remove();try{$('btnShare').focus({preventScroll:true});}catch(e){}};
+  o.onclick=e=>{if(e.target===o)close();};
+  const {url,file,can}=await prepShare(R);
+  o.innerHTML=`<div class="shbox"><img class="shimg" alt="${c.n}のシェアカード" src="${url}">
+    <p class="shmsg">${can?'画像を長押ししても保存できます':'画像を長押し →「写真に保存」で保存できます'}</p>
+    <div class="rbtns">${can?'<button class="btn" id="shGo">シェアする</button>':''}<button class="btn sub" id="shX">とじる</button></div>
+    <button class="shcopy" id="shCopy">文章だけコピー</button></div>`;
+  $('shX').onclick=close;
+  if(can)$('shGo').onclick=()=>{navigator.share({files:[file],text:shareText(R)}).catch(()=>{});};
+  $('shCopy').onclick=()=>{const t=shareText(R);try{navigator.clipboard.writeText(t).then(()=>$('shCopy').textContent='コピーしました',()=>{});}catch(e){}};
+  (can?$('shGo'):$('shX')).focus({preventScroll:true});
 }
 function showCard(R){
   const ov=$('ov');ov.innerHTML='';
   if(R.coupon){showJackpot(R);return;}
+  SFX.reveal(R.item.r,R.kira);
   const c=CAKES[R.item.k],sr=R.item.r==='SR'||R.item.r==='SSR';
   const wrap=document.createElement('div');wrap.className='res';
   wrap.innerHTML=`
     <div class="card rcard" style="--c:${RCOL[R.item.r]}">
-      ${sr?`<div class="rays ${R.item.r==='SSR'?'ssr':''}"></div>`:''}
       <span class="rtag">${R.item.r==='SSR'?'★ '+LBL.SSR+' ★':LBL[R.item.r]}</span>
       ${R.isNew?'<span class="rnew">NEW!</span>':''}${R.kira?'<span class="rkira">キラ</span>':''}
       <div class="rlead">今日のあなたにおすすめのケーキは…</div>
@@ -485,18 +891,16 @@ function showCard(R){
       <div class="rname">${c.n}</div>
       <p class="rdesc">${brk(R.item.d)}</p>
     </div>
-    <div class="card fortune"><span class="luck"><small>今日の運勢</small>${R.luck.k}</span><p>${R.msg}</p><p class="lucky">ラッキードリンク:${R.drink}</p></div>
-    <div class="rbtns"><button class="btn" id="btnClose">図鑑にしまう</button><button class="btn sub" id="btnShare">シェア用にコピー</button></div>
+    <div class="card fortune"><span class="luck"><small>今日の運勢</small>${R.luck.k}</span><p class="fmsg">${phr(R.msg)}</p><p class="lucky">ラッキードリンク:${R.drink}</p></div>
+    <div class="rbtns"><button class="btn" id="btnClose">図鑑にしまう</button><button class="btn sub" id="btnShare">カードでシェア</button></div>
     <div class="toast" id="rToast"></div>`;
-  ov.append(wrap);
-  cakeCanvas(wrap.querySelector('canvas'),R.item.k,{bg:R.kira?'#3a2f26':'#2a2522'});
+  ov.append(wrap);ov.scrollTop=0;
+  cakeCanvas(wrap.querySelector('canvas'),R.item.k,{bg:R.kira?'#f1dcb8':'#f6ead7'});
   if(sr||R.kira)confetti(R.item.r==='SSR'?70:36);
-  $('btnClose').onclick=()=>{ov.hidden=true;ov.innerHTML='';busy=false;renderZukan();renderCoupons();status();$('btnSpin').focus();};
-  $('btnShare').onclick=()=>{
-    const txt=`今日のあなたにおすすめのケーキは「${c.n}」${R.kira?'(キラ)':''}【${LBL[R.item.r]}】! 運勢は${R.luck.k} #ウールーズ #今日のしあわせケーキ`;
-    try{navigator.clipboard.writeText(txt).then(()=>$('rToast').textContent='コピーしました',()=>$('rToast').textContent=txt);}catch(e){$('rToast').textContent=txt;}
-  };
-  $('btnClose').focus();
+  $('btnClose').onclick=()=>{ov.hidden=true;ov.innerHTML='';busy=false;renderZukan();renderCoupons();status();$('btnSpin').focus({preventScroll:true});};
+  $('btnShare').onclick=()=>shareCard(R);setTimeout(()=>prepShare(R),900);
+
+  $('btnClose').focus({preventScroll:true});
 }
 
 function showJackpot(R){
@@ -505,24 +909,27 @@ function showJackpot(R){
   w.innerHTML=`<div class="burst"></div><div class="glow"></div>
     <div class="big" style="${T.fortune.length>3?'font-size:clamp(34px,10.5vw,50px);white-space:nowrap':''}"><small>おめでとうございます</small>${T.fortune}!</div>
     ${ticketHTML(c,false)}
-    <p class="note">${R.msg}<br><br>クーポンは下の「マイクーポン」に入っています。<br><b style="color:var(--copper-2);font-size:15px">必ずスクリーンショットで保存してください。</b><br><small>ブラウザによっては、クーポンが消えてしまうことがあります。</small></p>
+    <p class="note">${R.msg}<br><br>クーポンは下の「マイクーポン」に<br class="bb">入っています。<br><b style="color:var(--copper-2);font-size:15px">必ずスクリーンショット<br class="bb">で保存してください。</b><br><small>ブラウザによっては、<br class="bb">クーポンが消えてしまうことがあります。</small></p>
     <div class="rbtns"><button class="btn" id="jpOpen">クーポンを見る</button><button class="btn sub" id="jpClose">とじる</button></div>`;
-  ov.append(w);confetti(c.type==='N'?160:110);setTimeout(()=>confetti(60),600);if(c.type==='N')setTimeout(()=>confetti(80),1300);
+  ov.append(w);ov.scrollTop=0;SFX.jackpot(c.type);confetti(c.type==='N'?160:110);setTimeout(()=>confetti(60),600);if(c.type==='N')setTimeout(()=>confetti(80),1300);
   $('jpOpen').onclick=()=>openCoupon(c.code);
-  $('jpClose').onclick=()=>{ov.hidden=true;ov.innerHTML='';busy=false;renderCoupons();status();$('btnSpin').focus();};
-  $('jpOpen').focus();
+  $('jpClose').onclick=()=>{ov.hidden=true;ov.innerHTML='';busy=false;renderCoupons();status();$('btnSpin').focus({preventScroll:true});};
+  $('jpOpen').focus({preventScroll:true});
 }
 function confetti(n){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  const cols=['#b98a5c','#d9ad7f','#f2d6ad','#8d8a86','#eee8df'];
+  const cols=['#B77D48','#d9ad7f','#f2d6ad','#e8c58a','#fff6e6'];
+  // confetti falls behind the result/coupon content so it never covers text or the code
+  const host=$('ov')&&!$('ov').hidden?$('ov'):document.body;
   for(let i=0;i<n;i++){const e=document.createElement('i');e.className='conf';e.style.left=Math.random()*100+'vw';e.style.background=cols[i%5];
     e.style.animationDuration=(1.6+Math.random()*1.6)+'s';e.style.animationDelay=(Math.random()*.4)+'s';
-    document.body.append(e);setTimeout(()=>e.remove(),3800);}
+    host.prepend(e);setTimeout(()=>e.remove(),3800);}
 }
 
 
 /* ---- coupons ---- */
-const expired=c=>cpDayNum(Date.now())>cpDayNum(c.at)+CP_DAYS-1;
+const cpExp=c=>c.code.length===4?cpDayNum(c.at)+6:cpExpDay(c.type,cpDayNum(c.at));
+const expired=c=>cpDayNum(Date.now())>cpExp(c);
 function ticketHTML(c,full){
   const T=CP_TYPES[c.type],iss=cpDayNum(c.at);
   return `<div class="ticket"><div class="sweep"></div>
@@ -530,28 +937,28 @@ function ticketHTML(c,full){
     <div class="fort">${T.fortune}!</div>
     <div class="off">${T.head}</div>
     <div class="sub">${T.sub}</div>
-    <p class="msg">お会計のときに、<br>この画面をお見せください</p>
-    <div class="codel">確認番号</div><div class="code">${c.code}</div>
-    ${full?`<div class="perf"></div><dl><dt>発行日</dt><dd>${cpDayStr(iss)}</dd><dt>有効期限</dt><dd>${cpDayStr(iss+CP_DAYS-1)} まで</dd></dl>
-    <ul class="rules">${T.rules.concat(CP_RULES_COMMON).map(r=>'<li>'+r+'</li>').join('')}</ul>`:''}
+    <p class="msg">お会計時に、この画面の<br>スクリーンショットを<br class="bb">ご提示ください</p>
+    <div class="codel">確認番号</div><div class="code">${cpShow(c.code)}</div>
+    ${full?`<div class="perf"></div><dl><dt>発行日</dt><dd>${cpDayStrW(iss)}</dd><dt>有効期限</dt><dd>${cpDayStrW(cpExp(c))} まで</dd></dl>${expired(c)?'':`<div class="tleft">${cpLeftHTML(cpExp(c))}</div>`}
+    <ul class="rules">${T.rules.concat(CP_RULES_COMMON).map(r=>'<li>'+r.split(/(<[^>]+>)/).map(x=>x[0]==='<'?x:phr(x)).join('')+'</li>').join('')}</ul>`:''}
     ${expired(c)?'<div class="stamp">期限切れ</div>':''}${c.test?'<div class="demo">見本</div>':''}</div>`;
 }
 function renderCoupons(){
-  const rb=$('cpReset');if(rb){rb.hidden=!TEST||!(S.coupons||[]).length;rb.onclick=()=>{S.coupons=[];S.noirWon=false;save();renderCoupons();};}
-  const list=(S.coupons||[]).filter(c=>!expired(c)||Date.now()-c.at<30*CP_DAY);
+  const rb=$('cpReset');if(rb){rb.hidden=!TEST||!(S.coupons||[]).length;rb.onclick=()=>{S.coupons=[];S.noirWon=false;S.lowFrom=S.lowUntil=null;save();renderCoupons();};}
+  const list=(S.coupons||[]).filter(c=>!expired(c)||Date.now()-c.at<(cpDays(c.type)+23)*CP_DAY);
   $('mycp').hidden=!list.length;
   $('cplist').innerHTML=list.map(c=>{const T=CP_TYPES[c.type],ex=expired(c);
-    return `<div class="cprow ${ex?'off':''}"><div><b>${T.short}</b><small>${c.test?'見本 ・ ':''}No.${c.code} ・ ${ex?'期限切れ':cpDayStr(cpDayNum(c.at)+CP_DAYS-1)+'まで'}</small></div><button class="btn sub" data-cp="${c.code}">ひらく</button></div>`;}).join('');
+    return `<div class="cprow ${ex?'off':''}"><div><b>${T.short}</b><small>${c.test?'見本 ・ ':''}No.${cpShow(c.code)} ・ ${ex?'期限切れ':cpDayStrW(cpExp(c))+'まで'}</small>${ex?'':cpLeftHTML(cpExp(c))}</div><button class="btn sub" data-cp="${c.code}">ひらく</button></div>`;}).join('');
   $('cplist').querySelectorAll('[data-cp]').forEach(b=>b.onclick=()=>openCoupon(b.dataset.cp));
 }
 function openCoupon(code){
   const c=S.coupons.find(x=>x.code===code);if(!c)return;
   const ov=$('ov');ov.innerHTML='';ov.hidden=false;
   const w=document.createElement('div');w.className='res';
-  w.innerHTML=ticketHTML(c,true)+`<p class="note" style="font-size:13px;color:var(--text-2);margin:0;text-align:center;line-height:1.7"><b style="color:var(--copper-2)">必ずスクリーンショットで保存してください。</b><br><small>ブラウザによっては、クーポンが消えてしまうことがあります。</small></p>
+  w.innerHTML=ticketHTML(c,true)+`<p class="note" style="font-size:13px;color:var(--text-2);margin:0;text-align:center;line-height:1.7"><b style="color:var(--copper-2)">必ずスクリーンショット<br class="bb">で保存してください。</b><br><small>ブラウザによっては、<br class="bb">クーポンが消えてしまうことがあります。</small></p>
     <div class="rbtns"><button class="btn sub" id="cpClose">とじる</button></div>`;
-  ov.append(w);
-  $('cpClose').onclick=()=>{ov.hidden=true;ov.innerHTML='';busy=false;renderCoupons();};$('cpClose').focus();
+  ov.append(w);ov.scrollTop=0;
+  $('cpClose').onclick=()=>{ov.hidden=true;ov.innerHTML='';busy=false;renderCoupons();};$('cpClose').focus({preventScroll:true});
 }
 
 /* ---- collection ---- */
@@ -562,10 +969,10 @@ function renderZukan(){
     const open=s.n||DEMO; // 見本版は図鑑をぜんぶ見られる
     const b=document.createElement(open?'button':'div');b.className='zc'+(open?'':' none');
     const cv=document.createElement('canvas');cv.width=cv.height=220;
-    b.innerHTML=`<span class="rar" style="color:${open?'#d9ad7f':'#5c5550'}">${LBL[p.r]}</span>${s.kira?'<span class="kira">キラ</span>':''}`;
+    b.innerHTML=`<span class="rar" style="color:${open?'#9a6331':'#c4b29c'}">${LBL[p.r]}</span>${s.kira?'<span class="kira">キラ</span>':''}`;
     b.append(cv);
     b.insertAdjacentHTML('beforeend',`<b>${open?c.n:'？？？'}</b><span class="cnt">${s.n?'×'+s.n:'まだ'}</span>`);
-    cakeCanvas(cv,p.k,open?{bg:s.kira?'#3a2f26':'#2a2522'}:{silhouette:true});
+    cakeCanvas(cv,p.k,open?{bg:s.kira?'#f1dcb8':'#f6ead7'}:{silhouette:true});
     if(open){b.setAttribute('aria-label',`${c.n} ${s.n}回`);b.onclick=()=>peek(p,s);}
     g.append(b);
   });
@@ -574,15 +981,15 @@ function renderZukan(){
 function peek(p,s){
   const ov=$('ov');ov.innerHTML='';const c=CAKES[p.k];
   const w=document.createElement('div');w.className='res';
-  w.innerHTML=`<div class="card rcard"><span class="rtag" style="background:${RCOL[p.r]}">${LBL[p.r]}</span>${s.kira?'<span class="rkira">キラ ×'+s.kira+'</span>':''}
+  w.innerHTML=`<div class="card rcard"><span class="rtag">${LBL[p.r]}</span>${s.kira?'<span class="rkira">キラ ×'+s.kira+'</span>':''}
     <canvas width="460" height="460" aria-label="${c.n}"></canvas><div class="rname">${c.n}</div><p class="rdesc">${brk(p.d)}</p><p class="rdesc" style="color:var(--mute)">これまでに ${s.n} 回でた</p></div>
     <div class="rbtns"><button class="btn" id="btnPeekClose">とじる</button></div>`;
-  ov.append(w);cakeCanvas(w.querySelector('canvas'),p.k,{bg:s.kira?'#3a2f26':'#2a2522'});ov.hidden=false;
-  $('btnPeekClose').onclick=()=>{ov.hidden=true;ov.innerHTML='';};$('btnPeekClose').focus();
+  ov.append(w);ov.scrollTop=0;cakeCanvas(w.querySelector('canvas'),p.k,{bg:s.kira?'#f1dcb8':'#f6ead7'});ov.hidden=false;
+  $('btnPeekClose').onclick=()=>{ov.hidden=true;ov.innerHTML='';};$('btnPeekClose').focus({preventScroll:true});
 }
 
 
-$('btnSpin').onclick=spin;$('handle').onclick=spin;
+$('btnSpin').onclick=spinGo;$('handle').onclick=spinGo;
 if(!Array.isArray(S.coupons))S.coupons=[];if(TEST)$('subLimit').textContent='';fillDome();status();renderZukan();renderCoupons();
 setInterval(status,30000);
 })();
@@ -594,4 +1001,16 @@ setInterval(status,30000);
     i.style.setProperty('--dx',(Math.cos(rad)*dist)+'px');i.style.setProperty('--dy',(Math.sin(rad)*dist)+'px');
     w.append(i);setTimeout(()=>i.remove(),1300);setTimeout(one,3500+Math.random()*4500);}
   setTimeout(one,1200);})();
+(()=>{const b=document.createElement('button');b.className='sndbtn';b.type='button';const r=()=>{b.textContent='♪';b.classList.toggle('off',!SFX.on);b.setAttribute('aria-pressed',SFX.on);b.setAttribute('aria-label',SFX.on?'音:オン(タップでオフ)':'音:オフ(タップでオン)');};r();
+  b.onclick=()=>{SFX.on=!SFX.on;r();if(SFX.on)SFX.tap();};document.body.append(b);})();
+(()=>{const K='heureuse-bigtext',b=document.createElement('button');b.className='bigbtn';b.type='button';
+  let on=false;try{on=localStorage.getItem(K)==='on';}catch(e){}
+  const r=()=>{document.body.classList.toggle('big-text',on);b.setAttribute('aria-pressed',on);b.innerHTML=on?'<i>あ</i><span>文字を元に戻す</span>':'<i>あ</i><span>文字を大きく</span>';b.setAttribute('aria-label',on?'文字を元の大きさに戻す':'文字を大きくする');};r();
+  b.onclick=()=>{on=!on;try{localStorage.setItem(K,on?'on':'off');}catch(e){}r();try{window.gtag&&window.gtag('event','big_text',{on})}catch(e){}};document.body.append(b);})();
+/* floating buttons: shrink to a small circle once you scroll or open a card, and step aside while you are scrolling */
+(()=>{const ov=document.getElementById('ov');let t=0;
+  const upd=()=>{const open=ov&&!ov.hidden,y=open?ov.scrollTop:window.scrollY;document.body.classList.toggle('fab-compact',open||y>40);};
+  const onScroll=()=>{upd();document.body.classList.add('fab-moving');clearTimeout(t);t=setTimeout(()=>document.body.classList.remove('fab-moving'),900);};
+  window.addEventListener('scroll',onScroll,{passive:true});document.addEventListener('scroll',onScroll,{capture:true,passive:true});
+  if(ov)new MutationObserver(upd).observe(ov,{attributes:true,attributeFilter:['hidden']});upd();})();
 </script>
